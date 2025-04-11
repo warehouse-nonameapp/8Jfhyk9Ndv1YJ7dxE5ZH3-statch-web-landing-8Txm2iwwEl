@@ -25,6 +25,40 @@
             "description": "Мобільний застосунок Statch допоможе з рутиною обліку товарів. Забудь про ручний облік, загублені товари та плутанину в замовленнях."
         }
     </script>
+    
+    <!-- iOS performance optimizations -->
+    <script type="application/javascript" src="ios-perf.js"></script>
+    
+    <!-- Fix for browser loading indicator -->
+    <script type="application/javascript">
+        // Handle the app-loaded event to properly signal browser that page is loaded
+        document.addEventListener('app-loaded', function() {
+            // Set a flag so the browser knows loading is complete
+            window.isAppLoaded = true;
+            
+            // Clear any remaining loading indicators
+            if (window.stop) {
+                window.stop();
+            }
+            
+            // Force readyState to complete
+            if (document.readyState !== 'complete') {
+                setTimeout(function() {
+                    // This helps Chrome realize the page is actually loaded
+                    document.dispatchEvent(new Event('readystatechange'));
+                    window.dispatchEvent(new Event('load'));
+                }, 100);
+            }
+        });
+        
+        // Set a timeout to force completion if the app takes too long
+        setTimeout(function() {
+            if (!window.isAppLoaded) {
+                document.dispatchEvent(new Event('readystatechange'));
+                window.dispatchEvent(new Event('load'));
+            }
+        }, 10000);
+    </script>
 
     <link type="text/css" rel="stylesheet" href="styles.css">
     <script type="application/javascript" src="composeApp.js"></script>
