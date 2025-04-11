@@ -2,13 +2,13 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Statch - Облік товарів, який працює за вас</title> <meta name="description" content="Statch - мобільний застосунок, який допоможе з рутиною обліку товарів. Забудь про ручний облік, загублені товари та плутанину в замовленнях.">
-    <meta property="og:title" content="Statch - Облік товарів, який працює за вас">
-    <meta property="og:description" content="Знайомся! Помічник, який допоможе з рутиною — мобільний застосунок Statch. Забудь про ручний облік, загублені товари та плутанину в замовленнях.">
-    <meta property="og:image" content="https://statch.io/images/og-image.jpg">
-    <meta property="og:url" content="https://statch.io">
-    <meta property="og:type" content="website">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Statch - Облік товарів, який працює за вас</title>
+    <meta name="description" content="Statch - мобільний застосунок, який допоможе з рутиною обліку товарів. Забудь про ручний облік, загублені товари та плутанину в замовленнях.">
+
+    <!-- Meta tags for mobile browsers and social sharing will be injected via Kotlin -->
+
+    <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -25,6 +25,7 @@
             "description": "Мобільний застосунок Statch допоможе з рутиною обліку товарів. Забудь про ручний облік, загублені товари та плутанину в замовленнях."
         }
     </script>
+
     <link type="text/css" rel="stylesheet" href="styles.css">
     <script type="application/javascript" src="composeApp.js"></script>
     <style>
@@ -38,6 +39,14 @@
             clip: rect(0, 0, 0, 0);
             border: 0;
         }
+
+<!--        /* Safe area insets for modern iOS devices */-->
+<!--        body {-->
+<!--            padding-top: env(safe-area-inset-top);-->
+<!--            padding-bottom: env(safe-area-inset-bottom);-->
+<!--            padding-left: env(safe-area-inset-left);-->
+<!--            padding-right: env(safe-area-inset-right);-->
+<!--        }-->
     </style>
 </head>
 <body>
@@ -352,7 +361,6 @@
 
 <script>
     // IMPORTANT SEO CONSIDERATIONS:
-
     // 1. Ensure Canvas Content Matches HTML:
     //    The content rendered by your Compose Multiplatform app (within the canvas)
     //    should closely mirror the text content provided in the .seo-content div.
