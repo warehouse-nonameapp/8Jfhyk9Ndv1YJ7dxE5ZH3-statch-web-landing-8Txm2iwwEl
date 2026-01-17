@@ -1,0 +1,20 @@
+---
+import { getEntry } from "astro:content";
+import { FAQList } from "./islands/FAQList";
+
+const faqEntry = await getEntry("faq", "all");
+const faqData = faqEntry?.data || [];
+---
+
+<section
+  class="bg-white pt-8 md:pt-20 pb-5 md:pb-20 rounded-t-[24px] md:rounded-t-[40px] relative z-20 -mt-[24px] md:-mt-[40px]"
+>
+  <div class="max-w-[1200px] mx-auto px-5 md:px-10">
+    <h3
+      class="text-[24px] md:text-[32px] font-extrabold text-[#090924] mb-10 animate-on-scroll"
+    >
+      Часто питають, тож відповідаємо 🤓
+    </h3>
+    <FAQList client:visible data={faqData} />
+  </div>
+</section>

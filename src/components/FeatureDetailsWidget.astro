@@ -1,0 +1,71 @@
+---
+interface Props {
+    title: string;
+    image: string;
+    points: { title: string; subtitle: string }[];
+    orientation?: "left" | "right";
+}
+
+const { title, image, points, orientation = "left" } = Astro.props;
+---
+
+<div class="flex flex-col md:flex-row items-center gap-8 md:gap-10 w-full">
+    {/* Image Container - handling order.*/}
+    <div
+        class:list={[
+            "hidden md:block w-[235px] md:w-[293px] shrink-0 self-center md:self-start animate-on-scroll",
+            orientation === "right" ? "md:order-last" : "md:order-first",
+        ]}
+    >
+        <img
+            src={image}
+            alt={title}
+            class="w-full h-auto drop-shadow-[0_20px_40px_rgba(23,17,46,0.3)] md:drop-shadow-[0_40px_80px_rgba(23,17,46,0.3)] rounded-lg"
+        />
+    </div>
+
+    {/* Text Content */}
+    <div
+        class="flex flex-col gap-8 md:gap-10 w-full animate-on-scroll delay-200"
+    >
+        <div class="md:hidden flex justify-center w-full mb-6">
+            <img
+                src={image}
+                alt={title}
+                class="w-[191px] h-auto drop-shadow-[0_24px_100px_rgba(82,112,250,0.2)] rounded-lg"
+            />
+        </div>
+
+        <h3
+            class="text-[24px] md:text-[32px] font-extrabold text-white leading-tight text-left"
+        >
+            {title}
+        </h3>
+
+        <div class="flex flex-col gap-4 md:gap-10">
+            {
+                points.map((point) => (
+                    <div class="flex items-start gap-4 md:gap-5">
+                        {/* Green Check Icon with Background */}
+                        <div class="w-[26px] h-[26px] md:w-[40px] md:h-[40px] rounded-full bg-success-dark/10 flex items-center justify-center shrink-0 animate-wiggle transition-transform">
+                            <img
+                                src="/assets/ic_green_check.svg"
+                                class="w-3.5 h-3.5 md:w-5 md:h-5"
+                                alt="check"
+                            />
+                        </div>
+
+                        <div class="flex flex-col gap-2 md:gap-3">
+                            <h4 class="text-[20px] leading-[26px] md:text-[24px] md:leading-[28px] font-bold text-white leading-tight">
+                                {point.title}
+                            </h4>
+                            <p class="text-[14px] leading-[21px] md:text-[16px] md:leading-[24px] font-semibold text-text-light leading-relaxed">
+                                {point.subtitle}
+                            </p>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</div>

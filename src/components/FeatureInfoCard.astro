@@ -1,0 +1,63 @@
+---
+interface Props {
+    title: string;
+    description: string;
+    image: string;
+    points: string[];
+    orientation?: "left" | "right";
+}
+
+const { title, description, image, points, orientation = "left" } = Astro.props;
+---
+
+<div
+    class="relative w-full bg-background-card rounded-[24px] md:rounded-[24px] p-6 pt-0 md:pt-[40px] md:pl-[24px] md:pr-[40px] md:pb-[16px] flex flex-col md:flex-row items-start gap-8 md:gap-16 animate-on-scroll"
+>
+    {/* Desktop Image Container - handling order and negative margin */}
+    <div
+        class:list={[
+            "hidden md:block w-[235px] md:w-[293px] shrink-0 md:-mt-24 self-start md:self-auto",
+            orientation === "right" ? "md:order-last" : "md:order-first",
+        ]}
+    >
+        <img src={image} alt={title} class="w-full h-auto drop-shadow-xl" />
+    </div>
+
+    {/* Text Content */}
+    <div class="flex flex-col gap-6 pb-8 md:pb-0 w-full">
+        <div class="space-y-2">
+            <h3
+                class="text-2xl md:text-[32px] font-extrabold text-text-main leading-tight text-center md:text-left"
+            >
+                {title}
+            </h3>
+            <p
+                class="text-text-main text-base font-medium text-center md:text-left"
+            >
+                {description}
+            </p>
+        </div>
+
+        {/* Mobile Image - Sandwich Layout */}
+        <div class="md:hidden w-full -mt-2 mb-4 flex justify-center">
+            <img
+                src={image}
+                alt={title}
+                class="w-auto max-w-full max-h-[500px] drop-shadow-lg object-contain"
+            />
+        </div>
+
+        <ul class="space-y-3">
+            {
+                points.map((point) => (
+                    <li class="flex items-center gap-3">
+                        <div class="w-[8px] h-[8px] rounded-full bg-text-main shrink-0 mt-1 md:mt-0" />
+                        <span class="text-text-main text-sm md:text-base font-semibold">
+                            {point}
+                        </span>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+</div>

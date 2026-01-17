@@ -1,0 +1,90 @@
+---
+import Header from "./header/Header.astro";
+import { BetaSubscriptionButton } from "./islands/BetaSubscriptionButton";
+import FeatureInfoCard from "./FeatureInfoCard.astro";
+import { Strings } from "../consts/strings";
+
+const lessChaosPoints = [
+    Strings.less_chaos_point1,
+    Strings.less_chaos_point2,
+    Strings.less_chaos_point3,
+];
+
+const flexibleOrdersPoints = [
+    Strings.fast_flexible_point1,
+    Strings.fast_flexible_point2,
+    Strings.fast_flexible_point3,
+];
+---
+
+<section class="bg-gradient-light w-full overflow-hidden relative">
+    {/* Header */}
+    <div class="max-w-[1200px] mx-auto px-5 md:px-10 relative z-50">
+        <Header />
+    </div>
+
+    <div
+        class="max-w-[1200px] mx-auto px-5 md:px-10 pt-20 md:pt-32 pb-16 md:pb-32 flex flex-col items-center"
+    >
+        {/* Header Text */}
+        <div
+            class="text-center max-w-3xl mx-auto mb-12 flex flex-col gap-6 items-center pt-8"
+        >
+            <div class="mt-8"></div>
+            <h1
+                class="text-[32px] leading-[38px] md:text-[48px] md:leading-[64px] font-extrabold text-text-main animate-on-scroll"
+            >
+                {Strings.header_title}
+            </h1>
+            <p
+                class="text-[14px] leading-[21px] md:text-[16px] md:leading-[24px] text-text-main font-semibold md:px-0 max-w-[770px] text-center mt-4 animate-on-scroll delay-100"
+            >
+                {Strings.header_description}
+            </p>
+
+            <div class="mt-4 animate-on-scroll delay-200">
+                <div class="animate-pulse-glow origin-center">
+                    <BetaSubscriptionButton client:load />
+                </div>
+            </div>
+        </div>
+
+        {/* Hero Image */}
+        <div
+            class="w-full max-w-[1000px] mb-20 md:mb-40 animate-on-scroll delay-300"
+        >
+            <picture>
+                <source
+                    media="(max-width: 768px)"
+                    srcset="/assets/ic_app_features_compact.webp"
+                />
+                <img
+                    src="/assets/ic_app_features.webp"
+                    alt="App Features"
+                    class="w-full h-auto animate-float"
+                />
+            </picture>
+        </div>
+
+        {/* Feature Cards */}
+        <div
+            class="w-full space-y-10 md:space-y-20 animate-on-scroll delay-400"
+        >
+            <FeatureInfoCard
+                title={Strings.less_chaos_title}
+                description={Strings.less_chaos_description}
+                image="/assets/ic_less_chaos.webp"
+                points={lessChaosPoints}
+                orientation="left"
+            />
+
+            <FeatureInfoCard
+                title={Strings.fast_flexible_title}
+                description={Strings.fast_flexible_description}
+                image="/assets/ic_flexible_orders.webp"
+                points={flexibleOrdersPoints}
+                orientation="right"
+            />
+        </div>
+    </div>
+</section>

@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import CoreFeatures from "../components/CoreFeatures.astro";
+import FeaturesList from "../components/FeaturesList.astro";
+import FAQSection from "../components/FAQSection.astro";
+
+import Footer from "../components/Footer.astro";
+import { FloatingFooter } from "../components/islands/FloatingFooter";
+---
+
+<Layout title="Statch - Облік товарів, який працює за вас">
+        <main class="w-full relative">
+                <Hero />
+                <CoreFeatures />
+                <FeaturesList />
+                <FAQSection />
+
+                <Footer />
+
+                {/* Mobile Floating Footer */}
+                <FloatingFooter client:load />
+        </main>
+</Layout>

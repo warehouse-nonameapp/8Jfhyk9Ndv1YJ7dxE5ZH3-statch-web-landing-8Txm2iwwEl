@@ -1,0 +1,45 @@
+---
+import { BetaSubscriptionButton } from "./islands/BetaSubscriptionButton";
+import { Strings } from "../consts/strings";
+---
+
+<section
+    class="bg-gradient-to-b from-[#0D0E10] to-[#161822] overflow-hidden relative rounded-t-[24px] md:rounded-t-[40px] z-30 -mt-[24px] md:-mt-[40px]"
+>
+    {/* Background Image/Gradient Replacement */}
+    <div
+        class="absolute inset-x-0 bottom-0 z-0 h-full flex items-end justify-center pointer-events-none"
+    >
+        <picture class="w-full flex items-end justify-center">
+            <img
+                src="/assets/ic_footer_radial_background.webp"
+                alt=""
+                class="w-full h-auto object-bottom object-cover md:object-contain opacity-60"
+            />
+        </picture>
+    </div>
+
+    {/* Content */}
+    <div
+        class="relative z-10 max-w-[1200px] mx-auto px-6 md:px-10 pt-6 md:pt-[100px] pb-6 md:pb-32 flex flex-col items-start md:items-center text-left md:text-center text-white"
+    >
+        <h2
+            class="text-[24px] md:text-[48px] font-extrabold mb-4 md:mb-6 leading-tight animate-on-scroll"
+        >
+            {Strings.cta_title}
+        </h2>
+
+        <p
+            class="text-[14px] md:text-[18px] font-semibold opacity-80 max-w-2xl mb-10 md:mb-12 leading-relaxed animate-on-scroll delay-100"
+        >
+            {Strings.cta_description}
+        </p>
+
+        <div class="w-full md:w-auto animate-pulse-glow origin-center">
+            <BetaSubscriptionButton
+                client:visible
+                className="w-full md:w-auto"
+            />
+        </div>
+    </div>
+</section>

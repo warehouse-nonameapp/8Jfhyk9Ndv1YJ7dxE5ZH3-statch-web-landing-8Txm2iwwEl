@@ -1,0 +1,90 @@
+---
+import BetaTestBanner from "./BetaTestBanner.astro";
+
+const features = [
+  {
+    icon: "/assets/ic_lightning.svg",
+    title: "Легкий старт",
+    description:
+      "Неважливо, чи ти лише починаєш продавати, чи вже давно працюєш з обліком — тут усе інтуїтивно. Кілька хвилин, і ти вже в темі.",
+    iconBg: "#0F1015",
+    color: "#299634",
+  },
+  {
+    icon: "/assets/ic_shopping_bag.svg",
+    title: "Зручний менеджмент замовлень",
+    description:
+      "Статуси під контролем, історія змін збережена. А ще ти можеш додавати собі нотатки, щоб не забути щось важливе у майбутньому.",
+    iconBg: "#0F1015",
+    color: "#CFA421",
+  },
+  {
+    icon: "/assets/ic_package.svg",
+    title: "Управління залишками",
+    description:
+      "Жодного хаосу у товарах та категоріях — усе чітко розкладено по поличках. Або по складах 😉",
+    iconBg: "#0F1015",
+    color: "#C32A2A",
+  },
+  {
+    icon: "/assets/ic_cpu.svg",
+    title: "Автоматизація",
+    description:
+      "Імпорт товарів, нагадування про 'забуті' замовлення та товари без продажу. Жодна дрібниця не пройде повз.",
+    iconBg: "#0F1015",
+    color: "#AB2CB7",
+  },
+];
+---
+
+<section
+  class="bg-gradient-dark-reversed pt-8 md:pt-[100px] pb-16 md:pb-32 text-white rounded-t-[24px] md:rounded-t-[40px] relative z-10 -mt-[24px] md:-mt-[40px]"
+>
+  <div class="max-w-[1200px] mx-auto px-5 md:px-10">
+    <div class="text-center mb-16 md:mb-24 space-y-4">
+      <h2
+        class="text-3xl md:text-[32px] font-extrabold text-white animate-on-scroll"
+      >
+        Що ще вміє Statch? Зараз розповімо! 😎
+      </h2>
+      <p
+        class="text-sm md:text-base font-semibold text-[#EEF3FF] animate-on-scroll delay-100"
+      >
+        Статуси під контролем, історія змін збережена. А ще ти можеш додавати
+        собі нотатки, щоб не забути щось важливе у майбутньому.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-20 md:mb-32">
+      {
+        features.map((feature) => (
+          <div class="relative rounded-[16px] md:rounded-[24px] border-[2px] border-[#1E2130] p-6 pt-7 md:p-6 md:pt-7 bg-[#171821] overflow-hidden group h-full animate-on-scroll delay-200">
+            {/* Inner Gradient Background matching FeatureGridCard.kt */}
+            <div class="absolute inset-0 bg-gradient-to-bl from-[#1A1A28] to-[#12141E] z-0" />
+
+            <div class="relative z-10 flex gap-6 flex-col items-start h-full">
+              <div class="w-14 h-14 md:w-[72px] md:h-[72px] rounded-full bg-[#0F1015] flex items-center justify-center shrink-0">
+                <img
+                  src={feature.icon}
+                  alt={feature.title}
+                  class="w-6 h-6 md:w-8 md:h-8"
+                />
+              </div>
+
+              <div class="flex flex-col gap-3">
+                <h3 class="text-xl md:text-2xl font-bold text-white leading-tight">
+                  {feature.title}
+                </h3>
+                <p class="text-sm md:text-base font-medium text-[#EEF3FF] leading-relaxed opacity-80">
+                  {feature.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <BetaTestBanner />
+  </div>
+</section>

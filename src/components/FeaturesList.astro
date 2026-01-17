@@ -1,0 +1,24 @@
+---
+import { getEntry } from "astro:content";
+import FeatureDetailsWidget from "./FeatureDetailsWidget.astro";
+
+const featuresEntry = await getEntry("features", "all");
+const features = featuresEntry?.data || [];
+console.log("Features data:", JSON.stringify(features, null, 2));
+---
+
+<section class="bg-[#161822] py-20 md:py-32 relative z-10">
+  <div class="max-w-[1200px] mx-auto px-5 md:px-10 flex flex-col gap-20">
+    {
+      features.map((feature) => (
+        // @ts-ignore
+        <FeatureDetailsWidget
+          title={feature.title}
+          image={feature.image}
+          points={feature.points}
+          orientation={feature.orientation}
+        />
+      ))
+    }
+  </div>
+</section>

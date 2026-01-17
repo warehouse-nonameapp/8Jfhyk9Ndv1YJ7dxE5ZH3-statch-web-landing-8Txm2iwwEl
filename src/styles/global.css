@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans: "Mulish", sans-serif;
+
+    --color-primary: #1C4FD8;
+    --color-primary-variant: #EEF3FF;
+    --color-secondary: #F2F4FA;
+    --color-secondary-variant: #686868;
+
+    --color-surface: #FFFFFF;
+    --color-background: #FFFFFF;
+    --color-background-dark: #0D0E10;
+    --color-background-darker: #161822;
+
+    --color-error: #FF5959;
+    --color-error-variant: #FFECEC;
+    --color-success: #3ECB55;
+    --color-warning: #F6CF45;
+
+    --color-text-main: #090924;
+    /* onSurfaceColor */
+    --color-text-gray: #4F5161;
+    --color-text-light: #8F94A3;
+    --color-text-white: #FFFFFF;
+    --color-text-link: #EEF3FF;
+
+    --color-border-dark: #2B2F36;
+    --color-border-light: #E3EAF1;
+
+    --color-background-card: #F7F8FA;
+
+    --color-success-dark: #299634;
+}
+
+@layer base {
+    html {
+        font-family: var(--font-sans);
+        color: var(--color-text-main);
+    }
+}
+
+/* Custom Utilities for Gradients */
+@utility bg-gradient-light {
+    background: linear-gradient(180deg, #F2F6FF 0%, #FFFFFF 100%);
+}
+
+@utility bg-gradient-dark {
+    background: linear-gradient(180deg, #0D0E10 0%, #161822 100%);
+}
+
+@utility bg-gradient-dark-reversed {
+    background: linear-gradient(180deg, #161822 0%, #0D0E10 100%);
+}
