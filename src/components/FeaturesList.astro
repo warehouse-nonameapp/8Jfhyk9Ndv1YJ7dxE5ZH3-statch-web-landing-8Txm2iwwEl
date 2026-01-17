@@ -14,7 +14,7 @@ console.log("Features data:", JSON.stringify(features, null, 2));
         // @ts-ignore
         <FeatureDetailsWidget
           title={feature.title}
-          image={feature.image}
+          image={import.meta.env.BASE_URL + feature.image.replace(/^\//, "")}
           points={feature.points}
           orientation={feature.orientation}
         />

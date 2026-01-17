@@ -49,7 +49,10 @@ const { title, image, points, orientation = "left" } = Astro.props;
                         {/* Green Check Icon with Background */}
                         <div class="w-[26px] h-[26px] md:w-[40px] md:h-[40px] rounded-full bg-success-dark/10 flex items-center justify-center shrink-0 animate-wiggle transition-transform">
                             <img
-                                src="/assets/ic_green_check.svg"
+                                src={
+                                    import.meta.env.BASE_URL +
+                                    "assets/ic_green_check.svg"
+                                }
                                 class="w-3.5 h-3.5 md:w-5 md:h-5"
                                 alt="check"
                             />

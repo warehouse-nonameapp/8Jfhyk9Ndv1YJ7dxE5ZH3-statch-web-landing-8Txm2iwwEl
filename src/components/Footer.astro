@@ -20,7 +20,8 @@ const currentYear = new Date().getFullYear();
             >
                 <picture class="w-full flex items-end justify-center">
                     <img
-                        src="/assets/ic_footer_radial_background.webp"
+                        src={import.meta.env.BASE_URL +
+                            "assets/ic_footer_radial_background.webp"}
                         alt=""
                         class="w-full h-auto object-bottom object-cover md:object-contain opacity-60"
                     />
@@ -69,15 +70,16 @@ const currentYear = new Date().getFullYear();
             <div class="flex flex-col gap-10 animate-on-scroll delay-200">
                 {/* Top Section: Logo, Socials, Contacts */}
                 <div class="flex flex-col md:flex-row gap-10 md:gap-24">
-                    {/* Logo Group */}
                     <div class="flex-1 flex flex-row items-center gap-4">
                         <img
-                            src="/assets/ic_statch_icon.svg"
+                            src={import.meta.env.BASE_URL +
+                                "assets/ic_statch_icon.svg"}
                             alt="Statch Icon"
                             class="w-10 h-10 opacity-70 grayscale"
                         />
                         <img
-                            src="/assets/ic_statch_name.svg"
+                            src={import.meta.env.BASE_URL +
+                                "assets/ic_statch_name.svg"}
                             alt="Statch"
                             class="h-[35px] opacity-70 grayscale"
                         />

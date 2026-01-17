@@ -108,8 +108,8 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                                 <label className="text-base font-bold text-text-main">{Strings.beta_platform_label}</label>
                                                 <div className="flex p-1 bg-[#E9EBF2] rounded-[12px] items-center">
                                                     {[
-                                                        { id: 'Android', label: 'Android', icon: '/assets/ic_android.svg', iconClass: 'w-5 h-5' },
-                                                        { id: 'iOS', label: 'iOS', icon: '/assets/ic_apple.svg', iconClass: 'w-4 h-auto' },
+                                                        { id: 'Android', label: 'Android', icon: import.meta.env.BASE_URL + '/assets/ic_android.svg'.replace(/^\//, ''), iconClass: 'w-5 h-5' },
+                                                        { id: 'iOS', label: 'iOS', icon: import.meta.env.BASE_URL + 'assets/ic_apple.svg', iconClass: 'w-4 h-auto' },
                                                         { id: 'Both', label: 'Обидві' }
                                                     ].map((platformOption, index, arr) => {
                                                         const isSelected = selectedPlatform === platformOption.id;
@@ -162,7 +162,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                 ) : (
                                     <div className="flex flex-col items-center text-center py-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
                                         <div className="w-36 h-36 mb-6">
-                                            <img src="/assets/ic_success.svg" alt="Success" className="w-full h-full object-contain" />
+                                            <img src={import.meta.env.BASE_URL + "assets/ic_success.svg"} alt="Success" className="w-full h-full object-contain" />
                                         </div>
                                         <h3 className="text-[32px] font-extrabold text-text-main mb-4">{Strings.beta_success_title}</h3>
                                         <p className="text-text-main font-semibold mb-2 whitespace-pre-line">

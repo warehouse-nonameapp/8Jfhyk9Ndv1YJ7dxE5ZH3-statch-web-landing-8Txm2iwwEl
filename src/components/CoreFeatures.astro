@@ -3,7 +3,7 @@ import BetaTestBanner from "./BetaTestBanner.astro";
 
 const features = [
   {
-    icon: "/assets/ic_lightning.svg",
+    icon: import.meta.env.BASE_URL + "assets/ic_lightning.svg",
     title: "Легкий старт",
     description:
       "Неважливо, чи ти лише починаєш продавати, чи вже давно працюєш з обліком — тут усе інтуїтивно. Кілька хвилин, і ти вже в темі.",
@@ -11,7 +11,7 @@ const features = [
     color: "#299634",
   },
   {
-    icon: "/assets/ic_shopping_bag.svg",
+    icon: import.meta.env.BASE_URL + "assets/ic_shopping_bag.svg",
     title: "Зручний менеджмент замовлень",
     description:
       "Статуси під контролем, історія змін збережена. А ще ти можеш додавати собі нотатки, щоб не забути щось важливе у майбутньому.",
@@ -19,7 +19,7 @@ const features = [
     color: "#CFA421",
   },
   {
-    icon: "/assets/ic_package.svg",
+    icon: import.meta.env.BASE_URL + "assets/ic_package.svg",
     title: "Управління залишками",
     description:
       "Жодного хаосу у товарах та категоріях — усе чітко розкладено по поличках. Або по складах 😉",
@@ -27,7 +27,7 @@ const features = [
     color: "#C32A2A",
   },
   {
-    icon: "/assets/ic_cpu.svg",
+    icon: import.meta.env.BASE_URL + "assets/ic_cpu.svg",
     title: "Автоматизація",
     description:
       "Імпорт товарів, нагадування про 'забуті' замовлення та товари без продажу. Жодна дрібниця не пройде повз.",
