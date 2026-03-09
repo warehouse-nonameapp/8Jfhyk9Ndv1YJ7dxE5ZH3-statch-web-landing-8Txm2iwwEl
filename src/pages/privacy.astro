@@ -1,0 +1,279 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/header/Header.astro";
+import Footer from "../components/Footer.astro";
+import { FloatingFooter } from "../components/islands/FloatingFooter";
+---
+
+<Layout title="Політика конфіденційності - Statch">
+    <div class="bg-white min-h-screen text-[#090924] font-sans terms-page-container">
+        
+        <div class="relative w-full max-w-[1200px] mx-auto px-5 md:px-[40px] pt-5 md:pt-[40px] z-50 component-header">
+            <Header darkText={true} />
+        </div>
+
+        <main class="max-w-[1200px] mx-auto px-5 md:px-[40px] pt-8 md:pt-16 pb-24 md:pb-32 mt-5 md:mt-10">
+            
+            <a href={import.meta.env.BASE_URL + "/"} class="component-back-btn inline-flex items-center text-[#A6A6BC] hover:text-[#2054E1] mb-8 font-semibold transition-colors">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Назад на головну
+            </a>
+
+            <div class="mb-14 heading-section component-heading">
+                <h1 class="text-[32px] md:text-[48px] font-extrabold mb-6 leading-tight text-[#090924]">Політика конфіденційності Statch</h1>
+                <div class="flex flex-col md:flex-row gap-2 md:gap-4 text-[#090924]" style="font-variant-numeric: lining-nums tabular-nums;">
+                    <p class="text-[16px] leading-[24px] font-normal font-sans"><span class="font-extrabold">Чинні від:</span> 15 лютого 2026 року</p>
+                </div>
+            </div>
+
+            {/* TL;DR Section */}
+            <div class="bg-[#FAFBFC] p-6 md:p-8 rounded-2xl mb-16 w-full max-w-[1046px]">
+                <h2 class="text-[20px] md:text-[24px] font-bold mb-4 text-[#090924]">Коротко (TL;DR)</h2>
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-3">
+                        <div class="w-2 h-2 rounded-full bg-[#1C4FD8] mt-2 shrink-0 drop-shadow-[0_2px_8px_rgba(28,79,216,0.20)]"></div>
+                        <span class="text-[16px] text-[#090924]">Ми збираємо лише необхідні дані для роботи сервісу.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="w-2 h-2 rounded-full bg-[#1C4FD8] mt-2 shrink-0 drop-shadow-[0_2px_8px_rgba(28,79,216,0.20)]"></div>
+                        <span class="text-[16px] text-[#090924]">Ми не продаємо ваші дані третім особам.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="w-2 h-2 rounded-full bg-[#1C4FD8] mt-2 shrink-0 drop-shadow-[0_2px_8px_rgba(28,79,216,0.20)]"></div>
+                        <span class="text-[16px] text-[#090924]">Ви маєте право на доступ, виправлення та видалення своїх даних.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="w-2 h-2 rounded-full bg-[#1C4FD8] mt-2 shrink-0 drop-shadow-[0_2px_8px_rgba(28,79,216,0.20)]"></div>
+                        <span class="text-[16px] text-[#090924]">Повну юридичну силу має лише текст нижче.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start relative">
+                
+                {/* Sidebar Selector (Sticky) */}
+                <aside class="hidden lg:flex flex-col sticky top-32 w-[250px] shrink-0 border-l border-[#E3EAF1] pl-5 terms-sidebar space-y-3 relative">
+                    <a href="#section-1" class="terms-link flex items-center gap-2 group transition-colors" style="font-variant-numeric: lining-nums tabular-nums;">
+                        <span class="terms-num text-[12px] font-semibold text-[#090924] leading-[18px] w-5 h-[18px] text-left shrink-0 group-hover:text-[#2054E1]">1.</span>
+                        <span class="terms-label text-[12px] font-semibold text-[#090924] leading-[18px] group-hover:text-[#2054E1]">Які дані ми збираємо</span>
+                    </a>
+                    <a href="#section-2" class="terms-link flex items-center gap-2 group transition-colors" style="font-variant-numeric: lining-nums tabular-nums;">
+                        <span class="terms-num text-[12px] font-semibold text-[#A6A6BC] leading-[18px] w-5 h-[18px] text-left shrink-0 group-hover:text-[#2054E1]">2.</span>
+                        <span class="terms-label text-[12px] font-semibold text-[#A6A6BC] leading-[18px] group-hover:text-[#2054E1]">Як ми використовуємо дані</span>
+                    </a>
+                    <a href="#section-3" class="terms-link flex items-center gap-2 group transition-colors" style="font-variant-numeric: lining-nums tabular-nums;">
+                        <span class="terms-num text-[12px] font-semibold text-[#A6A6BC] leading-[18px] w-5 h-[18px] text-left shrink-0 group-hover:text-[#2054E1]">3.</span>
+                        <span class="terms-label text-[12px] font-semibold text-[#A6A6BC] leading-[18px] group-hover:text-[#2054E1]">Зберігання та безпека</span>
+                    </a>
+                    <a href="#section-4" class="terms-link flex items-center gap-2 group transition-colors" style="font-variant-numeric: lining-nums tabular-nums;">
+                        <span class="terms-num text-[12px] font-semibold text-[#A6A6BC] leading-[18px] w-5 h-[18px] text-left shrink-0 group-hover:text-[#2054E1]">4.</span>
+                        <span class="terms-label text-[12px] font-semibold text-[#A6A6BC] leading-[18px] group-hover:text-[#2054E1]">Передача даних</span>
+                    </a>
+                    <a href="#section-5" class="terms-link flex items-center gap-2 group transition-colors" style="font-variant-numeric: lining-nums tabular-nums;">
+                        <span class="terms-num text-[12px] font-semibold text-[#A6A6BC] leading-[18px] w-5 h-[18px] text-left shrink-0 group-hover:text-[#2054E1]">5.</span>
+                        <span class="terms-label text-[12px] font-semibold text-[#A6A6BC] leading-[18px] group-hover:text-[#2054E1]">Ваші права</span>
+                    </a>
+                    <a href="#section-6" class="terms-link flex items-center gap-2 group transition-colors" style="font-variant-numeric: lining-nums tabular-nums;">
+                        <span class="terms-num text-[12px] font-semibold text-[#A6A6BC] leading-[18px] w-5 h-[18px] text-left shrink-0 group-hover:text-[#2054E1]">6.</span>
+                        <span class="terms-label text-[12px] font-semibold text-[#A6A6BC] leading-[18px] group-hover:text-[#2054E1]">Cookie-файли</span>
+                    </a>
+                    <a href="#section-7" class="terms-link flex items-center gap-2 group transition-colors" style="font-variant-numeric: lining-nums tabular-nums;">
+                        <span class="terms-num text-[12px] font-semibold text-[#A6A6BC] leading-[18px] w-5 h-[18px] text-left shrink-0 group-hover:text-[#2054E1]">7.</span>
+                        <span class="terms-label text-[12px] font-semibold text-[#A6A6BC] leading-[18px] group-hover:text-[#2054E1]">Контакти</span>
+                    </a>
+                </aside>
+
+                {/* Content Sections */}
+                <div class="flex flex-col gap-12 md:gap-16 max-w-[700px] w-full terms-content">
+                    
+                    <section id="section-1" class="scroll-mt-32">
+                        <h2 class="text-[20px] md:text-[24px] font-bold mb-5 text-[#090924]">1. Які дані ми збираємо</h2>
+                        <div class="flex flex-col gap-4 text-[16px] text-[#090924] opacity-80 leading-relaxed">
+                            <p>Під час використання Statch ми можемо збирати такі категорії даних:</p>
+                            <div class="flex flex-col gap-3">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-2 h-2 shrink-0 rounded-[100px] bg-[#A9B3C8] mt-2 aspect-square"></div>
+                                    <span><span class="font-semibold text-[#090924] opacity-100">Ідентифікаційні дані:</span> ім'я, адреса електронної пошти, які ви надаєте при реєстрації.</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="w-2 h-2 shrink-0 rounded-[100px] bg-[#A9B3C8] mt-2 aspect-square"></div>
+                                    <span><span class="font-semibold text-[#090924] opacity-100">Дані використання:</span> інформація про те, як ви взаємодієте з сервісом (журнали дій, типи пристроїв, IP-адреси).</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="w-2 h-2 shrink-0 rounded-[100px] bg-[#A9B3C8] mt-2 aspect-square"></div>
+                                    <span><span class="font-semibold text-[#090924] opacity-100">Контент користувача:</span> дані про товари та замовлення, які ви вносите в систему.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="section-2" class="scroll-mt-32">
+                        <h2 class="text-[20px] md:text-[24px] font-bold mb-5 text-[#090924]">2. Як ми використовуємо дані</h2>
+                        <div class="flex flex-col gap-4 text-[16px] text-[#090924] opacity-80 leading-relaxed">
+                            <p>Зібрані дані використовуються виключно для:</p>
+                            <div class="flex flex-col gap-3 ml-2">
+                                <div class="flex items-start gap-4">
+                                    <span class="text-[#A9B3C8] font-extrabold w-4">1.</span>
+                                    <span>Надання та підтримки функціонування сервісу.</span>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <span class="text-[#A9B3C8] font-extrabold w-4">2.</span>
+                                    <span>Покращення роботи застосунку та усунення помилок.</span>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <span class="text-[#A9B3C8] font-extrabold w-4">3.</span>
+                                    <span>Надсилання важливих сповіщень, пов'язаних з вашим акаунтом.</span>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <span class="text-[#A9B3C8] font-extrabold w-4">4.</span>
+                                    <span>Виконання юридичних зобов'язань.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="section-3" class="scroll-mt-32">
+                        <h2 class="text-[20px] md:text-[24px] font-bold mb-5 text-[#090924]">3. Зберігання та безпека</h2>
+                        <div class="flex flex-col gap-5 text-[16px] text-[#090924] opacity-80 leading-relaxed">
+                            <p>Ваші дані зберігаються на захищених серверах з використанням сучасних стандартів шифрування.</p>
+                            <p>Ми вживаємо технічних та організаційних заходів для захисту інформації від несанкціонованого доступу, втрати або знищення.</p>
+                            <p>Дані зберігаються протягом часу, необхідного для надання послуг, або відповідно до вимог законодавства.</p>
+                        </div>
+                    </section>
+
+                    <section id="section-4" class="scroll-mt-32">
+                        <h2 class="text-[20px] md:text-[24px] font-bold mb-5 text-[#090924]">4. Передача даних</h2>
+                        <div class="flex flex-col gap-5 text-[16px] text-[#090924] opacity-80 leading-relaxed">
+                            <p>Ми не продаємо та не передаємо ваші персональні дані третім особам для їхніх власних маркетингових цілей.</p>
+                            <p>Дані можуть передаватися довіреним постачальникам послуг (наприклад, хмарна інфраструктура), які діють відповідно до наших інструкцій та зобов'язані забезпечувати конфіденційність.</p>
+                            <p>У виняткових випадках ми можемо розкрити дані у разі вимоги законодавства або для захисту прав та безпеки користувачів.</p>
+                        </div>
+                    </section>
+
+                    <section id="section-5" class="scroll-mt-32">
+                        <h2 class="text-[20px] md:text-[24px] font-bold mb-5 text-[#090924]">5. Ваші права</h2>
+                        <div class="flex flex-col gap-4 text-[16px] text-[#090924] opacity-80 leading-relaxed">
+                            <p>Ви маєте право:</p>
+                            <div class="flex flex-col gap-3">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-2 h-2 shrink-0 rounded-[100px] bg-[#A9B3C8] mt-2 aspect-square"></div>
+                                    <span>Отримати доступ до своїх персональних даних.</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="w-2 h-2 shrink-0 rounded-[100px] bg-[#A9B3C8] mt-2 aspect-square"></div>
+                                    <span>Виправити неточні або застарілі дані.</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="w-2 h-2 shrink-0 rounded-[100px] bg-[#A9B3C8] mt-2 aspect-square"></div>
+                                    <span>Запросити видалення своїх даних («право на забуття»).</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="w-2 h-2 shrink-0 rounded-[100px] bg-[#A9B3C8] mt-2 aspect-square"></div>
+                                    <span>Відкликати згоду на обробку даних у будь-який час.</span>
+                                </div>
+                            </div>
+                            <p class="mt-2">Для реалізації своїх прав звертайтесь до нас за адресою: <a href="mailto:support@statch.app" class="text-[#2054E1] hover:underline font-semibold">support@statch.app</a></p>
+                        </div>
+                    </section>
+
+                    <section id="section-6" class="scroll-mt-32">
+                        <h2 class="text-[20px] md:text-[24px] font-bold mb-5 text-[#090924]">6. Cookie-файли</h2>
+                        <div class="flex flex-col gap-5 text-[16px] text-[#090924] opacity-80 leading-relaxed">
+                            <p>Ми використовуємо файли cookie та аналогічні технології для забезпечення роботи сервісу та аналізу використання.</p>
+                            <p>Ви можете керувати налаштуваннями cookie у своєму браузері. Відключення певних cookie може вплинути на функціональність застосунку.</p>
+                        </div>
+                    </section>
+
+                    <section id="section-7" class="scroll-mt-32">
+                        <h2 class="text-[20px] md:text-[24px] font-bold mb-5 text-[#090924]">7. Контакти</h2>
+                        <div class="flex flex-col gap-2 text-[16px] text-[#090924] opacity-80 leading-relaxed">
+                            <p>З питань щодо Політики конфіденційності звертайтесь:</p>
+                            <p>Email: <a href="mailto:support@statch.app" class="text-[#2054E1] hover:underline font-semibold">support@statch.app</a></p>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="component-footer">
+        {/* Reset to dark standard footer */}
+        <Footer hideCTA={true} />
+        {/* Mobile Floating Footer */}
+        <FloatingFooter client:load />
+    </div>
+    
+    <script>
+        // Check for layout=contentOnly
+        if (typeof window !== 'undefined') {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('layout') === 'contentOnly') {
+                document.documentElement.classList.add('layout-content-only');
+            }
+        }
+        // Scroll-based highlight to ensure bottom links get activated robustly
+        const sections = document.querySelectorAll<HTMLElement>('section[id]');
+        const navLinks = document.querySelectorAll<HTMLElement>('.terms-link');
+        let currentActiveId: string | null = null;
+
+        const updateActiveLink = () => {
+            if (sections.length === 0) return;
+            let sectionId: string | null = sections[0].getAttribute('id');
+            const scrollPos = window.scrollY + window.innerHeight * 0.3;
+
+            sections.forEach(sec => {
+                const rect = sec.getBoundingClientRect();
+                const absoluteTop = rect.top + window.scrollY;
+                if (absoluteTop <= scrollPos) {
+                    sectionId = sec.getAttribute('id');
+                }
+            });
+
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+                sectionId = sections[sections.length - 1].getAttribute('id');
+            }
+
+            if (currentActiveId !== sectionId) {
+                currentActiveId = sectionId;
+                navLinks.forEach(link => {
+                    const num = link.querySelector('.terms-num');
+                    const label = link.querySelector('.terms-label');
+                    
+                    num?.classList.remove('text-[#090924]');
+                    num?.classList.add('text-[#A6A6BC]');
+                    label?.classList.remove('text-[#090924]');
+                    label?.classList.add('text-[#A6A6BC]');
+                    
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        num?.classList.remove('text-[#A6A6BC]');
+                        num?.classList.add('text-[#090924]');
+                        label?.classList.remove('text-[#A6A6BC]');
+                        label?.classList.add('text-[#090924]');
+                    }
+                });
+            }
+        };
+
+        window.addEventListener('scroll', updateActiveLink, { passive: true });
+        window.addEventListener('resize', updateActiveLink, { passive: true });
+        updateActiveLink();
+    </script>
+
+    <style is:global>
+        html.layout-content-only .component-header,
+        html.layout-content-only .component-footer,
+        html.layout-content-only .component-back-btn {
+            display: none !important;
+        }
+        
+        html.layout-content-only .component-heading {
+            margin-top: 1rem !important;
+        }
+
+        html.layout-content-only main {
+            padding-top: 1rem !important;
+            margin-top: 0 !important;
+        }
+    </style>
+</Layout>

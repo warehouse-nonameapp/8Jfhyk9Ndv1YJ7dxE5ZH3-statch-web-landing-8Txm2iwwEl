@@ -21,6 +21,7 @@ export const Strings = {
     footer_policy: "Політика конфіденційності",
     footer_terms: "Умови користування",
     footer_terms_use: "Умови використання",
+    footer_privacy: "Політика конфіденційності",
     footer_site_title: "Сайт",
     footer_app: "Застосунок",
     footer_contact: "Написати нам", // Keeping for compatibility if used elsewhere, but KMP has "Footer Contacts" title
