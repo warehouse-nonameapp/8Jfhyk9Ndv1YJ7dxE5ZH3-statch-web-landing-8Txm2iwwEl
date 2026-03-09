@@ -25,7 +25,6 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
         setLoading(true);
 
         const success = await ApiService.signupToBeta(email, selectedPlatform);
-        setLoading(false);
 
         if (success) {
             setStep('success');
@@ -33,13 +32,30 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
             const end = Date.now() + 2000;
             const colors = ['#1C4FD8', '#2054E1', '#5B8EFF', '#ffffff', '#A8C4FF'];
             const frame = () => {
-                confetti({ particleCount: 3, angle: 60, spread: 55, origin: { x: 0, y: 0.75 }, colors, zIndex: 99999 });
-                confetti({ particleCount: 3, angle: 120, spread: 55, origin: { x: 1, y: 0.75 }, colors, zIndex: 99999 });
-                if (Date.now() < end) requestAnimationFrame(frame);
+                confetti({
+                    particleCount: 3,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0, y: 0.75 },
+                    colors,
+                    zIndex: 99999,
+                });
+                confetti({
+                    particleCount: 3,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1, y: 0.75 },
+                    colors,
+                    zIndex: 99999,
+                });
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
             };
             frame();
         }
-        // On failure: silently reset loading — user can retry
+        // Logic for failure is to silently stop loading, matching KMP
+        setLoading(false);
     };
 
     const reset = () => {
