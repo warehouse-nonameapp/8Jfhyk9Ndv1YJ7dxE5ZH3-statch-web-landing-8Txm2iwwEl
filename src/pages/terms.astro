@@ -1,0 +1,276 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/header/Header.astro";
+import Footer from "../components/Footer.astro";
+import { FloatingFooter } from "../components/islands/FloatingFooter";
+---
+
+<Layout title="Умови використання - Statch">
+    <div class="bg-white min-h-screen text-[#090924] font-sans terms-page-container">
+        
+        <div class="relative w-full max-w-[1200px] mx-auto px-5 md:px-[40px] pt-5 md:pt-[40px] z-50 component-header">
+            <Header darkText={true} />
+        </div>
+
+        <main class="max-w-[1200px] mx-auto px-5 md:px-[40px] pt-8 md:pt-16 pb-24 md:pb-32 mt-5 md:mt-10">
+            
+            <a href={import.meta.env.BASE_URL + "/"} class="component-back-btn inline-flex items-center text-[#A6A6BC] hover:text-[#2054E1] mb-8 font-semibold transition-colors">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Назад на головну
+            </a>
+
+            <div class="mb-14 heading-section component-heading">
+                <h1 class="text-[32px] md:text-[48px] font-extrabold mb-6 leading-tight text-[#090924]">Умови користування сервісом Statch</h1>
+                <div class="flex flex-col md:flex-row gap-2 md:gap-4 text-[#090924]" style="font-variant-numeric: lining-nums tabular-nums;">
+                    <p class="text-[16px] leading-[24px] font-normal font-sans"><span class="font-extrabold">Чинні від:</span> 15 лютого 2026 року</p>
+                </div>
+            </div>
+
+            {/* TL;DR Section */}
+            <div class="bg-[#FAFBFC] p-6 md:p-8 rounded-2xl mb-16 w-full max-w-[1046px]">
+                <h2 class="text-[20px] md:text-[24px] font-bold mb-4 text-[#090924]">Коротко (TL;DR)</h2>
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-3">
+                        <div class="w-2 h-2 rounded-full bg-[#1C4FD8] mt-2 shrink-0 drop-shadow-[0_2px_8px_rgba(28,79,216,0.20)]"></div>
+                        <span class="text-[16px] text-[#090924]">Statch — це сервіс для управління обліком товарів.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="w-2 h-2 rounded-full bg-[#1C4FD8] mt-2 shrink-0 drop-shadow-[0_2px_8px_rgba(28,79,216,0.20)]"></div>
+                        <span class="text-[16px] text-[#090924]">Ви відповідаєте за дані, які вносите.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="w-2 h-2 rounded-full bg-[#1C4FD8] mt-2 shrink-0 drop-shadow-[0_2px_8px_rgba(28,79,216,0.20)]"></div>
+                        <span class="text-[16px] text-[#090924]">Ми можемо оновлювати сервіс і припинити доступ у разі порушень.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="w-2 h-2 rounded-full bg-[#1C4FD8] mt-2 shrink-0 drop-shadow-[0_2px_8px_rgba(28,79,216,0.20)]"></div>
+                        <span class="text-[16px] text-[#090924]">Повну юридичну силу має лише текст нижче.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start relative">
+                
+                {/* Sidebar Selector (Sticky) */}
+                <aside class="hidden lg:flex flex-col sticky top-32 w-[250px] shrink-0 border-l border-[#E3EAF1] pl-5 terms-sidebar space-y-3 relative">
+                    <a href="#section-1" class="terms-link flex items-center gap-2 group transition-colors" style="font-variant-numeric: lining-nums tabular-nums;">
+                        <span class="terms-num text-[12px] font-semibold text-[#090924] leading-[18px] w-5 h-[18px] text-left shrink-0 group-hover:text-[#2054E1]">1.</span>
+                        <span class="terms-label text-[12px] font-semibold text-[#090924] leading-[18px] group-hover:text-[#2054E1]">Визначення</span>
+                    </a>
+                    <a href="#section-2" class="terms-link flex items-center gap-2 group transition-colors" style="font-variant-numeric: lining-nums tabular-nums;">
+                        <span class="terms-num text-[12px] font-semibold text-[#A6A6BC] leading-[18px] w-5 h-[18px] text-left shrink-0 group-hover:text-[#2054E1]">2.</span>
+                        <span class="terms-label text-[12px] font-semibold text-[#A6A6BC] leading-[18px] group-hover:text-[#2054E1]">Прийняття умов</span>
+                    </a>
+                    <a href="#section-3" class="terms-link flex items-center gap-2 group transition-colors" style="font-variant-numeric: lining-nums tabular-nums;">
+                        <span class="terms-num text-[12px] font-semibold text-[#A6A6BC] leading-[18px] w-5 h-[18px] text-left shrink-0 group-hover:text-[#2054E1]">3.</span>
+                        <span class="terms-label text-[12px] font-semibold text-[#A6A6BC] leading-[18px] group-hover:text-[#2054E1]">Реєстрація акаунту</span>
+                    </a>
+                    <a href="#section-4" class="terms-link flex items-center gap-2 group transition-colors" style="font-variant-numeric: lining-nums tabular-nums;">
+                        <span class="terms-num text-[12px] font-semibold text-[#A6A6BC] leading-[18px] w-5 h-[18px] text-left shrink-0 group-hover:text-[#2054E1]">4.</span>
+                        <span class="terms-label text-[12px] font-semibold text-[#A6A6BC] leading-[18px] group-hover:text-[#2054E1]">Використання сервісу</span>
+                    </a>
+                    <a href="#section-5" class="terms-link flex items-center gap-2 group transition-colors" style="font-variant-numeric: lining-nums tabular-nums;">
+                        <span class="terms-num text-[12px] font-semibold text-[#A6A6BC] leading-[18px] w-5 h-[18px] text-left shrink-0 group-hover:text-[#2054E1]">5.</span>
+                        <span class="terms-label text-[12px] font-semibold text-[#A6A6BC] leading-[18px] group-hover:text-[#2054E1]">Дані користувача</span>
+                    </a>
+                    <a href="#section-6" class="terms-link flex items-center gap-2 group transition-colors" style="font-variant-numeric: lining-nums tabular-nums;">
+                        <span class="terms-num text-[12px] font-semibold text-[#A6A6BC] leading-[18px] w-5 h-[18px] text-left shrink-0 group-hover:text-[#2054E1]">6.</span>
+                        <span class="terms-label text-[12px] font-semibold text-[#A6A6BC] leading-[18px] group-hover:text-[#2054E1]">Обмеження відповідальності</span>
+                    </a>
+                    <a href="#section-10" class="terms-link flex items-center gap-2 group transition-colors" style="font-variant-numeric: lining-nums tabular-nums;">
+                        <span class="terms-num text-[12px] font-semibold text-[#A6A6BC] leading-[18px] w-5 h-[18px] text-left shrink-0 group-hover:text-[#2054E1]">10.</span>
+                        <span class="terms-label text-[12px] font-semibold text-[#A6A6BC] leading-[18px] group-hover:text-[#2054E1]">Контакти</span>
+                    </a>
+                </aside>
+
+                {/* Content Sections */}
+                <div class="flex flex-col gap-12 md:gap-16 max-w-[700px] w-full terms-content">
+                    
+                    <section id="section-1" class="scroll-mt-32">
+                        <h2 class="text-[20px] md:text-[24px] font-bold mb-5 text-[#090924]">1. Визначення</h2>
+                        <div class="flex flex-col gap-4 text-[16px] text-[#090924] font-semibold">
+                            <p><span class="opacity-80">Сервіс —</span> Веб та мобільний застосунок Statch</p>
+                            <p><span class="opacity-80">Користувач —</span> Особа, яка створила обліковий запис</p>
+                            <p><span class="opacity-80">Акаунт —</span> Обліковий запис користувача</p>
+                            <p><span class="opacity-80">Контент —</span> Дані, введені користувачем у сервісі</p>
+                        </div>
+                    </section>
+
+                    <section id="section-2" class="scroll-mt-32">
+                        <h2 class="text-[20px] md:text-[24px] font-bold mb-5 text-[#090924]">2. Прийняття умов</h2>
+                        <div class="flex flex-col gap-5 text-[16px] text-[#090924] opacity-80 leading-relaxed">
+                            <p>Реєструючись або використовуючи Сервіс, ви погоджуєтесь із цими Умовами.</p>
+                            <p>Якщо ви не погоджуєтесь з будь-якою частиною документа, використання Сервісу заборонене.</p>
+                        </div>
+                    </section>
+
+                    <section id="section-3" class="scroll-mt-32">
+                        <h2 class="text-[20px] md:text-[24px] font-bold mb-5 text-[#090924]">3. Реєстрація акаунту</h2>
+                        <div class="flex flex-col gap-4 text-[16px] text-[#090924] opacity-80 leading-relaxed">
+                            <p>Для використання Сервісу ви повинні:</p>
+                            <div class="flex flex-col gap-3 ml-2">
+                                <div class="flex items-start gap-4">
+                                    <span class="text-[#A9B3C8] font-extrabold w-4">1.</span>
+                                    <span>Надати достовірну інформацію.</span>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <span class="text-[#A9B3C8] font-extrabold w-4">2.</span>
+                                    <span>Забезпечити конфіденційність доступу до акаунту.</span>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <span class="text-[#A9B3C8] font-extrabold w-4">3.</span>
+                                    <span>Негайно повідомити нас про несанкціонований доступ.</span>
+                                </div>
+                            </div>
+                            <p class="mt-2">Ви несете повну відповідальність за всі дії у вашому акаунті.</p>
+                        </div>
+                    </section>
+
+                    <section id="section-4" class="scroll-mt-32">
+                        <h2 class="text-[20px] md:text-[24px] font-bold mb-5 text-[#090924]">4. Використання сервісу</h2>
+                        <div class="flex flex-col gap-4 text-[16px] text-[#090924] opacity-80 leading-relaxed">
+                            <p>Вам заборонено:</p>
+                            <div class="flex flex-col gap-3">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-2 h-2 shrink-0 rounded-[100px] bg-[#A9B3C8] mt-2 aspect-square"></div>
+                                    <span>Використовувати сервіс для незаконної діяльності.</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="w-2 h-2 shrink-0 rounded-[100px] bg-[#A9B3C8] mt-2 aspect-square"></div>
+                                    <span>Порушувати права третіх осіб.</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="w-2 h-2 shrink-0 rounded-[100px] bg-[#A9B3C8] mt-2 aspect-square"></div>
+                                    <span>Намагатися втрутитися в роботу інфраструктури сервісу.</span>
+                                </div>
+                            </div>
+                            <p class="mt-2">Ми залишаємо за собою право обмежити доступ у разі порушень.</p>
+                        </div>
+                    </section>
+
+                    <section id="section-5" class="scroll-mt-32">
+                        <h2 class="text-[20px] md:text-[24px] font-bold mb-5 text-[#090924]">5. Дані користувача</h2>
+                        <div class="flex flex-col gap-5 text-[16px] text-[#090924] opacity-80 leading-relaxed">
+                            <p>Ви зберігаєте право власності на свій Контент.</p>
+                            <p>Ми не несемо відповідальності за точність або законність введених вами даних.</p>
+                        </div>
+                    </section>
+
+                    <section id="section-6" class="scroll-mt-32">
+                        <h2 class="text-[20px] md:text-[24px] font-bold mb-5 text-[#090924]">6. Обмеження відповідальності</h2>
+                        <div class="flex flex-col gap-4 text-[16px] text-[#090924] opacity-80 leading-relaxed">
+                            <p>Сервіс надається "як є".</p>
+                            <p>Ми не гарантуємо:</p>
+                            <div class="flex flex-col gap-3">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-2 h-2 shrink-0 rounded-[100px] bg-[#A9B3C8] mt-2 aspect-square"></div>
+                                    <span>Безперервну роботу сервісу.</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="w-2 h-2 shrink-0 rounded-[100px] bg-[#A9B3C8] mt-2 aspect-square"></div>
+                                    <span>Відсутність помилок.</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="w-2 h-2 shrink-0 rounded-[100px] bg-[#A9B3C8] mt-2 aspect-square"></div>
+                                    <span>Повну відповідність вашим очікуванням.</span>
+                                </div>
+                            </div>
+                            <p class="mt-2">У максимально допустимих законом межах ми не несемо відповідальності за прямі або непрямі збитки.</p>
+                        </div>
+                    </section>
+
+                    <section id="section-10" class="scroll-mt-32">
+                        <h2 class="text-[20px] md:text-[24px] font-bold mb-5 text-[#090924]">10. Контакти</h2>
+                        <div class="flex flex-col gap-2 text-[16px] text-[#090924] opacity-80 leading-relaxed">
+                            <p>З питань щодо Умов звертайтесь:</p>
+                            <p>Email: <a href="mailto:support@statch.app" class="text-[#2054E1] hover:underline font-semibold">support@statch.app</a></p>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="component-footer">
+        {/* Reset to dark standard footer */}
+        <Footer hideCTA={true} />
+        {/* Mobile Floating Footer */}
+        <FloatingFooter client:load />
+    </div>
+    
+    <script>
+        // Check for layout=contentOnly
+        if (typeof window !== 'undefined') {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('layout') === 'contentOnly') {
+                document.documentElement.classList.add('layout-content-only');
+            }
+        }
+        // Scroll-based highlight to ensure bottom links get activated robustly
+        const sections = document.querySelectorAll<HTMLElement>('section[id]');
+        const navLinks = document.querySelectorAll<HTMLElement>('.terms-link');
+        let currentActiveId: string | null = null;
+
+        const updateActiveLink = () => {
+            if (sections.length === 0) return;
+            let sectionId: string | null = sections[0].getAttribute('id');
+            const scrollPos = window.scrollY + window.innerHeight * 0.3; // Check roughly top third of viewport
+
+            // Find the last section that we have scrolled past
+            sections.forEach(sec => {
+                const rect = sec.getBoundingClientRect();
+                const absoluteTop = rect.top + window.scrollY;
+                if (absoluteTop <= scrollPos) {
+                    sectionId = sec.getAttribute('id');
+                }
+            });
+
+            // Force last link if bottom of page is reached exactly
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+                sectionId = sections[sections.length - 1].getAttribute('id');
+            }
+
+            if (currentActiveId !== sectionId) {
+                currentActiveId = sectionId;
+                navLinks.forEach(link => {
+                    const num = link.querySelector('.terms-num');
+                    const label = link.querySelector('.terms-label');
+                    
+                    num?.classList.remove('text-[#090924]');
+                    num?.classList.add('text-[#A6A6BC]');
+                    label?.classList.remove('text-[#090924]');
+                    label?.classList.add('text-[#A6A6BC]');
+                    
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        num?.classList.remove('text-[#A6A6BC]');
+                        num?.classList.add('text-[#090924]');
+                        label?.classList.remove('text-[#A6A6BC]');
+                        label?.classList.add('text-[#090924]');
+                    }
+                });
+            }
+        };
+
+        window.addEventListener('scroll', updateActiveLink, { passive: true });
+        window.addEventListener('resize', updateActiveLink, { passive: true });
+        updateActiveLink(); // Run once on load
+    </script>
+
+    <style is:global>
+        html.layout-content-only .component-header,
+        html.layout-content-only .component-footer,
+        html.layout-content-only .component-back-btn {
+            display: none !important;
+        }
+        
+        html.layout-content-only .component-heading {
+            margin-top: 1rem !important;
+        }
+
+        html.layout-content-only main {
+            padding-top: 1rem !important;
+            margin-top: 0 !important;
+        }
+    </style>
+</Layout>

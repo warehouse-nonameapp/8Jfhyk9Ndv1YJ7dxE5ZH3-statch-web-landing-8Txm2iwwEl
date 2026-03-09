@@ -27,15 +27,15 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
 
     return (
         <div
-            className="bg-surface rounded-[16px] md:rounded-[24px] border border-border-light overflow-hidden cursor-pointer hover:border-primary transition-colors"
-            style={{ boxShadow: "0px 3px 0px 0px rgba(201, 209, 230, 0.2)" }}
+            className="bg-[#FFF] rounded-[24px] border border-[#E3EAF1] overflow-hidden cursor-pointer hover:border-primary transition-colors flex flex-col items-center self-stretch px-[32px] md:px-[40px] py-[32px] w-full"
+            style={{ boxShadow: "0 8px 16px 0 rgba(201, 209, 230, 0.20)" }}
             onClick={() => setIsOpen(!isOpen)}
         >
-            <div className="p-6 md:p-8 flex items-center justify-between gap-4">
+            <div className="w-full flex items-center justify-between gap-[16px]">
                 <h4 className="text-[16px] md:text-[24px] font-bold text-text-main flex-1">{question}</h4>
                 <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
-                    transition={{ duration: 0.2 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="shrink-0"
                 >
                     <svg width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 md:w-10 md:h-10 text-[#CCCCE7]">
@@ -44,18 +44,18 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
                 </motion.div>
             </div>
 
-            <AnimatePresence>
+            <AnimatePresence initial={false}>
                 {isOpen && (
                     <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        key="answer"
+                        initial={{ height: 0, opacity: 0, marginTop: 0 }}
+                        animate={{ height: "auto", opacity: 1, marginTop: 16 }}
+                        exit={{ height: 0, opacity: 0, marginTop: 0 }}
+                        transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+                        className="w-full overflow-hidden"
                     >
-                        <div className="px-6 pb-6 md:px-8 md:pb-8">
-                            <div className="bg-[#F8F8F8] rounded-[16px] p-4 md:p-6 text-text-main font-semibold text-sm md:text-base leading-relaxed md:w-[85%]">
-                                {answer}
-                            </div>
+                        <div className="bg-[#F8F8F8] rounded-[16px] p-4 md:p-6 text-text-main font-semibold text-sm md:text-base leading-relaxed w-full">
+                            {answer}
                         </div>
                     </motion.div>
                 )}

@@ -2,16 +2,22 @@
 import { Strings } from "../consts/strings";
 import { BetaSubscriptionButton } from "./islands/BetaSubscriptionButton";
 
+interface Props {
+    hideCTA?: boolean;
+}
+
 const currentYear = new Date().getFullYear();
+const { hideCTA = false } = Astro.props;
 ---
 
 <footer
-    class="bg-gradient-to-b from-[#0D0E10] to-[#161822] relative z-30 rounded-t-[24px] md:rounded-t-[40px] -mt-[24px] md:-mt-[40px] overflow-hidden border-t border-white/5"
+    class={`bg-gradient-to-b from-[#0D0E10] to-[#161822] relative z-30 overflow-hidden border-t border-white/5 ${!hideCTA ? 'rounded-t-[24px] md:rounded-t-[40px] -mt-[24px] md:-mt-[40px]' : ''}`}
 >
     <div class="relative z-10 flex flex-col w-full">
         {/* --- Merged CTA Section Container --- */}
         {/* Figma: py-[100px] for this section */}
-        <div class="relative w-full py-20 md:py-[100px]">
+        {!hideCTA && (
+            <div class="relative w-full py-20 md:py-[100px]">
             {
                 /* Background Image/Gradient - Positioned at bottom of CTA section */
             }
@@ -47,9 +53,7 @@ const currentYear = new Date().getFullYear();
                         {Strings.cta_description}
                     </p>
 
-                    <div
-                        class="w-full md:w-auto animate-pulse-glow origin-center"
-                    >
+                    <div class="w-full md:w-auto origin-center">
                         <BetaSubscriptionButton
                             client:visible
                             className="w-full md:w-auto"
@@ -58,9 +62,12 @@ const currentYear = new Date().getFullYear();
                 </div>
             </div>
         </div>
+        )}
 
         {/* Full Width Divider */}
-        <div class="w-full h-[1px] bg-white/10 relative z-20"></div>
+        {!hideCTA && (
+            <div class="w-full h-[1px] bg-white/10 relative z-20"></div>
+        )}
 
         {/* --- Footer Content --- */}
         {/* Figma: pt-[64px], pb-[80px] */}
@@ -73,22 +80,43 @@ const currentYear = new Date().getFullYear();
                     <div class="flex-1 flex flex-row items-center gap-4">
                         <img
                             src={import.meta.env.BASE_URL +
-                                "/assets/ic_statch_icon.svg"}
+                                "/assets/ic_statch_icon_footer.svg"}
                             alt="Statch Icon"
-                            class="w-10 h-10 opacity-70 grayscale"
+                            class="w-10 h-10"
                         />
                         <img
                             src={import.meta.env.BASE_URL +
-                                "/assets/ic_statch_name.svg"}
+                                "/assets/ic_statch_name_footer.svg"}
                             alt="Statch"
-                            class="h-[35px] opacity-70 grayscale"
+                            class="h-[35px]"
                         />
                     </div>
 
-                    {/* Socials & Contacts */}
+                    {/* Footer Blocks */}
                     <div
-                        class="flex flex-row justify-between md:justify-start gap-10 md:gap-24 w-full md:w-auto"
+                        class="flex flex-col md:flex-row justify-start gap-10 md:gap-24 w-full md:w-auto"
                     >
+                        {/* Site Column */}
+                        <div class="flex flex-col gap-4">
+                            <h3
+                                class="text-text-gray font-semibold text-sm md:text-base"
+                            >
+                                {Strings.footer_site_title}
+                            </h3>
+                            <div class="flex flex-col gap-4">
+                                <a
+                                    href={import.meta.env.BASE_URL + "/"}
+                                    class="text-[#E0E0E0] hover:text-[#3E6BE1] font-medium text-sm md:text-base transition-colors"
+                                    >{Strings.footer_app}</a
+                                >
+                                <a
+                                    href={import.meta.env.BASE_URL + "/terms"}
+                                    class="text-[#E0E0E0] hover:text-[#3E6BE1] font-medium text-sm md:text-base transition-colors"
+                                    >{Strings.footer_terms_use}</a
+                                >
+                            </div>
+                        </div>
+
                         {/* Socials Column */}
                         <div class="flex flex-col gap-4">
                             <h3

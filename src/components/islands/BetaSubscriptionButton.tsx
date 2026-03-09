@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import confetti from 'canvas-confetti';
 import { Strings } from '../../consts/strings';
 import { ApiService } from '../../services/api';
 import { ValidationUtils } from '../../utils/validation';
@@ -24,12 +25,21 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
         setLoading(true);
 
         const success = await ApiService.signupToBeta(email, selectedPlatform);
+        setLoading(false);
 
         if (success) {
             setStep('success');
+            // Fire confetti celebration
+            const end = Date.now() + 2000;
+            const colors = ['#1C4FD8', '#2054E1', '#5B8EFF', '#ffffff', '#A8C4FF'];
+            const frame = () => {
+                confetti({ particleCount: 3, angle: 60, spread: 55, origin: { x: 0, y: 0.75 }, colors, zIndex: 99999 });
+                confetti({ particleCount: 3, angle: 120, spread: 55, origin: { x: 1, y: 0.75 }, colors, zIndex: 99999 });
+                if (Date.now() < end) requestAnimationFrame(frame);
+            };
+            frame();
         }
-        // Logic for failure is to silently stop loading, matching KMP
-        setLoading(false);
+        // On failure: silently reset loading — user can retry
     };
 
     const reset = () => {
@@ -47,7 +57,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
         <>
             <button
                 onClick={() => setIsOpen(true)}
-                className={`bg-primary hover:bg-primary-variant hover:text-primary text-text-white font-semibold text-base py-4 px-8 rounded-2xl transition-all tracking-wide shadow-sm ${className}`}
+                className={`btn-gradient-border bg-[#1C4FD8] hover:bg-[#1946BF] active:bg-[#143899] text-white font-semibold text-base py-[20px] px-[40px] rounded-[16px] transition-all tracking-wide shadow-sm active:scale-[0.98] focus:outline-none flex items-center justify-center gap-4 inline-flex ${className}`}
             >
                 {Strings.join_beta}
             </button>
@@ -90,7 +100,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                         </div>
 
                                         <div className="space-y-6">
-                                            <div className="space-y-2">
+                                            <div className="flex flex-col gap-[8px]">
                                                 <label className="text-base font-bold text-text-main">{Strings.beta_email_label}</label>
                                                 <input
                                                     type="email"
@@ -104,7 +114,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                                 />
                                             </div>
 
-                                            <div className="space-y-2">
+                                            <div className="flex flex-col gap-[8px]">
                                                 <label className="text-base font-bold text-text-main">{Strings.beta_platform_label}</label>
                                                 <div className="flex p-1 bg-[#E9EBF2] rounded-[12px] items-center">
                                                     {[
@@ -144,7 +154,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                         <button
                                             onClick={handleSubmit}
                                             disabled={loading || !email}
-                                            className="w-full bg-primary text-text-white font-semibold text-base py-4 rounded-[16px] hover:bg-[#153eb8] disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-md active:scale-[0.98]"
+                                            className="btn-gradient-border w-full bg-[#1C4FD8] hover:bg-[#1946BF] active:bg-[#143899] text-white font-semibold text-base py-[20px] px-[40px] rounded-[16px] disabled:cursor-not-allowed transition-all shadow-md active:scale-[0.98] flex items-center justify-center gap-[16px] inline-flex"
                                         >
                                             {loading ? (
                                                 <span className="flex items-center justify-center gap-2">
@@ -158,6 +168,18 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                                 Strings.beta_send
                                             )}
                                         </button>
+
+                                        <p className="text-xs text-text-secondary-variant leading-relaxed text-center">
+                                            Натискаючи «Надіслати», ви погоджуєтесь з нашими{' '}
+                                            <a href={import.meta.env.BASE_URL + '/terms'} className="underline hover:text-text-main transition-colors" target="_blank">
+                                                Умовами використання
+                                            </a>
+                                            {' '}та{' '}
+                                            <a href={import.meta.env.BASE_URL + '/privacy'} className="underline hover:text-text-main transition-colors" target="_blank">
+                                                Політикою конфіденційності
+                                            </a>
+                                            .
+                                        </p>
                                     </div>
                                 ) : (
                                     <div className="flex flex-col items-center text-center py-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
@@ -173,7 +195,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                         </p>
                                         <button
                                             onClick={reset}
-                                            className="w-full bg-primary text-text-white font-semibold text-base py-4 rounded-[16px] hover:bg-[#153eb8] transition-all shadow-md active:scale-[0.98]"
+                                            className="btn-gradient-border w-full bg-[#1C4FD8] hover:bg-[#1946BF] active:bg-[#143899] text-white font-semibold text-base py-[20px] px-[40px] rounded-[16px] transition-all shadow-md active:scale-[0.98] flex items-center justify-center gap-[16px] inline-flex"
                                         >
                                             {Strings.beta_understand}
                                         </button>

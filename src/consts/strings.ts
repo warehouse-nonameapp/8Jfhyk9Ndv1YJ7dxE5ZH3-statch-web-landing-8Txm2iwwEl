@@ -20,20 +20,23 @@ export const Strings = {
 
     footer_policy: "Політика конфіденційності",
     footer_terms: "Умови користування",
+    footer_terms_use: "Умови використання",
+    footer_site_title: "Сайт",
+    footer_app: "Застосунок",
     footer_contact: "Написати нам", // Keeping for compatibility if used elsewhere, but KMP has "Footer Contacts" title
 
     footer_socials_title: "Соціалки",
     footer_contacts_title: "Контакти",
-    footer_copyright: "©️ {year} Statch. Всі права збережено",
-    footer_message: "З гордістю зроблено в Україні 💙💛",
+    footer_copyright: "© {year} Statch. Усі права захищені.",
+    footer_message: "З гордістю створено в Україні 💙💛",
 
     beta_modal_title: "Запис на бета-тест Statch ✍️",
     beta_modal_description: "Ніякого спаму, реклами і всього такого. Ми надійшлемо вам всього один лист з інструкцією, коли почнеться бета-тестування.",
     beta_email_label: "Email",
     beta_email_placeholder: "Email",
     beta_platform_label: "Платформа",
-    beta_send: "Відправити",
-    beta_sending: "Відправка...",
+    beta_send: "Надіслати",
+    beta_sending: "Надсилання...",
 
     beta_success_title: "Готово!",
     beta_success_description: "Ви успішно записалися на бета-тест Statch.\nНезабаром ми надішлемо подробиці на вказану пошту.",

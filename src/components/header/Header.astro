@@ -1,11 +1,17 @@
 ---
 import AppLogo from "./AppLogo.astro";
 import PlatformChipsRow from "./PlatformChipsRow.astro";
+
+interface Props {
+    darkText?: boolean;
+}
+
+const { darkText = false } = Astro.props;
 ---
 
 <div
-    class="w-full flex justify-between items-center absolute top-0 left-0 px-5 md:px-10 pt-5 md:pt-[40px] z-20"
+    class="w-full flex justify-between items-center"
 >
-    <AppLogo />
-    <PlatformChipsRow />
+    <AppLogo darkText={darkText} />
+    <PlatformChipsRow darkText={darkText} />
 </div>

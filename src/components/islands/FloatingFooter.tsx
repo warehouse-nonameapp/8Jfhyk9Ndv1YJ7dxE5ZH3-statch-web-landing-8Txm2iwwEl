@@ -34,7 +34,7 @@ export const FloatingFooter = () => {
                     className="fixed bottom-0 left-0 right-0 z-40 p-4 bg-white/80 backdrop-blur-md border-t border-border-light md:hidden flex justify-center pb-8"
                 >
                     {/* Simplified Button for floating footer */}
-                    <div className="animate-pulse-glow origin-center">
+                    <div>
                         <BetaSubscriptionButton />
                     </div>
                 </motion.div>
