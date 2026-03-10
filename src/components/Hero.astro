@@ -18,30 +18,31 @@ const flexibleOrdersPoints = [
 ---
 
 <section class="bg-gradient-light w-full overflow-hidden relative">
-    <div class="relative w-full max-w-[1200px] mx-auto px-5 md:px-[40px] pt-5 md:pt-[40px] z-50">
+    <div class="relative w-full max-w-[1200px] mx-auto px-6 md:px-[40px] pt-[40px] z-50">
         <Header />
     </div>
 
     <div
-        class="max-w-[1200px] mx-auto px-5 md:px-10 pt-20 md:pt-32 pb-16 md:pb-32 flex flex-col items-center"
+        class="max-w-[1200px] mx-auto px-6 md:px-[40px] pt-[64px] pb-[80px] md:pb-[120px] flex flex-col items-center"
     >
         {/* Header Text */}
         <div
-            class="text-center max-w-3xl mx-auto mb-12 flex flex-col gap-6 items-center pt-8"
+            class="text-center w-full mx-auto flex flex-col items-center"
         >
-            <div class="mt-8"></div>
             <h1
-                class="text-[32px] leading-[38px] md:text-[48px] md:leading-[64px] font-extrabold text-text-main animate-on-scroll"
+                class="w-full text-[32px] leading-[38px] md:text-[48px] md:leading-[64px] font-extrabold text-text-main animate-on-scroll tracking-[1px] font-['Mulish']"
+                style="font-variant-numeric: lining-nums tabular-nums;"
             >
                 {Strings.header_title}
             </h1>
             <p
-                class="text-[14px] leading-[21px] md:text-[16px] md:leading-[24px] text-text-main font-semibold md:px-0 max-w-[770px] text-center mt-4 animate-on-scroll delay-100"
+                class="text-[14px] leading-[21px] md:text-[16px] md:leading-[24px] text-text-main font-semibold w-full max-w-[770px] text-center mt-[16px] animate-on-scroll delay-100 font-['Mulish']"
+                style="font-variant-numeric: lining-nums tabular-nums;"
             >
                 {Strings.header_description}
             </p>
 
-            <div class="mt-4 animate-on-scroll delay-200">
+            <div class="mt-[48px] animate-on-scroll delay-200">
                 <div class="origin-center">
                     <BetaSubscriptionButton client:load />
                 </div>
@@ -50,7 +51,7 @@ const flexibleOrdersPoints = [
 
         {/* Hero Image */}
         <div
-            class="w-full max-w-[1000px] mb-20 md:mb-40 animate-on-scroll delay-300"
+            class="w-full max-w-[1000px] mt-[80px] mb-[180px] animate-on-scroll delay-300"
         >
             <picture>
                 <source
@@ -62,14 +63,14 @@ const flexibleOrdersPoints = [
                     src={import.meta.env.BASE_URL +
                         "/assets/ic_app_features.webp"}
                     alt="App Features"
-                    class="w-full h-auto animate-float"
+                    class="w-full h-auto"
                 />
             </picture>
         </div>
 
         {/* Feature Cards */}
         <div
-            class="w-full space-y-10 md:space-y-20 animate-on-scroll delay-400"
+            class="w-full space-y-[80px] animate-on-scroll delay-400"
         >
             <FeatureInfoCard
                 title={Strings.less_chaos_title}
@@ -83,7 +84,7 @@ const flexibleOrdersPoints = [
                 title={Strings.fast_flexible_title}
                 description={Strings.fast_flexible_description}
                 image={import.meta.env.BASE_URL +
-                    "/assets/ic_flexible_orders.webp"}
+                    "/assets/ic_flexible_orders.svg"}
                 points={flexibleOrdersPoints}
                 orientation="right"
             />

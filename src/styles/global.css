@@ -38,6 +38,14 @@
         font-family: var(--font-sans);
         color: var(--color-text-main);
     }
+
+    button, 
+    [role="button"], 
+    input[type="button"], 
+    input[type="submit"],
+    select {
+        cursor: pointer;
+    }
 }
 
 /* Custom Utilities for Gradients */

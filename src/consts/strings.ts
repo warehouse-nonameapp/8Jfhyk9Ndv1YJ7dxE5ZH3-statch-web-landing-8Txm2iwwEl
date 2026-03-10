@@ -40,7 +40,7 @@ export const Strings = {
     beta_sending: "Надсилання...",
 
     beta_success_title: "Готово!",
-    beta_success_description: "Ви успішно записалися на бета-тест Statch.\nНезабаром ми надішлемо подробиці на вказану пошту.",
+    beta_success_description: "Ви успішно записалися на бета-тест Statch. Незабаром ми надішлемо подробиці на вказану пошту.",
     beta_success_subtext: "Дякуємо за інтерес і до зустрічі в інноваційному світі управління товарними залишками!",
     beta_understand: "Зрозуміло",
 };

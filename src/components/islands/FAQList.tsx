@@ -14,7 +14,7 @@ interface FAQListProps {
 
 export const FAQList = ({ data }: FAQListProps) => {
     return (
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-2">
             {data.map((item, index) => (
                 <FAQItem key={index} question={item.question} answer={item.answer} />
             ))}
@@ -27,12 +27,12 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
 
     return (
         <div
-            className="bg-[#FFF] rounded-[24px] border border-[#E3EAF1] overflow-hidden cursor-pointer hover:border-primary transition-colors flex flex-col items-center self-stretch px-[32px] md:px-[40px] py-[32px] w-full"
+            className="bg-[#FFF] rounded-[24px] border border-[#E3EAF1] overflow-hidden cursor-pointer hover:border-primary transition-colors flex flex-col items-start self-stretch px-[32px] md:px-[40px] py-[32px] w-full"
             style={{ boxShadow: "0 8px 16px 0 rgba(201, 209, 230, 0.20)" }}
             onClick={() => setIsOpen(!isOpen)}
         >
             <div className="w-full flex items-center justify-between gap-[16px]">
-                <h4 className="text-[16px] md:text-[24px] font-bold text-text-main flex-1">{question}</h4>
+                <h4 className="text-[16px] md:text-[24px] font-bold text-text-main flex-1 tabular-nums lining-nums leading-[130%]">{question}</h4>
                 <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -54,7 +54,7 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
                         transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
                         className="w-full overflow-hidden"
                     >
-                        <div className="bg-[#F8F8F8] rounded-[16px] p-4 md:p-6 text-text-main font-semibold text-sm md:text-base leading-relaxed w-full">
+                        <div className="bg-[#F8F8F8] rounded-[16px] flex px-[24px] py-[16px] items-center text-text-main font-semibold text-sm md:text-base leading-relaxed w-[calc(100%-112px)] md:w-[calc(100%-120px)]">
                             {answer}
                         </div>
                     </motion.div>
