@@ -20,7 +20,7 @@ const { title, description, image, points, orientation = "left" } = Astro.props;
             orientation === "right" ? "md:order-last" : "md:order-first",
         ]}
     >
-        <img src={image} alt={title} class="w-full h-auto" style="filter: drop-shadow(0 24px 50px rgba(82, 112, 250, 0.20));" />
+        <img src={image} alt={title} class="w-full h-auto relative z-10" style="filter: drop-shadow(0 24px 50px rgba(82, 112, 250, 0.20)); transform: translateZ(0); will-change: filter;" />
     </div>
 
     {/* Text Content */}
@@ -46,8 +46,8 @@ const { title, description, image, points, orientation = "left" } = Astro.props;
             <img
                 src={image}
                 alt={title}
-                class="w-auto max-w-full max-h-[500px] object-contain"
-                style="filter: drop-shadow(0 24px 30px rgba(82, 112, 250, 0.20));"
+                class="w-auto max-w-full max-h-[500px] object-contain relative z-10"
+                style="filter: drop-shadow(0 24px 30px rgba(82, 112, 250, 0.20)); transform: translateZ(0); will-change: filter;"
             />
         </div>
 

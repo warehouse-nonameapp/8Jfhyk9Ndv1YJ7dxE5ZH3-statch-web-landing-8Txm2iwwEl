@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/header/Header.astro";
 import Footer from "../components/Footer.astro";
-import { FloatingFooter } from "../components/islands/FloatingFooter";
+
 ---
 
 <Layout title="Політика конфіденційності - Statch">
@@ -200,8 +200,7 @@ import { FloatingFooter } from "../components/islands/FloatingFooter";
     <div class="component-footer">
         {/* Reset to dark standard footer */}
         <Footer hideCTA={true} />
-        {/* Mobile Floating Footer */}
-        <FloatingFooter client:load />
+
     </div>
     
     <script>
