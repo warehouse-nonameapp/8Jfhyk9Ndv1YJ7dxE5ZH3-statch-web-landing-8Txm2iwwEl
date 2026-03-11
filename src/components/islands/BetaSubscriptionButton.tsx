@@ -138,13 +138,14 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                                     <label className="text-base font-bold text-text-main">{Strings.beta_email_label}</label>
                                                     <input
                                                         type="email"
-                                                        placeholder={Strings.beta_email_placeholder}
+                                                        placeholder="example@gmail.com"
                                                         value={email}
                                                         onChange={(e) => setEmail(e.target.value)}
-                                                        className={`w-full px-4 py-4 bg-secondary rounded-[16px] text-text-main placeholder:text-text-light focus:outline-none focus:ring-2 focus:ring-primary transition-all ${email && !ValidationUtils.isValidEmail(email)
-                                                            ? 'ring-2 ring-error/50 focus:ring-error'
-                                                            : ''
-                                                            }`}
+                                                        className={`w-full p-4 flex items-center gap-2 self-stretch rounded-lg bg-white border outline-none transition-all ${
+                                                            email && !ValidationUtils.isValidEmail(email)
+                                                                ? 'border-[#FF4C4C]'
+                                                                : 'border-[#D2D6E3] focus:border-[#1C4FD8]'
+                                                        } text-text-main placeholder:text-[#A6A6BC]`}
                                                     />
                                                 </div>
 
@@ -152,9 +153,9 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                                     <label className="text-base font-bold text-text-main">{Strings.beta_platform_label}</label>
                                                     <div className="flex p-1 bg-[#E9EBF2] rounded-[12px] items-center">
                                                         {[
-                                                            { id: 'Android', label: 'Android', icon: import.meta.env.BASE_URL + '/assets/ic_android.svg', iconClass: 'w-5 h-5' },
-                                                            { id: 'iOS', label: 'iOS', icon: import.meta.env.BASE_URL + '/assets/ic_apple.svg', iconClass: 'w-4 h-auto' },
-                                                            { id: 'Both', label: 'Обидві' }
+                                                            { id: 'Android', label: 'Android', emoji: '🤖' },
+                                                            { id: 'iOS', label: 'iOS', emoji: '🍏' },
+                                                            { id: 'Both', label: 'Обидві', emoji: '🤝' }
                                                         ].map((platformOption, index, arr) => {
                                                             const isSelected = selectedPlatform === platformOption.id;
                                                             const isNextSelected = index < arr.length - 1 && selectedPlatform === arr[index + 1].id;
@@ -169,9 +170,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                                                             }`}
                                                                     >
                                                                         <div className="flex items-center justify-center gap-2">
-                                                                            {platformOption.icon && (
-                                                                                <img src={platformOption.icon} alt={platformOption.label} className={platformOption.iconClass} />
-                                                                            )}
+                                                                            <span>{platformOption.emoji}</span>
                                                                             <span>{platformOption.label}</span>
                                                                         </div>
                                                                     </button>
