@@ -16,6 +16,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
     const [selectedPlatform, setSelectedPlatform] = useState<string>('Both');
     const [step, setStep] = useState<'input' | 'success'>('input');
     const [loading, setLoading] = useState(false);
+    const [touched, setTouched] = useState(false);
     
     useEffect(() => {
         if (isOpen) {
@@ -81,6 +82,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
         setTimeout(() => {
             setStep('input');
             setEmail('');
+            setTouched(false);
             setSelectedPlatform('Both');
             setLoading(false);
         }, 500);
@@ -141,9 +143,10 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                                         placeholder="example@gmail.com"
                                                         value={email}
                                                         onChange={(e) => setEmail(e.target.value)}
+                                                        onBlur={() => setTouched(true)}
                                                         className={`w-full p-4 flex items-center gap-2 self-stretch rounded-lg bg-white border outline-none transition-all ${
-                                                            email && !ValidationUtils.isValidEmail(email)
-                                                                ? 'border-[#FF4C4C]'
+                                                            touched && email && !ValidationUtils.isValidEmail(email)
+                                                                ? 'border-[#FF4C4C] focus:border-[#FF4C4C]'
                                                                 : 'border-[#D2D6E3] focus:border-[#1C4FD8]'
                                                         } text-text-main placeholder:text-[#A6A6BC]`}
                                                     />
@@ -186,7 +189,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
 
                                             <button
                                                 onClick={handleSubmit}
-                                                disabled={loading || !email}
+                                                disabled={loading || !ValidationUtils.isValidEmail(email)}
                                                 className="btn-gradient-border w-full bg-[#1C4FD8] hover:bg-[#1946BF] active:bg-[#143899] text-white font-semibold text-base py-[20px] px-[40px] rounded-[16px] disabled:cursor-not-allowed transition-all shadow-md active:scale-[0.98] flex items-center justify-center gap-[16px] inline-flex"
                                             >
                                                 {loading ? (
