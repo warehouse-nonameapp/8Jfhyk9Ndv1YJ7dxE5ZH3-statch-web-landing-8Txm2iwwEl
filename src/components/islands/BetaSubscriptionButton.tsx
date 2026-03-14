@@ -17,6 +17,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
     const [step, setStep] = useState<'input' | 'success'>('input');
     const [loading, setLoading] = useState(false);
     const [touched, setTouched] = useState(false);
+    const [error, setError] = useState(false);
     
     useEffect(() => {
         if (isOpen) {
@@ -36,6 +37,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
         }
 
         setLoading(true);
+        setError(false);
 
         const success = await ApiService.signupToBeta(email, selectedPlatform);
 
@@ -72,8 +74,9 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                 }
             };
             frame();
+        } else {
+            setError(true);
         }
-        // Logic for failure is to silently stop loading, matching KMP
         setLoading(false);
     };
 
@@ -85,6 +88,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
             setTouched(false);
             setSelectedPlatform('Both');
             setLoading(false);
+            setError(false);
         }, 500);
     };
 
@@ -204,6 +208,12 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                                     Strings.beta_send
                                                 )}
                                             </button>
+
+                                            {error && (
+                                                <p className="text-sm text-[#FF4C4C] font-medium text-center animate-in fade-in duration-300">
+                                                    {Strings.beta_error}
+                                                </p>
+                                            )}
 
                                             <p className="text-xs text-text-secondary-variant leading-relaxed text-center">
                                                 Натискаючи «Надіслати», ви погоджуєтесь з нашими{' '}

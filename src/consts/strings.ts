@@ -38,6 +38,7 @@ export const Strings = {
     beta_platform_label: "Платформа",
     beta_send: "Надіслати",
     beta_sending: "Надсилання...",
+    beta_error: "Щось пішло не так. Спробуйте ще раз.",
 
     beta_success_title: "Готово!",
     beta_success_description: "Ви успішно записалися на бета-тест Statch. Незабаром ми надішлемо подробиці на вказану пошту.",
