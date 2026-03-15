@@ -1,0 +1,195 @@
+---
+---
+
+<!-- Cookie Consent Banner -->
+<div id="cookie-consent-banner" class="cookie-banner" role="dialog" aria-label="Cookie consent" style="display: none;">
+    <div class="cookie-inner">
+        <div class="cookie-content">
+            <div class="cookie-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="7" cy="7" r="1.25" fill="currentColor"/>
+                    <circle cx="12" cy="6" r="1" fill="currentColor"/>
+                    <circle cx="6" cy="12" r="1" fill="currentColor"/>
+                    <circle cx="13" cy="11" r="1.25" fill="currentColor"/>
+                    <circle cx="10" cy="14" r="1" fill="currentColor"/>
+                </svg>
+            </div>
+            <p class="cookie-text">
+                We use cookies and <a href="/privacy#section-3" class="cookie-link">analytics</a> to improve your experience. You can accept or decline non-essential cookies.
+            </p>
+        </div>
+        <div class="cookie-actions">
+            <button id="cookie-decline" class="cookie-btn cookie-btn-decline">Decline</button>
+            <button id="cookie-accept" class="cookie-btn cookie-btn-accept">Accept</button>
+        </div>
+    </div>
+</div>
+
+<script is:inline>
+(function() {
+    var CONSENT_KEY = 'statch_cookie_consent';
+    var banner = document.getElementById('cookie-consent-banner');
+    var stored = localStorage.getItem(CONSENT_KEY);
+
+    function loadClarity() {
+        if (window.__clarityLoaded) return;
+        window.__clarityLoaded = true;
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "vvc0hpfrtv");
+    }
+
+    if (stored === 'accepted') {
+        loadClarity();
+    } else if (stored === 'declined') {
+        // Do nothing — user declined
+    } else {
+        // No choice yet — show banner
+        if (banner) {
+            banner.style.display = '';
+            // Small delay for entrance animation
+            requestAnimationFrame(function() {
+                requestAnimationFrame(function() {
+                    banner.classList.add('cookie-banner-visible');
+                });
+            });
+        }
+    }
+
+    document.getElementById('cookie-accept')?.addEventListener('click', function() {
+        localStorage.setItem(CONSENT_KEY, 'accepted');
+        banner.classList.remove('cookie-banner-visible');
+        setTimeout(function() { banner.style.display = 'none'; }, 400);
+        loadClarity();
+    });
+
+    document.getElementById('cookie-decline')?.addEventListener('click', function() {
+        localStorage.setItem(CONSENT_KEY, 'declined');
+        banner.classList.remove('cookie-banner-visible');
+        setTimeout(function() { banner.style.display = 'none'; }, 400);
+    });
+})();
+</script>
+
+<style>
+    .cookie-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        padding: 0 16px 16px;
+        pointer-events: none;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    .cookie-banner-visible {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .cookie-inner {
+        max-width: 520px;
+        margin: 0 auto;
+        background: rgba(9, 9, 36, 0.92);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 16px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        box-shadow:
+            0 4px 24px rgba(0, 0, 0, 0.25),
+            0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+    }
+
+    .cookie-content {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .cookie-icon {
+        color: rgba(255, 255, 255, 0.5);
+        flex-shrink: 0;
+        margin-top: 1px;
+    }
+
+    .cookie-text {
+        font-size: 13px;
+        line-height: 1.55;
+        color: rgba(255, 255, 255, 0.72);
+        margin: 0;
+        font-family: 'Mulish', sans-serif;
+    }
+
+    .cookie-link {
+        color: rgba(255, 255, 255, 0.92);
+        text-decoration: underline;
+        text-decoration-color: rgba(255, 255, 255, 0.3);
+        text-underline-offset: 2px;
+        transition: text-decoration-color 0.2s ease;
+    }
+
+    .cookie-link:hover {
+        text-decoration-color: rgba(255, 255, 255, 0.7);
+    }
+
+    .cookie-actions {
+        display: flex;
+        gap: 8px;
+        justify-content: flex-end;
+    }
+
+    .cookie-btn {
+        font-family: 'Mulish', sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        padding: 8px 20px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        letter-spacing: 0.01em;
+    }
+
+    .cookie-btn-decline {
+        background: rgba(255, 255, 255, 0.08);
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    .cookie-btn-decline:hover {
+        background: rgba(255, 255, 255, 0.14);
+        color: rgba(255, 255, 255, 0.85);
+    }
+
+    .cookie-btn-accept {
+        background: #1C4FD8;
+        color: #FFFFFF;
+        box-shadow: 0 2px 8px rgba(28, 79, 216, 0.35);
+    }
+
+    .cookie-btn-accept:hover {
+        background: #2358E3;
+        box-shadow: 0 2px 12px rgba(28, 79, 216, 0.5);
+    }
+
+    .cookie-btn-accept:active {
+        background: #1946BF;
+    }
+
+    /* Mobile floating footer offset */
+    @media (max-width: 767px) {
+        .cookie-banner {
+            padding-bottom: 90px;
+        }
+    }
+</style>
