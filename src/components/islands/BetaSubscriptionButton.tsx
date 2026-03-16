@@ -217,11 +217,11 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
 
                                             <p className="text-xs text-text-secondary-variant leading-relaxed text-center">
                                                 Натискаючи «Надіслати», ви погоджуєтесь з нашими{' '}
-                                                <a href={import.meta.env.BASE_URL + 'terms'} className="underline hover:text-text-main transition-colors" target="_blank">
+                                                <a href="/beta-test/terms" className="underline hover:text-text-main transition-colors">
                                                     Умовами використання
                                                 </a>
                                                 {' '}та{' '}
-                                                <a href={import.meta.env.BASE_URL + 'privacy'} className="underline hover:text-text-main transition-colors" target="_blank">
+                                                <a href="/beta-test/privacy" className="underline hover:text-text-main transition-colors">
                                                     Політикою конфіденційності
                                                 </a>
                                                 .
