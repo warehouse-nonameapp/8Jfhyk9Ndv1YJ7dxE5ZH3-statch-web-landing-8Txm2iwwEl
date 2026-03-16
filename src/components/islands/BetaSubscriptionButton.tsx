@@ -217,11 +217,11 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
 
                                             <p className="text-xs text-text-secondary-variant leading-relaxed text-center">
                                                 Натискаючи «Надіслати», ви погоджуєтесь з нашими{' '}
-                                                <a href={import.meta.env.BASE_URL + '/terms'} className="underline hover:text-text-main transition-colors" target="_blank">
+                                                <a href={import.meta.env.BASE_URL + 'terms'} className="underline hover:text-text-main transition-colors" target="_blank">
                                                     Умовами використання
                                                 </a>
                                                 {' '}та{' '}
-                                                <a href={import.meta.env.BASE_URL + '/privacy'} className="underline hover:text-text-main transition-colors" target="_blank">
+                                                <a href={import.meta.env.BASE_URL + 'privacy'} className="underline hover:text-text-main transition-colors" target="_blank">
                                                     Політикою конфіденційності
                                                 </a>
                                                 .
@@ -230,7 +230,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                     ) : (
                                         <div className="flex flex-col items-center text-center p-[40px] animate-in fade-in slide-in-from-bottom-4 duration-500">
                                             <div className="w-[144px] h-[144px] shrink-0 mb-[24px]" style={{ filter: 'drop-shadow(0 0 40px rgba(99, 214, 126, 0.40))' }}>
-                                                <img src={import.meta.env.BASE_URL + "/assets/ic_success.svg"} alt="Success" className="w-[144px] h-[144px]" />
+                                                <img src={import.meta.env.BASE_URL + "assets/ic_success.svg"} alt="Success" className="w-[144px] h-[144px]" />
                                             </div>
                                             <h3 className="text-[24px] font-bold text-text-main mb-[12px] leading-[130%] tabular-nums lining-nums">
                                                 {Strings.beta_success_title}
