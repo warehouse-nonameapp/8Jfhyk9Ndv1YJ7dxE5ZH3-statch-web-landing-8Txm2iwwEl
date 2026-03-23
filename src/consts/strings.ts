@@ -2,7 +2,7 @@ export const Strings = {
     header_title: "Простий облік товарів для малого бізнесу 🙌",
     header_description: "Додавайте товари, ведіть залишки, записуйте продажі — Statch сам порахує прибуток.",
 
-    features_section_title: "Все, щоб навести порядок в товарах і продажах",
+    features_section_title: "Все, що потрібно, щоб навести порядок у товарах і продажах",
     features_section_subtitle: "Ви займаєтесь бізнесом — Statch веде облік.",
 
     cta_title: "Приєднуйся до Statch раніше за всіх! 🚀",
