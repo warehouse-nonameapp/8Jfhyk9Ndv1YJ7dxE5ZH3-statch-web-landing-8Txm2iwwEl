@@ -11,7 +11,7 @@ const { hideCTA = false } = Astro.props;
 ---
 
 <footer
-    class={`bg-gradient-to-b from-[#0D0E10] to-[#161822] relative z-30 overflow-hidden border-t border-white/5 ${!hideCTA ? 'rounded-t-[24px] md:rounded-t-[40px] -mt-[24px] md:-mt-[40px]' : ''}`}
+    class={`bg-gradient-to-b from-[#14161A] to-[#0D0E10] relative z-30 overflow-hidden border-t-2 border-[#2B2F36] ${!hideCTA ? 'rounded-t-[24px] md:rounded-t-[40px] -mt-[24px] md:-mt-[40px]' : ''}`}
 >
     <div class="relative z-10 flex flex-col w-full">
         {/* --- Merged CTA Section Container --- */}
@@ -36,7 +36,7 @@ const { hideCTA = false } = Astro.props;
 
             {/* CTA Content */}
             <div
-                class="relative z-10 max-w-[1200px] mx-auto px-6 md:px-10 w-full"
+                class="relative z-10 max-w-[1440px] mx-auto px-6 md:px-[200px] w-full"
             >
                 <div
                     class="flex flex-col items-start md:items-center text-left md:text-center text-white"
@@ -72,7 +72,7 @@ const { hideCTA = false } = Astro.props;
         {/* --- Footer Content --- */}
         {/* Figma: pt-[64px], pb-[80px] */}
         <div
-            class="max-w-[1200px] mx-auto px-6 md:px-10 w-full pt-10 md:pt-[64px] pb-[72px] md:pb-[80px]"
+            class="max-w-[1440px] mx-auto px-6 md:px-[200px] w-full pt-10 md:pt-[64px] pb-[72px] md:pb-[80px]"
         >
             <div
                 class="flex flex-col md:flex-row items-stretch justify-between gap-10 md:gap-24 animate-on-scroll delay-200"

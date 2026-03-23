@@ -4,33 +4,34 @@ import { Strings } from "../consts/strings";
 ---
 
 <section
-    class="bg-gradient-to-b from-[#0D0E10] to-[#161822] overflow-hidden relative rounded-t-[24px] md:rounded-t-[40px] z-30 -mt-[24px] md:-mt-[40px]"
+    class="relative z-30 -mt-[24px] md:-mt-[40px] overflow-hidden"
+    style="border-radius: 40px 40px 0 0; background: linear-gradient(180deg, #0D0E10 0%, #14161A 97.932%);"
 >
-    {/* Background Image/Gradient Replacement */}
-    <div
-        class="absolute inset-x-0 bottom-0 z-0 h-full flex items-end justify-center pointer-events-none"
-    >
-        <picture class="w-full flex items-end justify-center">
-            <img
-                src="/assets/ic_footer_radial_background.webp"
-                alt=""
-                class="w-full h-auto object-bottom object-cover md:object-contain opacity-60"
-            />
-        </picture>
+    {/* Dot-grid decorations (left and right) */}
+    <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+        {/* Left grid */}
+        <div class="absolute left-0 top-0 bottom-0 w-[200px] md:w-[280px] opacity-[0.07]"
+            style="background-image: radial-gradient(circle, #1C4FD8 1px, transparent 1px); background-size: 40px 40px;"
+        />
+        {/* Right grid */}
+        <div class="absolute right-0 top-0 bottom-0 w-[200px] md:w-[280px] opacity-[0.07]"
+            style="background-image: radial-gradient(circle, #1C4FD8 1px, transparent 1px); background-size: 40px 40px;"
+        />
     </div>
 
     {/* Content */}
     <div
-        class="relative z-10 max-w-[1200px] mx-auto px-6 md:px-10 pt-8 md:pt-[100px] pb-8 md:pb-32 flex flex-col items-center text-center text-white"
+        class="relative z-10 max-w-[1440px] mx-auto px-6 md:px-[200px] py-[80px] md:py-[100px] flex flex-col items-center text-center"
     >
         <h2
-            class="self-stretch text-[#E0E0E0] text-center text-3xl md:text-[48px] font-extrabold leading-[130%] tracking-[1px] font-sans tabular-nums lining-nums mb-6 animate-on-scroll"
+            class="text-white text-[28px] leading-[36px] md:text-[48px] md:leading-[64px] font-extrabold tracking-[0.5px] font-sans tabular-nums lining-nums mb-[16px] animate-on-scroll max-w-[800px]"
         >
             {Strings.cta_title}
         </h2>
 
         <p
-            class="self-stretch text-[#E0E0E0] text-sm md:text-base font-semibold leading-[150%] tabular-nums lining-nums opacity-80 max-w-2xl mb-12 animate-on-scroll delay-100"
+            class="text-white text-[14px] leading-[21px] md:text-[16px] md:leading-[24px] font-semibold opacity-80 max-w-[770px] mb-[48px] animate-on-scroll delay-100"
+            style="font-variant-numeric: lining-nums tabular-nums;"
         >
             {Strings.cta_description}
         </p>
@@ -38,7 +39,7 @@ import { Strings } from "../consts/strings";
         <div class="w-full flex justify-center animate-on-scroll delay-200">
             <BetaSubscriptionButton
                 client:visible
-                className="w-full max-w-[256px] h-[56px] !py-0 md:w-auto md:h-auto md:!py-[20px] md:max-w-none"
+                className="w-full max-w-[280px] h-[56px] !py-0 md:w-auto md:h-auto md:!py-[20px] md:max-w-none"
             />
         </div>
     </div>

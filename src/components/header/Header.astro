@@ -9,9 +9,49 @@ interface Props {
 const { darkText = false } = Astro.props;
 ---
 
-<div
-    class="w-full flex justify-between items-center"
->
-    <AppLogo darkText={darkText} />
+<div class="w-full flex items-center">
+    {/* Left: Logo */}
+    <div class="flex-1">
+        <AppLogo darkText={darkText} />
+    </div>
+
+    {/* Center: Platform chips */}
     <PlatformChipsRow darkText={darkText} />
+
+    {/* Right: Language switcher */}
+    <div
+        class="flex-1 flex items-center justify-end gap-[16px]"
+        id="lang-switcher"
+        style="font-variant-numeric: lining-nums tabular-nums;"
+    >
+        <button
+            class="font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#090924] lang-btn"
+            data-lang="uk"
+            aria-pressed="true"
+        >
+            Укр
+        </button>
+        <button
+            class="font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#B2BACF] lang-btn"
+            data-lang="en"
+            aria-pressed="false"
+        >
+            Eng
+        </button>
+    </div>
 </div>
+
+<script>
+    const switcher = document.getElementById("lang-switcher");
+    if (switcher) {
+        switcher.addEventListener("click", (e) => {
+            const btn = (e.target as HTMLElement).closest(".lang-btn") as HTMLButtonElement | null;
+            if (!btn) return;
+            switcher.querySelectorAll<HTMLButtonElement>(".lang-btn").forEach((b) => {
+                const selected = b === btn;
+                b.style.color = selected ? "#090924" : "#B2BACF";
+                b.setAttribute("aria-pressed", String(selected));
+            });
+        });
+    }
+</script>

@@ -7,15 +7,15 @@ const faqData = faqEntry?.data || [];
 ---
 
 <section
-  class="pt-8 md:pt-[80px] pb-[80px] relative z-20 -mt-[24px] md:-mt-[40px]"
-  style="border-radius: 40px 40px 0 0; background: radial-gradient(69.02% 43.4% at 16.67% 16.51%, #EBF0FF 0%, #FFF 100%);"
+    class="bg-white relative z-20 -mt-[24px] md:-mt-[40px]"
+    style="border-radius: 40px 40px 0 0; padding-top: 80px; padding-bottom: 80px;"
 >
-  <div class="max-w-[1200px] mx-auto px-6 md:px-10">
-    <h2
-      class="self-stretch text-[#090924] text-[32px] font-extrabold leading-[130%] tracking-[1px] font-sans tabular-nums lining-nums mb-10 animate-on-scroll"
-    >
-      Часто питають, тож відповідаємо 🤓
-    </h2>
-    <FAQList client:visible data={faqData} />
-  </div>
+    <div class="max-w-[1440px] mx-auto px-6 md:px-[200px]">
+        <h2
+            class="text-[#090924] text-[24px] md:text-[32px] font-extrabold leading-[130%] font-sans tabular-nums lining-nums mb-[32px] md:mb-[40px] animate-on-scroll"
+        >
+            Часто питають, тож відповідаємо 🤓
+        </h2>
+        <FAQList client:visible data={faqData} />
+    </div>
 </section>

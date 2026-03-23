@@ -1,93 +1,125 @@
 ---
 import Header from "./header/Header.astro";
 import { BetaSubscriptionButton } from "./islands/BetaSubscriptionButton";
-import FeatureInfoCard from "./FeatureInfoCard.astro";
 import { Strings } from "../consts/strings";
 
-const lessChaosPoints = [
-    Strings.less_chaos_point1,
-    Strings.less_chaos_point2,
-    Strings.less_chaos_point3,
-];
-
-const flexibleOrdersPoints = [
-    Strings.fast_flexible_point1,
-    Strings.fast_flexible_point2,
-    Strings.fast_flexible_point3,
+const featureCards = [
+    {
+        icon: import.meta.env.BASE_URL + "assets/ic_lightning.svg",
+        title: "Легкий старт",
+        description: "Почати можна за кілька хвилин. Розберетесь без навчання і інструкцій.",
+    },
+    {
+        icon: import.meta.env.BASE_URL + "assets/ic_shopping_bag.svg",
+        title: "Продажі і замовлення",
+        description: "Додавайте товари в замовлення і фіксуйте продажі в кілька тапів.",
+    },
+    {
+        icon: import.meta.env.BASE_URL + "assets/ic_package.svg",
+        title: "Залишки і товари",
+        description: "Товари, варіанти, фото, ціни і залишки — все в одному місці.",
+    },
+    {
+        icon: null,
+        iconInline: true,
+        title: "Нагадування і сповіщення",
+        description: "Statch нагадає, якщо товар закінчується або давно не було продажів.",
+    },
 ];
 ---
 
-<section class="bg-gradient-light w-full overflow-hidden relative">
-    <div class="relative w-full max-w-[1200px] mx-auto px-6 md:px-[40px] pt-[40px] z-50">
+<section class="bg-white w-full overflow-hidden relative">
+    <div class="relative w-full max-w-[1440px] mx-auto px-6 md:px-[200px] pt-[40px] z-50">
         <Header />
     </div>
 
-    <div
-        class="max-w-[1200px] mx-auto px-6 md:px-[40px] pt-[64px] pb-[80px] md:pb-[120px] flex flex-col items-center"
-    >
-        {/* Header Text */}
-        <div
-            class="text-center w-full mx-auto flex flex-col items-center"
+    {/* Hero Text + Button */}
+    <div class="max-w-[1440px] mx-auto px-6 md:px-[200px] pt-[64px] pb-[64px] flex flex-col items-center text-center">
+        <h1
+            class="text-[32px] leading-[40px] md:text-[48px] md:leading-[64px] font-extrabold text-[#090924] animate-on-scroll tracking-[0.5px] font-['Mulish'] w-full"
+            style="font-variant-numeric: lining-nums tabular-nums;"
         >
-            <h1
-                class="w-full text-[32px] leading-[38px] md:text-[48px] md:leading-[64px] font-extrabold text-text-main animate-on-scroll tracking-[1px] font-['Mulish']"
+            {Strings.header_title}
+        </h1>
+        <p
+            class="text-[14px] leading-[21px] md:text-[16px] md:leading-[24px] text-[#090924] font-semibold w-full text-center mt-[16px] animate-on-scroll delay-100 font-['Mulish']"
+            style="font-variant-numeric: lining-nums tabular-nums;"
+        >
+            {Strings.header_description}
+        </p>
+
+        <div class="mt-[48px] animate-on-scroll delay-200">
+            <BetaSubscriptionButton client:load />
+        </div>
+    </div>
+
+    {/* App Screenshot */}
+    <div class="max-w-[1440px] mx-auto px-6 md:px-[200px] pb-[80px] animate-on-scroll delay-300">
+        <picture>
+            <source
+                media="(max-width: 768px)"
+                srcset={import.meta.env.BASE_URL + "assets/ic_app_features_compact.webp"}
+            />
+            <img
+                src={import.meta.env.BASE_URL + "assets/ic_app_features.webp"}
+                alt="App Features"
+                class="w-full h-auto rounded-[16px] md:rounded-[24px]"
+            />
+        </picture>
+    </div>
+
+    {/* Feature Cards Section */}
+    <div class="max-w-[1440px] mx-auto px-6 md:px-[200px] pb-[100px]">
+        <div class="flex flex-col items-center text-center mb-[40px] md:mb-[48px] animate-on-scroll">
+            <h2
+                class="text-[24px] leading-[31px] md:text-[32px] md:leading-[42px] font-extrabold text-[#090924] font-['Mulish'] w-full"
                 style="font-variant-numeric: lining-nums tabular-nums;"
             >
-                {Strings.header_title}
-            </h1>
+                {Strings.features_section_title}
+            </h2>
             <p
-                class="text-[14px] leading-[21px] md:text-[16px] md:leading-[24px] text-text-main font-semibold w-full max-w-[770px] text-center mt-[16px] animate-on-scroll delay-100 font-['Mulish']"
+                class="text-[14px] leading-[21px] md:text-[16px] md:leading-[24px] text-[#090924] font-semibold mt-[16px] font-['Mulish']"
                 style="font-variant-numeric: lining-nums tabular-nums;"
             >
-                {Strings.header_description}
+                {Strings.features_section_subtitle}
             </p>
-
-            <div class="mt-[48px] animate-on-scroll delay-200">
-                <div class="origin-center">
-                    <BetaSubscriptionButton client:load />
-                </div>
-            </div>
         </div>
 
-        {/* Hero Image */}
-        <div
-            class="w-full max-w-[1000px] mt-[80px] mb-[180px] animate-on-scroll delay-300"
-        >
-            <picture>
-                <source
-                    media="(max-width: 768px)"
-                    srcset={import.meta.env.BASE_URL +
-                        "assets/ic_app_features_compact.webp"}
-                />
-                <img
-                    src={import.meta.env.BASE_URL +
-                        "assets/ic_app_features.webp"}
-                    alt="App Features"
-                    class="w-full h-auto"
-                />
-            </picture>
-        </div>
-
-        {/* Feature Cards */}
-        <div
-            class="w-full space-y-[80px] animate-on-scroll delay-400"
-        >
-            <FeatureInfoCard
-                title={Strings.less_chaos_title}
-                description={Strings.less_chaos_description}
-                image={import.meta.env.BASE_URL + "assets/ic_less_chaos.webp"}
-                points={lessChaosPoints}
-                orientation="left"
-            />
-
-            <FeatureInfoCard
-                title={Strings.fast_flexible_title}
-                description={Strings.fast_flexible_description}
-                image={import.meta.env.BASE_URL +
-                    "assets/ic_flexible_orders.svg"}
-                points={flexibleOrdersPoints}
-                orientation="right"
-            />
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-[16px]">
+            {
+                featureCards.map((card) => (
+                    <div class="bg-[#f5f7fc] rounded-[24px] p-[24px] md:p-[32px] flex flex-col gap-[16px] items-start animate-on-scroll delay-100">
+                        <div class="bg-white rounded-full w-[64px] h-[64px] flex items-center justify-center shrink-0">
+                            {card.iconInline ? (
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 8C18 6.4087 17.3679 4.88258 16.2426 3.75736C15.1174 2.63214 13.5913 2 12 2C10.4087 2 8.88258 2.63214 7.75736 3.75736C6.63214 4.88258 6 6.4087 6 8C6 15 3 17 3 17H21C21 17 18 15 18 8Z" stroke="#090924" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M13.73 21C13.5542 21.3031 13.3019 21.5547 12.9982 21.7295C12.6946 21.9044 12.3504 21.9965 12 21.9965C11.6496 21.9965 11.3054 21.9044 11.0018 21.7295C10.6982 21.5547 10.4458 21.3031 10.27 21" stroke="#090924" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            ) : (
+                                <img
+                                    src={card.icon}
+                                    alt={card.title}
+                                    class="w-6 h-6"
+                                />
+                            )}
+                        </div>
+                        <div class="flex flex-col gap-[12px]">
+                            <h3
+                                class="text-[20px] leading-[26px] md:text-[24px] md:leading-[31px] font-bold text-[#090924] font-['Mulish']"
+                                style="font-variant-numeric: lining-nums tabular-nums;"
+                            >
+                                {card.title}
+                            </h3>
+                            <p
+                                class="text-[14px] leading-[21px] md:text-[16px] md:leading-[24px] font-semibold text-[#090924] font-['Mulish']"
+                                style="font-variant-numeric: lining-nums tabular-nums;"
+                            >
+                                {card.description}
+                            </p>
+                        </div>
+                    </div>
+                ))
+            }
         </div>
     </div>
 </section>

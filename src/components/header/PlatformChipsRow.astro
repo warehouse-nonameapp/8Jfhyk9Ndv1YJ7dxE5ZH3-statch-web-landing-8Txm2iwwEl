@@ -1,26 +1,19 @@
 ---
-interface Props {
-    darkText?: boolean;
-}
-
-const { darkText = false } = Astro.props;
-
-const bgClass = darkText ? "bg-[#FAFBFC]" : "bg-white";
 ---
 
 <div class="flex gap-2">
     <div
-        class={`flex items-center gap-[6px] rounded-[100px] px-[12px] py-[6px] text-[#C1C8DA] text-[12px] font-semibold leading-[18px] text-center ${bgClass}`}
-        style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
+        class="flex items-center gap-[6px] rounded-[100px] px-[12px] py-[6px] bg-[#FAFBFC] text-[#B4BACC] font-['Mulish'] text-[12px] font-semibold leading-[150%] text-center"
+        style="font-variant-numeric: lining-nums tabular-nums;"
     >
-        <img src={import.meta.env.BASE_URL + "assets/ic_apple.svg"} class="h-4 w-auto" alt="Apple" />
+        <img src={import.meta.env.BASE_URL + "assets/ic_apple.svg"} class="w-[16px] h-[16px] shrink-0" alt="Apple" />
         <span>iOS</span>
     </div>
     <div
-        class={`flex items-center gap-[6px] rounded-[100px] px-[12px] py-[6px] text-[#C1C8DA] text-[12px] font-semibold leading-[18px] text-center ${bgClass}`}
-        style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
+        class="flex items-center gap-[6px] rounded-[100px] px-[12px] py-[6px] bg-[#FAFBFC] text-[#B4BACC] font-['Mulish'] text-[12px] font-semibold leading-[150%] text-center"
+        style="font-variant-numeric: lining-nums tabular-nums;"
     >
-        <img src={import.meta.env.BASE_URL + "assets/ic_android.svg"} class="h-4 w-auto" alt="Android" />
+        <img src={import.meta.env.BASE_URL + "assets/ic_android.svg"} class="w-[16px] h-[16px] shrink-0" alt="Android" />
         <span>Android</span>
     </div>
 </div>

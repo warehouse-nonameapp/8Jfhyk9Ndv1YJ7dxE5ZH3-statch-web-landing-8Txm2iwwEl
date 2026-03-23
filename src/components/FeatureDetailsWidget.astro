@@ -9,50 +9,46 @@ interface Props {
 const { title, image, points, orientation = "left" } = Astro.props;
 ---
 
-<div class="flex flex-col md:flex-row items-center gap-8 md:gap-10 w-full">
+<div class="flex flex-col md:flex-row items-start gap-[40px] w-full">
     {/* Text Content */}
     <div
         class:list={[
-            "flex flex-col gap-10 w-full animate-on-scroll delay-200",
+            "flex flex-col gap-[32px] w-full animate-on-scroll delay-200",
             orientation === "left" ? "md:order-first" : "md:order-last"
         ]}
     >
-        <div class="md:hidden flex justify-center w-full mb-6">
+        {/* Mobile image */}
+        <div class="md:hidden flex justify-center w-full mb-2">
             <img
                 src={image}
                 alt={title}
-                class="w-[191px] h-auto block relative z-10"
+                class="w-[200px] h-auto block relative z-10"
                 style="filter: drop-shadow(0 24px 50px rgba(82, 112, 250, 0.20)); transform: translateZ(0); will-change: filter;"
             />
         </div>
 
         <h2
-            class="self-stretch text-[#E0E0E0] text-[24px] md:text-[32px] font-extrabold leading-[130%] tracking-[1px] font-sans tabular-nums lining-nums text-left"
+            class="self-stretch text-[#e0e0e0] text-[24px] md:text-[32px] font-extrabold leading-[130%] font-sans tabular-nums lining-nums text-left"
         >
             {title}
         </h2>
 
-        <div class="flex flex-col gap-10">
+        <div class="flex flex-col gap-[32px]">
             {
-                points.map((point) => (
-                    <div class="flex items-start gap-6">
-                        {/* Green Check Icon with Background */}
-                        <div class="relative w-[40px] h-[40px] rounded-full bg-[#299634]/10 shrink-0">
-                            <img
-                                src={
-                                    import.meta.env.BASE_URL +
-                                    "assets/ic_green_check.svg"
-                                }
-                                class="absolute w-5 h-5 left-[10px] bottom-[9px]"
-                                alt="check"
-                            />
+                points.map((point, index) => (
+                    <div class="flex items-start gap-[24px]">
+                        {/* Numbered Circle */}
+                        <div class="relative w-[40px] h-[40px] rounded-full bg-[#1C4FD8]/15 border border-[#1C4FD8]/30 flex items-center justify-center shrink-0">
+                            <span class="text-[#7493E5] font-bold text-[16px] leading-none font-sans">
+                                {index + 1}
+                            </span>
                         </div>
 
-                        <div class="flex flex-col gap-3">
-                            <h3 class="text-[#E0E0E0] text-[20px] leading-[26px] md:text-[24px] md:leading-[130%] font-bold font-sans tabular-nums lining-nums">
+                        <div class="flex flex-col gap-[8px]">
+                            <h3 class="text-[#e0e0e0] text-[18px] leading-[23px] md:text-[24px] md:leading-[31px] font-bold font-sans tabular-nums lining-nums">
                                 {point.title}
                             </h3>
-                            <p class="self-stretch text-[#E0E0E0] text-[14px] leading-[21px] md:text-[16px] md:leading-[150%] font-semibold font-sans tabular-nums lining-nums opacity-80">
+                            <p class="text-[#e0e0e0] text-[14px] leading-[21px] md:text-[16px] md:leading-[150%] font-semibold font-sans tabular-nums lining-nums opacity-70">
                                 {point.subtitle}
                             </p>
                         </div>
@@ -65,15 +61,16 @@ const { title, image, points, orientation = "left" } = Astro.props;
     {/* Image Container */}
     <div
         class:list={[
-            "hidden md:block w-[235px] md:w-[293px] shrink-0 self-center animate-on-scroll",
+            "hidden md:flex shrink-0 self-start justify-center animate-on-scroll",
+            "w-[220px]",
             orientation === "left" ? "md:order-last" : "md:order-first"
         ]}
     >
         <img
             src={image}
             alt={title}
-            class="w-full h-auto block relative z-10"
-            style="filter: drop-shadow(0 24px 50px rgba(82, 112, 250, 0.20)); transform: translateZ(0); will-change: filter;"
+            class="w-[220px] h-auto block relative z-10"
+            style="filter: drop-shadow(0 26px 100px rgba(82, 112, 250, 0.20)); transform: translateZ(0); will-change: filter;"
         />
     </div>
 </div>
