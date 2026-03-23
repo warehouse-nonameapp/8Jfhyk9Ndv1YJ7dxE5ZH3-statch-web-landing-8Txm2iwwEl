@@ -11,10 +11,14 @@ const { darkText = false } = Astro.props;
         src={import.meta.env.BASE_URL + "assets/ic_statch_icon.svg"}
         alt="Statch Icon"
         class="w-[24px] h-[24px] shrink-0"
+        draggable="false"
+        style="user-select: none; -webkit-user-drag: none;"
     />
     <img
         src={import.meta.env.BASE_URL + "assets/ic_statch_name.svg"}
         alt="Statch"
         class="h-[21px]"
+        draggable="false"
+        style="user-select: none; -webkit-user-drag: none;"
     />
 </a>
