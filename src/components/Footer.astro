@@ -94,20 +94,6 @@ const { hideCTA = false } = Astro.props;
                         />
                     </div>
 
-                    {/* Desktop Copyright & Message */}
-                    <div
-                        class="hidden md:flex flex-col gap-2 text-text-gray font-semibold text-sm md:text-base mt-auto"
-                    >
-                        <p>
-                            {
-                                Strings.footer_copyright.replace(
-                                    "{year}",
-                                    currentYear.toString(),
-                                )
-                            }
-                        </p>
-                        <p>{Strings.footer_message}</p>
-                    </div>
                 </div>
 
                 {/* Right Column: Site, Socials, Contacts */}
@@ -180,20 +166,14 @@ const { hideCTA = false } = Astro.props;
                     </div>
                 </div>
 
-                {/* Mobile Copyright & Message */}
-                <div
-                    class="flex md:hidden flex-col gap-2 text-text-gray font-semibold text-sm md:text-base"
-                >
-                    <p>
-                        {
-                            Strings.footer_copyright.replace(
-                                "{year}",
-                                currentYear.toString(),
-                            )
-                        }
-                    </p>
-                    <p>{Strings.footer_message}</p>
-                </div>
+            </div>
+
+            {/* Copyright & Message — below all columns */}
+            <div class="flex flex-col gap-2 text-text-gray font-semibold text-sm md:text-base mt-10 md:mt-[40px] py-0">
+                <p>
+                    {Strings.footer_copyright.replace("{year}", currentYear.toString())}
+                </p>
+                <p>{Strings.footer_message}</p>
             </div>
         </div>
 
