@@ -9,46 +9,53 @@ interface Props {
 const { title, image, points, orientation = "left" } = Astro.props;
 ---
 
-<div class="flex flex-col md:flex-row items-start gap-[40px] w-full">
-    {/* Text Content */}
-    <div
-        class:list={[
-            "flex flex-col gap-[32px] w-full animate-on-scroll delay-200",
-            orientation === "left" ? "md:order-first" : "md:order-last"
-        ]}
+<div class="flex flex-col gap-[40px] w-full animate-on-scroll">
+    {/* Title — full width on top */}
+    <h2
+        class="font-['Mulish'] text-[24px] md:text-[32px] font-extrabold leading-[130%] text-[#E0E0E0]"
+        style="font-variant-numeric: lining-nums tabular-nums;"
     >
-        {/* Mobile image */}
-        <div class="md:hidden flex justify-center w-full mb-2">
-            <img
-                src={image}
-                alt={title}
-                class="w-[200px] h-auto block relative z-10"
-                style="filter: drop-shadow(0 24px 50px rgba(82, 112, 250, 0.20)); transform: translateZ(0); will-change: filter;"
-            />
-        </div>
+        {title}
+    </h2>
 
-        <h2
-            class="self-stretch text-[#e0e0e0] text-[24px] md:text-[32px] font-extrabold leading-[130%] font-sans tabular-nums lining-nums text-left"
-        >
-            {title}
-        </h2>
+    {/* Image + Points row */}
+    <div
+        class="flex flex-col md:flex-row items-start gap-[40px]"
+        style={orientation === "right" ? "flex-direction: row-reverse;" : ""}
+    >
+        {/* Screenshot */}
+        <img
+            src={image}
+            alt={title}
+            style="width: 220px; height: auto; border-radius: 25px; box-shadow: 0 26.4px 110px 0 rgba(82, 112, 250, 0.20); display: block; flex-shrink: 0; align-self: flex-start;"
+        />
 
-        <div class="flex flex-col gap-[32px]">
+        {/* Points */}
+        <div class="flex flex-col gap-[32px] flex-1">
             {
-                points.map((point, index) => (
+                points.map((point) => (
                     <div class="flex items-start gap-[24px]">
-                        {/* Numbered Circle */}
-                        <div class="relative w-[40px] h-[40px] rounded-full bg-[#1C4FD8]/15 border border-[#1C4FD8]/30 flex items-center justify-center shrink-0">
-                            <span class="text-[#7493E5] font-bold text-[16px] leading-none font-sans">
-                                {index + 1}
-                            </span>
+                        <div
+                            class="flex items-center justify-center shrink-0"
+                            style="width: 40px; height: 40px; border-radius: 1000px; background: rgba(41, 150, 52, 0.10);"
+                        >
+                            <img
+                                src={import.meta.env.BASE_URL + "assets/ic_green_check.svg"}
+                                alt=""
+                                style="width: 20px; height: 20px; flex-shrink: 0;"
+                            />
                         </div>
-
-                        <div class="flex flex-col gap-[8px]">
-                            <h3 class="text-[#e0e0e0] text-[18px] leading-[23px] md:text-[24px] md:leading-[31px] font-bold font-sans tabular-nums lining-nums">
+                        <div class="flex flex-col gap-[12px]">
+                            <h3
+                                class="font-['Mulish'] text-[18px] leading-[130%] md:text-[24px] font-bold text-[#E0E0E0]"
+                                style="font-variant-numeric: lining-nums tabular-nums;"
+                            >
                                 {point.title}
                             </h3>
-                            <p class="text-[#e0e0e0] text-[14px] leading-[21px] md:text-[16px] md:leading-[150%] font-semibold font-sans tabular-nums lining-nums opacity-70">
+                            <p
+                                class="font-['Mulish'] text-[14px] leading-[150%] md:text-[16px] font-semibold text-[#E0E0E0]"
+                                style="font-variant-numeric: lining-nums tabular-nums;"
+                            >
                                 {point.subtitle}
                             </p>
                         </div>
@@ -56,21 +63,5 @@ const { title, image, points, orientation = "left" } = Astro.props;
                 ))
             }
         </div>
-    </div>
-
-    {/* Image Container */}
-    <div
-        class:list={[
-            "hidden md:flex shrink-0 self-start justify-center animate-on-scroll",
-            "w-[220px]",
-            orientation === "left" ? "md:order-last" : "md:order-first"
-        ]}
-    >
-        <img
-            src={image}
-            alt={title}
-            class="w-[220px] h-auto block relative z-10"
-            style="filter: drop-shadow(0 26px 100px rgba(82, 112, 250, 0.20)); transform: translateZ(0); will-change: filter;"
-        />
     </div>
 </div>
