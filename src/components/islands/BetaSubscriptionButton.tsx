@@ -13,7 +13,7 @@ interface Props {
 export const BetaSubscriptionButton = ({ className = "" }: Props) => {
     const [isOpen, setIsOpen] = useState(false);
     const [email, setEmail] = useState('');
-    const [step, setStep] = useState<'input' | 'success'>('input');
+    const [step, setStep] = useState<'input' | 'success' | 'already_exists'>('input');
     const [loading, setLoading] = useState(false);
     const [touched, setTouched] = useState(false);
     const [focused, setFocused] = useState(false);
@@ -39,9 +39,10 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
         setLoading(true);
         setError(false);
 
-        const success = await ApiService.signupToBeta(email);
+        const locale = typeof localStorage !== 'undefined' ? (localStorage.getItem('locale') || 'uk') : 'uk';
+        const result = await ApiService.signupToBeta(email, locale);
 
-        if (success) {
+        if (result.success) {
             setStep('success');
             const end = Date.now() + 1200;
             const colors = [
@@ -73,6 +74,8 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                 }
             };
             frame();
+        } else if (result.errorCode === 'beta_testing_signup_already_exists') {
+            setStep('already_exists');
         } else {
             setError(true);
         }
@@ -240,6 +243,29 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                             </a>
                                             .
                                         </p>
+                                    </div>
+                                ) : step === 'already_exists' ? (
+                                    <div className="flex flex-col items-center text-center p-[40px] animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                        <div className="text-[72px] mb-[24px]">🎉</div>
+                                        <h3
+                                            className="font-['Mulish'] text-[24px] font-bold text-[#090924] mb-[12px] leading-[130%]"
+                                            style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
+                                        >
+                                            Ви вже в списку!
+                                        </h3>
+                                        <p
+                                            className="font-['Mulish'] text-[16px] text-[#090924] font-semibold mb-[40px] leading-[150%]"
+                                            style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
+                                        >
+                                            Ваш email вже зареєстровано. Як тільки відкриємо доступ — одразу напишемо. 🚀
+                                        </p>
+                                        <button
+                                            onClick={reset}
+                                            className="btn-gradient-border w-full bg-[#1C4FD8] hover:bg-[#1946BF] active:bg-[#143899] text-white font-['Mulish'] font-semibold text-[16px] leading-[150%] py-[20px] px-[40px] rounded-[16px] transition-all shadow-md active:scale-[0.98] flex items-center justify-center"
+                                            style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
+                                        >
+                                            Зрозуміло 👍
+                                        </button>
                                     </div>
                                 ) : (
                                     <div className="flex flex-col items-center text-center p-[40px] animate-in fade-in slide-in-from-bottom-4 duration-500">

@@ -44,9 +44,19 @@ const { darkText = false } = Astro.props;
 <script>
     const switcher = document.getElementById("lang-switcher");
     if (switcher) {
+        // Restore saved locale on load
+        const saved = localStorage.getItem("locale") || "uk";
+        switcher.querySelectorAll<HTMLButtonElement>(".lang-btn").forEach((b) => {
+            const selected = b.dataset.lang === saved;
+            b.style.color = selected ? "#090924" : "#B2BACF";
+            b.setAttribute("aria-pressed", String(selected));
+        });
+
         switcher.addEventListener("click", (e) => {
             const btn = (e.target as HTMLElement).closest(".lang-btn") as HTMLButtonElement | null;
             if (!btn) return;
+            const lang = btn.dataset.lang || "uk";
+            localStorage.setItem("locale", lang);
             switcher.querySelectorAll<HTMLButtonElement>(".lang-btn").forEach((b) => {
                 const selected = b === btn;
                 b.style.color = selected ? "#090924" : "#B2BACF";
