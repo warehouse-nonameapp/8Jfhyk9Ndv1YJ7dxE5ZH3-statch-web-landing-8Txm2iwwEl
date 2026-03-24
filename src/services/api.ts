@@ -19,6 +19,7 @@ export const ApiService = {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
+                        "X-Service-Access-Key": import.meta.env.PUBLIC_SERVICE_KEY,
                     },
                     body,
                     mode: "cors",
