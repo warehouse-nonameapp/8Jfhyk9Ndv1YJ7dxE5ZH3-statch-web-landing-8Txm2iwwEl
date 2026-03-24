@@ -10,7 +10,7 @@ const features = featuresEntry?.data || [];
     class="relative z-10 -mt-[24px] md:-mt-[40px]"
     style="border-radius: 40px 40px 0 0; background: linear-gradient(180deg, #0D0E10 0%, #161822 100%);"
 >
-    <div class="max-w-[1440px] mx-auto px-6 md:px-[200px] pt-[80px] md:pt-[100px] pb-[80px] md:pb-0 flex flex-col gap-[100px] md:gap-[140px]">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-[200px] pt-[80px] md:pt-[100px] flex flex-col gap-[100px] md:gap-[140px]">
         {
             features.map((feature) => (
                 // @ts-ignore
@@ -22,5 +22,14 @@ const features = featuresEntry?.data || [];
                 />
             ))
         }
+    </div>
+
+    {/* Blue boxes decoration */}
+    <div class="max-w-[1440px] mx-auto px-6 md:px-[200px] pt-[64px] pb-[40px]">
+        <img
+            src={import.meta.env.BASE_URL + "assets/ic_blue_boxes.svg"}
+            alt=""
+            style="display: flex; height: 188px; flex-direction: column; align-items: flex-start; gap: 7.836px; width: auto;"
+        />
     </div>
 </section>
