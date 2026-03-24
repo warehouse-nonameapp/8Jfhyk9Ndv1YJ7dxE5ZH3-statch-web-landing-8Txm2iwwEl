@@ -18,7 +18,7 @@ export const ApiService = {
                 const response = await fetch(this.BETA_SIGNUP_URL, {
                     method: "POST",
                     headers: {
-                        "Content-Type": "text/plain",
+                        "Content-Type": "application/json",
                     },
                     body,
                     mode: "cors",
