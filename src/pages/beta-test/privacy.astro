@@ -16,11 +16,20 @@ import Footer from "../../components/Footer.astro";
             
             <a href={import.meta.env.BASE_URL + "beta-test"} class="component-back-btn inline-flex items-center text-[#A6A6BC] hover:text-[#2054E1] mb-8 font-semibold transition-colors">
                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-                Back to beta-test
+                <span data-lang-content="en">Back to beta-test</span>
+                <span data-lang-content="uk" class="hidden">Назад до бета-тесту</span>
             </a>
 
+            {/* Ukrainian language notice */}
+            <div data-lang-content="uk" class="hidden mb-8 p-4 rounded-xl border border-[#E3EAF1] bg-[#FAFBFC] text-[#090924] text-[14px] font-semibold">
+                Цей документ доступний лише англійською мовою. Це офіційна юридична версія.
+            </div>
+
             <div class="mb-14 heading-section component-heading">
-                <h1 class="text-[32px] md:text-[48px] font-extrabold mb-6 leading-tight text-[#090924]">Privacy Policy</h1>
+                <h1 class="text-[32px] md:text-[48px] font-extrabold mb-6 leading-tight text-[#090924]">
+                    <span data-lang-content="en">Privacy Policy</span>
+                    <span data-lang-content="uk" class="hidden">Політика конфіденційності</span>
+                </h1>
                 <div class="flex flex-col md:flex-row gap-2 md:gap-4 text-[#090924]" style="font-variant-numeric: lining-nums tabular-nums;">
                     <p class="text-[16px] leading-[24px] font-normal font-sans"><span class="font-extrabold">Last updated:</span> 15 March 2026</p>
                 </div>
@@ -28,7 +37,10 @@ import Footer from "../../components/Footer.astro";
 
             {/* TL;DR Section */}
             <div class="bg-[#FAFBFC] p-6 md:p-8 rounded-2xl mb-16 w-full max-w-[1046px]">
-                <h2 class="text-[20px] md:text-[24px] font-bold mb-4 text-[#090924]">Quick Summary (TL;DR)</h2>
+                <h2 class="text-[20px] md:text-[24px] font-bold mb-4 text-[#090924]">
+                    <span data-lang-content="en">Quick Summary (TL;DR)</span>
+                    <span data-lang-content="uk" class="hidden">Коротко (TL;DR)</span>
+                </h2>
                 <ul class="space-y-4">
                     <li class="flex items-start gap-3">
                         <div class="w-2 h-2 rounded-full bg-[#1C4FD8] mt-2 shrink-0 drop-shadow-[0_2px_8px_rgba(28,79,216,0.20)]"></div>

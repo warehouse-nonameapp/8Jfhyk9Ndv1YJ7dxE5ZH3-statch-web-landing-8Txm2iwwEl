@@ -1,17 +1,27 @@
 ---
+interface Point {
+    title: string;
+    subtitle: string;
+    title_en?: string;
+    subtitle_en?: string;
+}
+
 interface Props {
     title: string;
+    titleEn?: string;
     image: string;
-    points: { title: string; subtitle: string }[];
+    points: Point[];
     orientation?: "left" | "right";
 }
 
-const { title, image, points, orientation = "left" } = Astro.props;
+const { title, titleEn, image, points, orientation = "left" } = Astro.props;
 ---
 
 <div class="flex flex-col gap-[40px] w-full animate-on-scroll">
     {/* Title — full width on top */}
     <h2
+        data-uk={title}
+        data-en={titleEn || title}
         class="font-['Mulish'] text-[24px] md:text-[32px] font-extrabold leading-[130%] text-[#E0E0E0]"
         style="font-variant-numeric: lining-nums tabular-nums;"
     >
@@ -47,12 +57,16 @@ const { title, image, points, orientation = "left" } = Astro.props;
                         </div>
                         <div class="flex flex-col gap-[12px]">
                             <h3
+                                data-uk={point.title}
+                                data-en={point.title_en || point.title}
                                 class="font-['Mulish'] text-[18px] leading-[130%] md:text-[24px] font-bold text-[#E0E0E0]"
                                 style="font-variant-numeric: lining-nums tabular-nums;"
                             >
                                 {point.title}
                             </h3>
                             <p
+                                data-uk={point.subtitle}
+                                data-en={point.subtitle_en || point.subtitle}
                                 class="font-['Mulish'] text-[14px] leading-[150%] md:text-[16px] font-semibold text-[#E0E0E0]"
                                 style="font-variant-numeric: lining-nums tabular-nums;"
                             >

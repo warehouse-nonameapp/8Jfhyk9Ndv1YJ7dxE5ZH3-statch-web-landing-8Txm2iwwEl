@@ -2,15 +2,94 @@ import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
-import { Strings } from '../../consts/strings';
 import { ApiService } from '../../services/api';
 import { ValidationUtils } from '../../utils/validation';
+
+// --- i18n helpers ---
+
+type Locale = 'uk' | 'en';
+
+const translationsMap: Record<Locale, Record<string, string>> = {
+    uk: {
+        join_beta: "Приєднатись до бета-тесту",
+        beta_modal_title: "Запис на бета-тест Statch ✍️",
+        beta_modal_description: "Ніякого спаму. Тільки один лист із запрошенням — коли все буде готово.",
+        beta_email_label: "Email",
+        beta_send: "Надіслати",
+        beta_sending: "Надсилання...",
+        beta_error: "Щось пішло не так. Спробуйте ще раз.",
+        beta_success_title: "Готово!",
+        beta_success_description: "Ви в списку! Як тільки відкриємо доступ — одразу напишемо.",
+        beta_success_subtext: "Дякуємо! Незабаром побачимось у Statch. 🙌",
+        beta_understand: "Зрозуміло",
+        beta_already_title: "Ви вже в списку!",
+        beta_already_desc: "Ваш email вже зареєстровано. Як тільки відкриємо доступ — одразу напишемо. 🚀",
+        beta_already_btn: "Зрозуміло 👍",
+        beta_invalid_email: "Невірний формат ел. пошти",
+        beta_disclaimer: "Натискаючи «Відправити», ви погоджуєтесь з нашими",
+        beta_disclaimer_terms: "Умовами використання",
+        beta_disclaimer_and: "та",
+        beta_disclaimer_privacy: "Політикою конфіденційності",
+    },
+    en: {
+        join_beta: "Join the beta test",
+        beta_modal_title: "Sign up for the Statch beta ✍️",
+        beta_modal_description: "No spam. Just one invitation email — when everything is ready.",
+        beta_email_label: "Email",
+        beta_send: "Send",
+        beta_sending: "Sending...",
+        beta_error: "Something went wrong. Please try again.",
+        beta_success_title: "Done!",
+        beta_success_description: "You're on the list! We'll reach out as soon as we open access.",
+        beta_success_subtext: "Thank you! See you in Statch soon. 🙌",
+        beta_understand: "Got it",
+        beta_already_title: "You're already on the list!",
+        beta_already_desc: "Your email is already registered. We'll reach out as soon as we open access. 🚀",
+        beta_already_btn: "Got it 👍",
+        beta_invalid_email: "Invalid email format",
+        beta_disclaimer: 'By clicking "Send", you agree to our',
+        beta_disclaimer_terms: "Terms of Use",
+        beta_disclaimer_and: "and",
+        beta_disclaimer_privacy: "Privacy Policy",
+    },
+};
+
+function useLocale(): Locale {
+    // Always start with 'uk' for SSR — actual locale is synced in useEffect
+    const [locale, setLocale] = useState<Locale>('uk');
+
+    useEffect(() => {
+        // Read from localStorage after hydration
+        const saved = localStorage.getItem('locale');
+        if (saved === 'en' || saved === 'uk') {
+            setLocale(saved);
+        }
+
+        const handleLocaleChange = (e: Event) => {
+            const customEvent = e as CustomEvent<{ locale: Locale }>;
+            if (customEvent.detail?.locale) {
+                setLocale(customEvent.detail.locale);
+            }
+        };
+        window.addEventListener('localechange', handleLocaleChange);
+        return () => {
+            window.removeEventListener('localechange', handleLocaleChange);
+        };
+    }, []);
+
+    return locale;
+}
+
+// --- Component ---
 
 interface Props {
     className?: string;
 }
 
 export const BetaSubscriptionButton = ({ className = "" }: Props) => {
+    const locale = useLocale();
+    const t = (key: string): string => translationsMap[locale][key] ?? translationsMap['uk'][key] ?? key;
+
     const [isOpen, setIsOpen] = useState(false);
     const [email, setEmail] = useState('');
     const [step, setStep] = useState<'input' | 'success' | 'already_exists'>('input');
@@ -39,8 +118,8 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
         setLoading(true);
         setError(false);
 
-        const locale = typeof localStorage !== 'undefined' ? (localStorage.getItem('locale') || 'uk') : 'uk';
-        const result = await ApiService.signupToBeta(email, locale);
+        const currentLocale = typeof localStorage !== 'undefined' ? (localStorage.getItem('locale') || 'uk') : 'uk';
+        const result = await ApiService.signupToBeta(email, currentLocale);
 
         if (result.success) {
             setStep('success');
@@ -101,7 +180,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                 className={`btn-gradient-border bg-[#1C4FD8] hover:bg-[#1946BF] active:bg-[#143899] text-white font-['Mulish'] font-semibold text-[16px] leading-[150%] text-center py-[20px] px-[40px] rounded-[16px] transition-all shadow-sm active:scale-[0.98] focus:outline-none flex items-center justify-center gap-4 inline-flex ${className}`}
                 style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
             >
-                {Strings.join_beta}
+                {t('join_beta')}
             </button>
 
             {typeof document !== 'undefined' && createPortal(
@@ -141,7 +220,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                             className="font-['Mulish'] text-[24px] font-bold leading-[130%] text-[#090924]"
                                             style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                         >
-                                            {Strings.beta_modal_title}
+                                            {t('beta_modal_title')}
                                         </h2>
 
                                         {/* Description */}
@@ -149,7 +228,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                             className="font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#090924] mt-[12px]"
                                             style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                         >
-                                            {Strings.beta_modal_description}
+                                            {t('beta_modal_description')}
                                         </p>
 
                                         {/* Email field */}
@@ -158,13 +237,13 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                                 className="font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#090924]"
                                                 style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                             >
-                                                {Strings.beta_email_label}
+                                                {t('beta_email_label')}
                                             </label>
                                             <input
                                                 type="email"
                                                 placeholder="example@gmail.com"
                                                 value={email}
-                                                onChange={(e) => setEmail(e.target.value)}
+                                                onChange={(e) => { setEmail(e.target.value); setError(false); }}
                                                 onFocus={() => setFocused(true)}
                                                 onBlur={() => { setTouched(true); setFocused(false); }}
                                                 className="w-full outline-none font-['Mulish'] text-[16px] font-semibold text-[#090924] placeholder:text-[#A6A6BC]"
@@ -189,7 +268,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                                     className="font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#FF4C4C] mt-[8px]"
                                                     style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                                 >
-                                                    Невірний формат ел. пошти
+                                                    {t('beta_invalid_email')}
                                                 </p>
                                             )}
                                         </div>
@@ -207,16 +286,16 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                                     </svg>
-                                                    {Strings.beta_sending}
+                                                    {t('beta_sending')}
                                                 </span>
                                             ) : (
-                                                Strings.beta_send
+                                                t('beta_send')
                                             )}
                                         </button>
 
                                         {error && (
                                             <p className="font-['Mulish'] text-[14px] text-[#FF4C4C] font-semibold text-center mt-[12px]">
-                                                {Strings.beta_error}
+                                                {t('beta_error')}
                                             </p>
                                         )}
 
@@ -225,21 +304,21 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                             className="font-['Mulish'] text-[12px] font-semibold leading-[150%] text-[#A6A6BC] text-center mt-[20px]"
                                             style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                         >
-                                            Натискаючи «Відправити», ви погоджуєтесь з нашими{' '}
+                                            {t('beta_disclaimer')}{' '}
                                             <a
                                                 href="/beta-test/terms"
                                                 className="text-[#1C4FD8] no-underline hover:underline transition-all"
                                                 style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                             >
-                                                Умовами використання
+                                                {t('beta_disclaimer_terms')}
                                             </a>
-                                            {' '}та{' '}
+                                            {' '}{t('beta_disclaimer_and')}{' '}
                                             <a
                                                 href="/beta-test/privacy"
                                                 className="text-[#1C4FD8] no-underline hover:underline transition-all"
                                                 style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                             >
-                                                Політикою конфіденційності
+                                                {t('beta_disclaimer_privacy')}
                                             </a>
                                             .
                                         </p>
@@ -251,20 +330,20 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                             className="font-['Mulish'] text-[24px] font-bold text-[#090924] mb-[12px] leading-[130%]"
                                             style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                         >
-                                            Ви вже в списку!
+                                            {t('beta_already_title')}
                                         </h3>
                                         <p
                                             className="font-['Mulish'] text-[16px] text-[#090924] font-semibold mb-[40px] leading-[150%]"
                                             style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                         >
-                                            Ваш email вже зареєстровано. Як тільки відкриємо доступ — одразу напишемо. 🚀
+                                            {t('beta_already_desc')}
                                         </p>
                                         <button
                                             onClick={reset}
                                             className="btn-gradient-border w-full bg-[#1C4FD8] hover:bg-[#1946BF] active:bg-[#143899] text-white font-['Mulish'] font-semibold text-[16px] leading-[150%] py-[20px] px-[40px] rounded-[16px] transition-all shadow-md active:scale-[0.98] flex items-center justify-center"
                                             style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                         >
-                                            Зрозуміло 👍
+                                            {t('beta_already_btn')}
                                         </button>
                                     </div>
                                 ) : (
@@ -276,26 +355,26 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                             className="font-['Mulish'] text-[24px] font-bold text-[#090924] mb-[12px] leading-[130%]"
                                             style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                         >
-                                            {Strings.beta_success_title}
+                                            {t('beta_success_title')}
                                         </h3>
                                         <p
                                             className="font-['Mulish'] text-[16px] text-[#090924] font-semibold mb-[12px] leading-[150%] whitespace-pre-line"
                                             style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                         >
-                                            {Strings.beta_success_description}
+                                            {t('beta_success_description')}
                                         </p>
                                         <p
                                             className="font-['Mulish'] text-[16px] text-[#090924] font-semibold mb-[40px] leading-[150%]"
                                             style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                         >
-                                            {Strings.beta_success_subtext}
+                                            {t('beta_success_subtext')}
                                         </p>
                                         <button
                                             onClick={reset}
                                             className="btn-gradient-border w-full bg-[#1C4FD8] hover:bg-[#1946BF] active:bg-[#143899] text-white font-['Mulish'] font-semibold text-[16px] leading-[150%] py-[20px] px-[40px] rounded-[16px] transition-all shadow-md active:scale-[0.98] flex items-center justify-center"
                                             style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                         >
-                                            {Strings.beta_understand}
+                                            {t('beta_understand')}
                                         </button>
                                     </div>
                                 )}

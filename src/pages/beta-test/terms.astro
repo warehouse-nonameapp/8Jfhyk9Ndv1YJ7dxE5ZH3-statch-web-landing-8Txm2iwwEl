@@ -16,11 +16,20 @@ import Footer from "../../components/Footer.astro";
             
             <a href={import.meta.env.BASE_URL + "beta-test"} class="component-back-btn inline-flex items-center text-[#A6A6BC] hover:text-[#2054E1] mb-8 font-semibold transition-colors">
                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-                Back to beta-test
+                <span data-lang-content="en">Back to beta-test</span>
+                <span data-lang-content="uk" class="hidden">Назад до бета-тесту</span>
             </a>
 
+            {/* Ukrainian language notice */}
+            <div data-lang-content="uk" class="hidden mb-8 p-4 rounded-xl border border-[#E3EAF1] bg-[#FAFBFC] text-[#090924] text-[14px] font-semibold">
+                Цей документ доступний лише англійською мовою. Це офіційна юридична версія.
+            </div>
+
             <div class="mb-14 heading-section component-heading">
-                <h1 class="text-[32px] md:text-[48px] font-extrabold mb-6 leading-tight text-[#090924]">Terms of Service</h1>
+                <h1 class="text-[32px] md:text-[48px] font-extrabold mb-6 leading-tight text-[#090924]">
+                    <span data-lang-content="en">Terms of Service</span>
+                    <span data-lang-content="uk" class="hidden">Умови використання</span>
+                </h1>
                 <div class="flex flex-col md:flex-row gap-2 md:gap-4 text-[#090924]" style="font-variant-numeric: lining-nums tabular-nums;">
                     <p class="text-[16px] leading-[24px] font-normal font-sans"><span class="font-extrabold">Last updated:</span> 15 March 2026</p>
                 </div>

@@ -6,24 +6,46 @@ import { Strings } from "../consts/strings";
 const featureCards = [
     {
         icon: import.meta.env.BASE_URL + "assets/ic_lightning.svg",
-        title: "Легкий старт",
-        description: "Почати можна за кілька хвилин — без навчання і довгих інструкцій.",
+        titleKey: "card_easy_start_title",
+        descKey: "card_easy_start_desc",
+        titleDefault: "Легкий старт",
+        descDefault: "Почати можна за кілька хвилин — без навчання і довгих інструкцій.",
     },
     {
         icon: import.meta.env.BASE_URL + "assets/ic_shopping-bag.svg",
-        title: "Продажі і замовлення",
-        description: "Додавайте товари в замовлення і фіксуйте продажі в кілька натискань.",
+        titleKey: "card_orders_title",
+        descKey: "card_orders_desc",
+        titleDefault: "Продажі і замовлення",
+        descDefault: "Додавайте товари в замовлення і фіксуйте продажі в кілька натискань.",
     },
     {
         icon: import.meta.env.BASE_URL + "assets/ic_package.svg",
-        title: "Залишки і товари",
-        description: "Товари, варіанти, фото, ціни і залишки — все в одному місці.",
+        titleKey: "card_stock_title",
+        descKey: "card_stock_desc",
+        titleDefault: "Залишки і товари",
+        descDefault: "Товари, варіанти, фото, ціни і залишки — все в одному місці.",
     },
     {
         icon: import.meta.env.BASE_URL + "assets/ic_bell.svg",
-        title: "Нагадування і сповіщення",
-        description: "Statch нагадає, якщо товар закінчується або давно не було продажів.",
+        titleKey: "card_notifications_title",
+        descKey: "card_notifications_desc",
+        titleDefault: "Нагадування і сповіщення",
+        descDefault: "Statch нагадає, якщо товар закінчується або давно не було продажів.",
     },
+];
+
+const bigCard1Points = [
+    { key: "big_card_1_p1", default: "Видно, що є в наявності" },
+    { key: "big_card_1_p2", default: "Вся історія змін зберігається" },
+    { key: "big_card_1_p3", default: "Списання і переміщення товарів" },
+    { key: "big_card_1_p4", default: "Нічого не загубиться" },
+];
+
+const bigCard2Points = [
+    { key: "big_card_2_p1", default: "Додавання товарів в замовлення" },
+    { key: "big_card_2_p2", default: "Знижки і повернення" },
+    { key: "big_card_2_p3", default: "Статуси замовлень" },
+    { key: "big_card_2_p4", default: "Історія всіх замовлень" },
 ];
 ---
 
@@ -36,12 +58,14 @@ const featureCards = [
     <div class="max-w-[1440px] mx-auto px-6 md:px-[200px] pt-[64px] flex flex-col items-center text-center">
         <div class="w-full px-0 md:px-[120px] flex flex-col items-center text-center">
             <h1
+                data-i18n="header_title"
                 class="text-[32px] leading-[40px] md:text-[48px] md:leading-[64px] font-extrabold text-[#090924] animate-on-scroll tracking-[0.5px] font-['Mulish'] w-full"
                 style="font-variant-numeric: lining-nums tabular-nums;"
             >
                 {Strings.header_title}
             </h1>
             <p
+                data-i18n="header_description"
                 class="text-[14px] leading-[21px] md:text-[16px] md:leading-[24px] text-[#090924] font-semibold w-full text-center mt-[16px] animate-on-scroll delay-100 font-['Mulish']"
                 style="font-variant-numeric: lining-nums tabular-nums;"
             >
@@ -70,12 +94,14 @@ const featureCards = [
     <div class="max-w-[1440px] mx-auto px-6 md:px-[200px] pb-[100px]">
         <div class="flex flex-col items-center text-center px-0 md:px-[120px] mb-[40px] md:mb-[48px] animate-on-scroll">
             <h2
+                data-i18n="features_section_title"
                 class="text-[24px] leading-[31px] md:text-[32px] md:leading-[42px] font-extrabold text-[#090924] font-['Mulish'] w-full"
                 style="font-variant-numeric: lining-nums tabular-nums;"
             >
                 {Strings.features_section_title}
             </h2>
             <p
+                data-i18n="features_section_subtitle"
                 class="text-[14px] leading-[21px] md:text-[16px] md:leading-[24px] text-[#090924] font-semibold mt-[16px] font-['Mulish']"
                 style="font-variant-numeric: lining-nums tabular-nums;"
             >
@@ -97,7 +123,7 @@ const featureCards = [
                         >
                             <img
                                 src={card.icon}
-                                alt={card.title}
+                                alt={card.titleDefault}
                                 style="width: 24px; height: 24px; flex-shrink: 0;"
                             />
                         </div>
@@ -105,16 +131,18 @@ const featureCards = [
                         {/* Title + Subtitle */}
                         <div class="flex flex-col gap-[12px] w-full">
                             <h3
+                                data-i18n={card.titleKey}
                                 class="text-[24px] leading-[130%] font-bold text-[#090924] font-['Mulish']"
                                 style="font-variant-numeric: lining-nums tabular-nums; align-self: stretch;"
                             >
-                                {card.title}
+                                {card.titleDefault}
                             </h3>
                             <p
+                                data-i18n={card.descKey}
                                 class="text-[16px] leading-[150%] font-semibold text-[#090924] font-['Mulish']"
                                 style="font-variant-numeric: lining-nums tabular-nums;"
                             >
-                                {card.description}
+                                {card.descDefault}
                             </p>
                         </div>
                     </div>
@@ -143,28 +171,31 @@ const featureCards = [
                 {/* Text */}
                 <div class="flex flex-col flex-1 self-stretch" style="padding: 40px 48px 16px 0;">
                     <h2
+                        data-i18n="big_card_1_title"
                         class="font-['Mulish'] text-[32px] font-[800] leading-[130%] text-[#090924] w-full"
                         style="font-variant-numeric: lining-nums tabular-nums; align-self: stretch; font-weight: 800;"
                     >
                         Всі товари і залишки під контролем
                     </h2>
                     <p
+                        data-i18n="big_card_1_desc"
                         class="font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#090924] mt-[12px] w-full"
                         style="font-variant-numeric: lining-nums tabular-nums; align-self: stretch;"
                     >
                         Додавайте товари, змінюйте кількість, списуйте або переміщуйте між складами — вся історія зберігається.
                     </p>
                     <div class="flex flex-col mt-[24px]" style="gap: 16px;">
-                        {["Видно, що є в наявності", "Вся історія змін зберігається", "Списання і переміщення товарів", "Нічого не загубиться"].map((item) => (
+                        {bigCard1Points.map((item) => (
                             <div class="flex items-center gap-[12px]">
                                 <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0; filter: drop-shadow(0 2px 8px rgba(28, 79, 216, 0.20));">
                                     <circle cx="4" cy="4" r="4" fill="#1C4FD8"/>
                                 </svg>
                                 <span
+                                    data-i18n={item.key}
                                     class="font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#090924]"
                                     style="font-variant-numeric: lining-nums tabular-nums;"
                                 >
-                                    {item}
+                                    {item.default}
                                 </span>
                             </div>
                         ))}
@@ -180,28 +211,31 @@ const featureCards = [
                 {/* Text */}
                 <div class="flex flex-col flex-1 self-stretch" style="padding: 40px 0 16px 48px;">
                     <h2
+                        data-i18n="big_card_2_title"
                         class="font-['Mulish'] text-[32px] leading-[130%] text-[#090924] w-full"
                         style="font-variant-numeric: lining-nums tabular-nums; align-self: stretch; font-weight: 800;"
                     >
                         Всі замовлення в одному місці
                     </h2>
                     <p
+                        data-i18n="big_card_2_desc"
                         class="font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#090924] mt-[12px] w-full"
                         style="font-variant-numeric: lining-nums tabular-nums; align-self: stretch;"
                     >
                         Створюйте замовлення, додавайте товари, застосовуйте знижки і змінюйте статус — все в одному екрані.
                     </p>
                     <div class="flex flex-col mt-[24px]" style="gap: 16px;">
-                        {["Додавання товарів в замовлення", "Знижки і повернення", "Статуси замовлень", "Історія всіх замовлень"].map((item) => (
+                        {bigCard2Points.map((item) => (
                             <div class="flex items-center gap-[12px]">
                                 <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0; filter: drop-shadow(0 2px 8px rgba(28, 79, 216, 0.20));">
                                     <circle cx="4" cy="4" r="4" fill="#1C4FD8"/>
                                 </svg>
                                 <span
+                                    data-i18n={item.key}
                                     class="font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#090924]"
                                     style="font-variant-numeric: lining-nums tabular-nums;"
                                 >
-                                    {item}
+                                    {item.default}
                                 </span>
                             </div>
                         ))}

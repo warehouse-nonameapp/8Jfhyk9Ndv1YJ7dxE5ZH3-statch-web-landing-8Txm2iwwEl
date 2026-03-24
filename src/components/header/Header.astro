@@ -57,6 +57,7 @@ const { darkText = false } = Astro.props;
             if (!btn) return;
             const lang = btn.dataset.lang || "uk";
             localStorage.setItem("locale", lang);
+            window.dispatchEvent(new CustomEvent('localechange', { detail: { locale: lang } }));
             switcher.querySelectorAll<HTMLButtonElement>(".lang-btn").forEach((b) => {
                 const selected = b === btn;
                 b.style.color = selected ? "#090924" : "#B2BACF";

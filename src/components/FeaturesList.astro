@@ -17,7 +17,8 @@ const features = featuresEntry?.data || [];
                 <>
                     {/* @ts-ignore */}
                     <FeatureDetailsWidget
-                        title={feature.title}
+                        title={feature.title_uk || feature.title}
+                        titleEn={feature.title_en || feature.title}
                         image={import.meta.env.BASE_URL.replace(/\/$/, "") + feature.image}
                         points={feature.points}
                         orientation={feature.orientation}
@@ -37,12 +38,14 @@ const features = featuresEntry?.data || [];
                             {/* Text */}
                             <div class="flex flex-col gap-[16px] flex-1">
                                 <h2
+                                    data-i18n="banner_title"
                                     class="font-['Mulish'] text-[32px] font-extrabold leading-[130%] text-[#E0E0E0]"
                                     style="font-variant-numeric: lining-nums tabular-nums;"
                                 >
                                     Спробуйте Statch — це безкоштовно
                                 </h2>
                                 <p
+                                    data-i18n="banner_desc"
                                     class="font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#E0E0E0]"
                                     style="font-variant-numeric: lining-nums tabular-nums;"
                                 >

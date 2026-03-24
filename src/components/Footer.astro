@@ -42,12 +42,14 @@ const { hideCTA = false } = Astro.props;
                     class="flex flex-col items-start md:items-center text-left md:text-center text-white"
                 >
                     <h2
+                        data-i18n="cta_title"
                         class="text-[24px] md:text-[48px] font-extrabold mb-4 md:mb-6 leading-tight animate-on-scroll"
                     >
                         {Strings.cta_title}
                     </h2>
 
                     <p
+                        data-i18n="cta_description"
                         class="text-[14px] md:text-[18px] font-semibold opacity-80 max-w-2xl mb-10 md:mb-12 leading-relaxed animate-on-scroll delay-100"
                     >
                         {Strings.cta_description}
@@ -103,6 +105,7 @@ const { hideCTA = false } = Astro.props;
                     {/* Site Column */}
                     <div class="flex flex-col gap-4">
                         <h3
+                            data-i18n="footer_site"
                             class="text-text-gray font-semibold text-sm md:text-base"
                         >
                             {Strings.footer_site_title}
@@ -111,16 +114,19 @@ const { hideCTA = false } = Astro.props;
                             <a
                                 href="/beta-test"
                                 class="text-[#E0E0E0] hover:text-[#3E6BE1] font-medium text-sm md:text-base transition-colors"
+                                data-i18n="footer_app"
                                 >{Strings.footer_app}</a
                             >
                             <a
                                 href="/beta-test/terms"
                                 class="text-[#E0E0E0] hover:text-[#3E6BE1] font-medium text-sm md:text-base transition-colors"
+                                data-i18n="footer_terms_use"
                                 >{Strings.footer_terms_use}</a
                             >
                             <a
                                 href="/beta-test/privacy"
                                 class="text-[#E0E0E0] hover:text-[#3E6BE1] font-medium text-sm md:text-base transition-colors"
+                                data-i18n="footer_privacy"
                                 >{Strings.footer_privacy}</a
                             >
                         </div>
@@ -129,6 +135,7 @@ const { hideCTA = false } = Astro.props;
                     {/* Socials Column */}
                     <div class="flex flex-col gap-4">
                         <h3
+                            data-i18n="footer_socials"
                             class="text-text-gray font-semibold text-sm md:text-base"
                         >
                             {Strings.footer_socials_title}
@@ -154,6 +161,7 @@ const { hideCTA = false } = Astro.props;
                     {/* Contacts Column */}
                     <div class="flex flex-col gap-4">
                         <h3
+                            data-i18n="footer_contacts"
                             class="text-text-gray font-semibold text-sm md:text-base"
                         >
                             {Strings.footer_contacts_title}
@@ -170,10 +178,10 @@ const { hideCTA = false } = Astro.props;
 
             {/* Copyright & Message — below all columns */}
             <div class="flex flex-col gap-2 text-text-gray font-semibold text-sm md:text-base mt-10 md:mt-[40px] py-0">
-                <p>
+                <p data-i18n="footer_copyright">
                     {Strings.footer_copyright.replace("{year}", currentYear.toString())}
                 </p>
-                <p>{Strings.footer_message}</p>
+                <p data-i18n="footer_message">{Strings.footer_message}</p>
             </div>
         </div>
 
