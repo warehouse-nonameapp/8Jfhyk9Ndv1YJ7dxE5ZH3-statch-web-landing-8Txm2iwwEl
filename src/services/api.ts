@@ -6,8 +6,8 @@ export const ApiService = {
     BETA_SIGNUP_URL: `${API_BASE}/api/Service/signup-to-beta-test`,
     MAX_RETRIES: 3,
 
-    async signupToBeta(email: string, platform: string): Promise<boolean> {
-        const body = JSON.stringify({ email, platform });
+    async signupToBeta(email: string): Promise<boolean> {
+        const body = JSON.stringify({ email });
 
         for (let attempt = 1; attempt <= this.MAX_RETRIES; attempt++) {
             try {
