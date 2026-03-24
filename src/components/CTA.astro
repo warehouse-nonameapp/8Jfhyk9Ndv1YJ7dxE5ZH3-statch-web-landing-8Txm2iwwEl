@@ -7,6 +7,15 @@ import { Strings } from "../consts/strings";
     class="relative z-30 -mt-[24px] md:-mt-[40px] overflow-hidden"
     style="border-radius: 40px 40px 0 0; background: linear-gradient(180deg, #0D0E10 0%, #14161A 97.932%);"
 >
+    {/* Footer background SVG */}
+    <img
+        src={import.meta.env.BASE_URL + "assets/ic_footer_background.svg"}
+        alt=""
+        aria-hidden="true"
+        class="absolute pointer-events-none hidden md:block"
+        style="bottom: 100px; left: 200px; right: 120px; width: calc(100% - 320px); height: auto;"
+    />
+
     {/* Dot-grid decorations (left and right) */}
     <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         {/* Left grid */}
@@ -24,13 +33,14 @@ import { Strings } from "../consts/strings";
         class="relative z-10 max-w-[1440px] mx-auto px-6 md:px-[200px] py-[80px] md:py-[100px] flex flex-col items-center text-center"
     >
         <h2
-            class="text-white text-[28px] leading-[36px] md:text-[48px] md:leading-[64px] font-extrabold tracking-[0.5px] font-sans tabular-nums lining-nums mb-[16px] animate-on-scroll max-w-[800px]"
+            class="font-['Mulish'] text-[28px] leading-[40px] md:text-[48px] md:leading-[64px] font-extrabold tracking-[0.5px] text-white text-center mb-[16px] animate-on-scroll max-w-[800px]"
+            style="font-variant-numeric: lining-nums tabular-nums;"
         >
             {Strings.cta_title}
         </h2>
 
         <p
-            class="text-white text-[14px] leading-[21px] md:text-[16px] md:leading-[24px] font-semibold opacity-80 max-w-[770px] mb-[48px] animate-on-scroll delay-100"
+            class="font-['Mulish'] text-[14px] leading-[150%] md:text-[16px] font-semibold text-white text-center max-w-[770px] mb-[48px] animate-on-scroll delay-100"
             style="font-variant-numeric: lining-nums tabular-nums;"
         >
             {Strings.cta_description}
