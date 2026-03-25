@@ -5,16 +5,8 @@ import { Strings } from "../consts/strings";
 
 <section
     class="relative z-30 -mt-[24px] md:-mt-[40px] overflow-hidden"
-    style="border-radius: 40px 40px 0 0; background: linear-gradient(180deg, #0D0E10 0%, #14161A 97.932%);"
+    style="border-radius: 40px 40px 0 0; background: #14161A;"
 >
-    {/* Footer background SVG */}
-    <img
-        src={import.meta.env.BASE_URL + "assets/ic_footer_background.svg"}
-        alt=""
-        aria-hidden="true"
-        class="absolute pointer-events-none hidden md:block"
-        style="bottom: 100px; left: 200px; right: 120px; width: calc(100% - 320px); height: auto;"
-    />
 
     {/* Dot-grid decorations (left and right) */}
     <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
@@ -30,7 +22,7 @@ import { Strings } from "../consts/strings";
 
     {/* Content */}
     <div
-        class="relative z-10 max-w-[1440px] mx-auto px-6 md:px-[80px] lg:px-[140px] xl:px-[200px] py-[80px] md:py-[100px] flex flex-col items-center text-center"
+        class="relative z-10 max-w-[1440px] mx-auto px-6 md:px-[80px] lg:px-[140px] xl:px-[200px] pt-[80px] md:pt-[100px] pb-[80px] md:pb-0 flex flex-col items-center text-center"
     >
         <h2
             data-i18n="cta_title"
@@ -54,5 +46,15 @@ import { Strings } from "../consts/strings";
                 className="w-full max-w-[280px] h-[56px] !py-0 md:w-auto md:h-auto md:!py-[20px] md:max-w-none"
             />
         </div>
+    </div>
+
+    {/* Footer background image — top flush with button bottom, bottom flush with section bottom */}
+    <div class="hidden md:block w-full max-w-[1440px] mx-auto px-[80px] lg:px-[140px] xl:px-[200px]">
+        <img
+            src={import.meta.env.BASE_URL + "assets/ic_footer_background.png"}
+            alt=""
+            aria-hidden="true"
+            class="w-full h-auto block pointer-events-none"
+        />
     </div>
 </section>

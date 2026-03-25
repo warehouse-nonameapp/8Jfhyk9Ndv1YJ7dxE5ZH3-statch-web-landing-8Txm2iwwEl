@@ -1,6 +1,5 @@
 ---
 import AppLogo from "./AppLogo.astro";
-import PlatformChipsRow from "./PlatformChipsRow.astro";
 
 interface Props {
     darkText?: boolean;
@@ -14,9 +13,6 @@ const { darkText = false } = Astro.props;
     <div class="flex-1">
         <AppLogo darkText={darkText} />
     </div>
-
-    {/* Center: Platform chips */}
-    <PlatformChipsRow darkText={darkText} />
 
     {/* Right: Language switcher */}
     <div
