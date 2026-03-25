@@ -8,17 +8,24 @@ import "@fontsource/mulish/800.css";
 
 interface Props {
 	title?: string;
+	titleUk?: string;
+	titleEn?: string;
 	description?: string;
 }
 
 const {
 	title = "Statch | Less Chaos, More Control",
+	titleUk,
+	titleEn,
 	description = "Statch helps you manage your business with less chaos.",
 } = Astro.props;
+
+const resolvedTitleUk = titleUk || title;
+const resolvedTitleEn = titleEn || title;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-title-uk={resolvedTitleUk} data-title-en={resolvedTitleEn}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -126,7 +133,7 @@ const {
 						cta_description: "Leave your email — we'll send you an invitation and help you get set up from scratch.",
 						footer_site: "Site",
 						footer_app: "App",
-						footer_terms_use: "Terms of Use",
+						footer_terms_use: "Terms of Service",
 						footer_privacy: "Privacy Policy",
 						footer_socials: "Socials",
 						footer_contacts: "Contacts",
@@ -147,7 +154,7 @@ const {
 						beta_already_btn: "Got it 👍",
 						beta_invalid_email: "Invalid email format",
 						beta_disclaimer: "By clicking \"Send\", you agree to our",
-						beta_disclaimer_terms: "Terms of Use",
+						beta_disclaimer_terms: "Terms of Service",
 						beta_disclaimer_and: "and",
 						beta_disclaimer_privacy: "Privacy Policy"
 					}
@@ -158,6 +165,15 @@ const {
 				window.applyLocale = function(locale) {
 					var t = translations[locale] || translations['uk'];
 					document.documentElement.lang = locale;
+
+					// Update document title
+					var htmlEl = document.documentElement;
+					var localizedTitle = locale === 'en'
+						? htmlEl.getAttribute('data-title-en')
+						: htmlEl.getAttribute('data-title-uk');
+					if (localizedTitle) {
+						document.title = localizedTitle;
+					}
 
 					// Apply data-i18n text content
 					document.querySelectorAll('[data-i18n]').forEach(function(el) {

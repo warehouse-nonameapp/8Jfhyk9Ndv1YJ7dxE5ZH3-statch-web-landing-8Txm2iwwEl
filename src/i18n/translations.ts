@@ -124,7 +124,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     // Footer
     footer_site: "Site",
     footer_app: "App",
-    footer_terms_use: "Terms of Use",
+    footer_terms_use: "Terms of Service",
     footer_privacy: "Privacy Policy",
     footer_socials: "Socials",
     footer_contacts: "Contacts",
