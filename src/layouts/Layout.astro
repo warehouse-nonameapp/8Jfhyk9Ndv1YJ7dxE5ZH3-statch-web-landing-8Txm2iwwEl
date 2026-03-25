@@ -11,6 +11,11 @@ interface Props {
 	titleUk?: string;
 	titleEn?: string;
 	description?: string;
+	ogTitleUk?: string;
+	ogTitleEn?: string;
+	ogDescriptionUk?: string;
+	ogDescriptionEn?: string;
+	ogImage?: string;
 }
 
 const {
@@ -18,23 +23,51 @@ const {
 	titleUk,
 	titleEn,
 	description = "Statch helps you manage your business with less chaos.",
+	ogTitleUk,
+	ogTitleEn,
+	ogDescriptionUk,
+	ogDescriptionEn,
+	ogImage = "/og-image.png",
 } = Astro.props;
 
 const resolvedTitleUk = titleUk || title;
 const resolvedTitleEn = titleEn || title;
+const resolvedOgTitleUk = ogTitleUk || resolvedTitleUk;
+const resolvedOgTitleEn = ogTitleEn || resolvedTitleEn;
+const resolvedOgDescUk = ogDescriptionUk || description;
+const resolvedOgDescEn = ogDescriptionEn || description;
+const resolvedOgImage = ogImage.startsWith("http") ? ogImage : "https://statch.io" + ogImage;
 ---
 
 <!doctype html>
-<html lang="en" data-title-uk={resolvedTitleUk} data-title-en={resolvedTitleEn}>
+<html lang="en" data-title-uk={resolvedTitleUk} data-title-en={resolvedTitleEn} data-og-title-uk={resolvedOgTitleUk} data-og-title-en={resolvedOgTitleEn} data-og-desc-uk={resolvedOgDescUk} data-og-desc-en={resolvedOgDescEn}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href={import.meta.env.BASE_URL + "favicon.svg?v=1"} />
-		<link rel="apple-touch-icon" href={import.meta.env.BASE_URL + "favicon.svg?v=1"} />
-		<link rel="shortcut icon" href={import.meta.env.BASE_URL + "favicon.svg?v=1"} />
+		<link rel="icon" type="image/svg+xml" href={import.meta.env.BASE_URL + "favicon.svg"} />
+		<link rel="icon" type="image/png" sizes="32x32" href={import.meta.env.BASE_URL + "favicon-32x32.png"} />
+		<link rel="icon" type="image/png" sizes="16x16" href={import.meta.env.BASE_URL + "favicon-16x16.png"} />
+		<link rel="apple-touch-icon" sizes="180x180" href={import.meta.env.BASE_URL + "apple-touch-icon.png"} />
+		<link rel="manifest" href={import.meta.env.BASE_URL + "site.webmanifest"} />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		<title>{title}</title>
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={"https://statch.io" + Astro.url.pathname} />
+		<meta property="og:site_name" content="Statch" />
+		<meta id="og-title" property="og:title" content={resolvedOgTitleUk} />
+		<meta id="og-description" property="og:description" content={resolvedOgDescUk} />
+		<meta property="og:image" content={resolvedOgImage} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta id="twitter-title" name="twitter:title" content={resolvedOgTitleUk} />
+		<meta id="twitter-description" name="twitter:description" content={resolvedOgDescUk} />
+		<meta name="twitter:image" content={resolvedOgImage} />
 
 	</head>
 	<body>
@@ -174,6 +207,22 @@ const resolvedTitleEn = titleEn || title;
 					if (localizedTitle) {
 						document.title = localizedTitle;
 					}
+
+					// Update OG / Twitter meta tags
+					var ogTitleEl = document.getElementById('og-title');
+					var ogDescEl = document.getElementById('og-description');
+					var twitterTitleEl = document.getElementById('twitter-title');
+					var twitterDescEl = document.getElementById('twitter-description');
+					var ogTitle = locale === 'en'
+						? htmlEl.getAttribute('data-og-title-en')
+						: htmlEl.getAttribute('data-og-title-uk');
+					var ogDesc = locale === 'en'
+						? htmlEl.getAttribute('data-og-desc-en')
+						: htmlEl.getAttribute('data-og-desc-uk');
+					if (ogTitleEl && ogTitle) ogTitleEl.setAttribute('content', ogTitle);
+					if (ogDescEl && ogDesc) ogDescEl.setAttribute('content', ogDesc);
+					if (twitterTitleEl && ogTitle) twitterTitleEl.setAttribute('content', ogTitle);
+					if (twitterDescEl && ogDesc) twitterDescEl.setAttribute('content', ogDesc);
 
 					// Apply data-i18n text content
 					document.querySelectorAll('[data-i18n]').forEach(function(el) {
