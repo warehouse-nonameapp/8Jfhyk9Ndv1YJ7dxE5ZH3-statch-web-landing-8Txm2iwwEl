@@ -306,7 +306,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                         >
                                             {t('beta_disclaimer')}{' '}
                                             <a
-                                                href="/beta-test/terms"
+                                                href="/terms"
                                                 className="text-[#1C4FD8] no-underline hover:underline transition-all"
                                                 style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                             >
@@ -314,7 +314,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                             </a>
                                             {' '}{t('beta_disclaimer_and')}{' '}
                                             <a
-                                                href="/beta-test/privacy"
+                                                href="/privacy"
                                                 className="text-[#1C4FD8] no-underline hover:underline transition-all"
                                                 style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                             >
