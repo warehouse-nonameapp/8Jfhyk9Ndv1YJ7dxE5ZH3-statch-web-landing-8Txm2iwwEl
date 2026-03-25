@@ -50,13 +50,13 @@ const bigCard2Points = [
 ---
 
 <section class="bg-white w-full overflow-x-hidden relative">
-    <div class="relative w-full max-w-[1440px] mx-auto px-6 md:px-[200px] pt-[40px] z-50">
+    <div class="relative w-full max-w-[1440px] mx-auto px-6 md:px-[80px] lg:px-[140px] xl:px-[200px] pt-[40px] z-50">
         <Header />
     </div>
 
     {/* Hero Text + Button */}
-    <div class="max-w-[1440px] mx-auto px-6 md:px-[200px] pt-[64px] flex flex-col items-center text-center">
-        <div class="w-full px-0 md:px-[120px] flex flex-col items-center text-center">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-[80px] lg:px-[140px] xl:px-[200px] pt-[64px] flex flex-col items-center text-center">
+        <div class="w-full px-0 md:px-0 lg:px-[80px] xl:px-[120px] flex flex-col items-center text-center">
             <h1
                 data-i18n="header_title"
                 class="text-[32px] leading-[40px] md:text-[48px] md:leading-[64px] font-extrabold text-[#090924] animate-on-scroll tracking-[0.5px] font-['Mulish'] w-full"
@@ -79,7 +79,7 @@ const bigCard2Points = [
     </div>
 
     {/* App Screenshot */}
-    <div class="w-full flex justify-center mb-[120px] animate-on-scroll delay-300">
+    <div class="w-full flex justify-center mb-[60px] xl:mb-[120px] animate-on-scroll delay-300">
         <img
             src={import.meta.env.BASE_URL + "assets/ic_app_features.png"}
             alt="App Features"
@@ -91,7 +91,7 @@ const bigCard2Points = [
     </div>
 
     {/* Feature Cards Section */}
-    <div class="max-w-[1440px] mx-auto px-6 md:px-[200px] pb-[100px]">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-[80px] lg:px-[140px] xl:px-[200px] pb-[100px]">
         <div class="flex flex-col items-center text-center px-0 md:px-[120px] mb-[40px] md:mb-[48px] animate-on-scroll">
             <h2
                 data-i18n="features_section_title"
@@ -151,25 +151,26 @@ const bigCard2Points = [
         </div>
 
         {/* Big Feature Cards */}
-        <div class="flex flex-col gap-[120px] mt-[120px]">
+        <div class="flex flex-col gap-[60px] mt-[60px] xl:gap-[120px] xl:mt-[120px]">
 
             {/* Card 1: Product History */}
             <div
-                class="flex items-end gap-[16px] rounded-[24px] bg-[#F5F7FC] animate-on-scroll w-full"
-                style="height: 480px; max-width: 1040px;"
+                class="flex items-end gap-[16px] rounded-[24px] bg-[#F5F7FC] animate-on-scroll w-full overflow-hidden"
+                style="max-width: 1040px;"
             >
                 {/* Screenshot */}
-                <div class="flex items-end shrink-0" style="padding: 0 16px 16px 24px;">
+                <div class="flex items-end shrink-0 pb-4 pr-4 pl-6">
                     <img
                         src={import.meta.env.BASE_URL + "assets/ic_product_history.png"}
                         alt="Product History"
                         draggable="false"
-                        style="height: 479px; width: auto; object-fit: contain; user-select: none; -webkit-user-drag: none;"
+                        class="md:h-[300px] lg:h-[380px] xl:h-[479px] w-auto object-contain"
+                        style="user-select: none; -webkit-user-drag: none;"
                     />
                 </div>
 
                 {/* Text */}
-                <div class="flex flex-col flex-1 self-stretch" style="padding: 40px 48px 16px 0;">
+                <div class="flex flex-col flex-1 self-stretch pt-8 pr-8 pb-4 pl-0 xl:pt-[40px] xl:pr-[48px] xl:pb-4">
                     <h2
                         data-i18n="big_card_1_title"
                         class="font-['Mulish'] text-[32px] font-[800] leading-[130%] text-[#090924] w-full"
@@ -205,11 +206,11 @@ const bigCard2Points = [
 
             {/* Card 2: Orders */}
             <div
-                class="flex items-end gap-[16px] rounded-[24px] bg-[#F5F7FC] animate-on-scroll w-full"
-                style="height: 480px; max-width: 1040px;"
+                class="flex items-end gap-[16px] rounded-[24px] bg-[#F5F7FC] animate-on-scroll w-full overflow-hidden"
+                style="max-width: 1040px;"
             >
                 {/* Text */}
-                <div class="flex flex-col flex-1 self-stretch" style="padding: 40px 0 16px 48px;">
+                <div class="flex flex-col flex-1 self-stretch pt-8 pr-0 pb-4 pl-8 xl:pt-[40px] xl:pb-4 xl:pl-[48px]">
                     <h2
                         data-i18n="big_card_2_title"
                         class="font-['Mulish'] text-[32px] leading-[130%] text-[#090924] w-full"
@@ -243,12 +244,13 @@ const bigCard2Points = [
                 </div>
 
                 {/* Screenshot */}
-                <div class="flex items-end shrink-0" style="padding: 0 24px 16px 16px;">
+                <div class="flex items-end shrink-0 pb-4 pl-4 pr-6">
                     <img
                         src={import.meta.env.BASE_URL + "assets/ic_order_details.png"}
                         alt="Order Details"
                         draggable="false"
-                        style="height: 479px; width: auto; object-fit: contain; user-select: none; -webkit-user-drag: none;"
+                        class="md:h-[300px] lg:h-[380px] xl:h-[479px] w-auto object-contain"
+                        style="user-select: none; -webkit-user-drag: none;"
                     />
                 </div>
             </div>
@@ -257,12 +259,12 @@ const bigCard2Points = [
     </div>
 
     {/* Boxes decorative image */}
-    <div class="relative z-0 max-w-[1440px] mx-auto px-6 md:px-[200px] mt-[40px] pb-[40px]">
+    <div class="relative z-0 max-w-[1440px] mx-auto px-6 md:px-[80px] lg:px-[140px] xl:px-[200px] mt-[40px] pb-[40px]">
         <img
             src={import.meta.env.BASE_URL + "assets/boxes.svg"}
             alt=""
             draggable="false"
-            style="display: block; width: 561px; height: 121px; user-select: none; -webkit-user-drag: none;"
+            style="display: block; max-width: min(561px, 100%); height: auto; user-select: none; -webkit-user-drag: none;"
         />
     </div>
 </section>

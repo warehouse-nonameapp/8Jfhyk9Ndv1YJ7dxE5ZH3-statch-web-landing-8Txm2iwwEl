@@ -11,7 +11,7 @@ const features = featuresEntry?.data || [];
     class="relative z-10 -mt-[24px] md:-mt-[40px]"
     style="border-radius: 40px 40px 0 0; background: linear-gradient(180deg, #0D0E10 0%, #161822 100%);"
 >
-    <div class="max-w-[1440px] mx-auto px-6 md:px-[200px] pt-[80px] md:pt-[100px] flex flex-col gap-[100px] md:gap-[140px]">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-[80px] lg:px-[140px] xl:px-[200px] pt-[80px] md:pt-[100px] flex flex-col gap-[100px] md:gap-[140px]">
         {
             features.map((feature, index) => (
                 <>
@@ -26,8 +26,8 @@ const features = featuresEntry?.data || [];
 
                     {index === 1 && (
                         <div
-                            class="w-full flex flex-col md:flex-row items-center gap-[40px] animate-on-scroll relative overflow-hidden"
-                            style="padding: 48px 56px; border-radius: 32px; border: 2px solid #1F1B30; background: linear-gradient(90deg, #17132C 0%, #1E1939 100%);"
+                            class="w-full flex flex-col md:flex-row items-center gap-[40px] animate-on-scroll relative overflow-hidden p-6 md:p-8 xl:p-[48px_56px]"
+                            style="border-radius: 32px; border: 2px solid #1F1B30; background: linear-gradient(90deg, #17132C 0%, #1E1939 100%);"
                         >
                             <img
                                 src={import.meta.env.BASE_URL + "assets/ic_blue_boxes_sign_up_banner.svg"}
@@ -65,11 +65,11 @@ const features = featuresEntry?.data || [];
     </div>
 
     {/* Blue boxes decoration */}
-    <div class="max-w-[1440px] mx-auto px-6 md:px-[200px] pt-[64px] pb-[40px]">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-[80px] lg:px-[140px] xl:px-[200px] pt-[64px] pb-[40px]">
         <img
             src={import.meta.env.BASE_URL + "assets/ic_blue_boxes.svg"}
             alt=""
-            style="display: flex; height: 188px; flex-direction: column; align-items: flex-start; gap: 7.836px; width: auto;"
+            style="display: block; max-height: 188px; height: auto; width: auto;"
         />
     </div>
 </section>
