@@ -200,8 +200,9 @@ import Footer from "../../components/Footer.astro";
                                     <li>Platform (iOS or Android)</li>
                                     <li>Application version</li>
                                     <li>Operating system version</li>
+                                    <li><span class="font-bold">Firebase Installation ID</span> — a pseudonymous identifier assigned by Firebase to each app installation, used to authenticate requests to our backend services</li>
                                 </ul>
-                                <p class="mt-2">This is used for compatibility management and push notification delivery.</p>
+                                <p class="mt-2">This data is used for compatibility management, push notification delivery, and backend request authentication. The Firebase Installation ID does not identify you personally but is unique to your app installation and may persist until the app is uninstalled or reinstalled.</p>
                             </div>
 
                             <div>
@@ -258,13 +259,14 @@ import Footer from "../../components/Footer.astro";
 
                             <div>
                                 <h3 class="text-[18px] font-bold mb-3 text-[#090924]">3.4 Інформація про пристрій</h3>
-                                <p>Кожен запит до нашого бекенду містить обмежені метадані пристрою:</p>
+                                <p>Кожен запит до нашого сервера містить обмежені метадані пристрою:</p>
                                 <ul class="list-disc ml-5 mt-2 space-y-1">
                                     <li>Платформа (iOS або Android)</li>
                                     <li>Версія застосунку</li>
                                     <li>Версія операційної системи</li>
+                                    <li><span class="font-bold">Ідентифікатор інсталяції Firebase</span> — псевдонімний ідентифікатор, що присвоюється Firebase кожній інсталяції застосунку та використовується для автентифікації запитів до наших серверних сервісів</li>
                                 </ul>
-                                <p class="mt-2">Це використовується для управління сумісністю та доставки push-сповіщень.</p>
+                                <p class="mt-2">Ці дані використовуються для управління сумісністю, доставки push-сповіщень та автентифікації запитів до сервера. Ідентифікатор інсталяції Firebase не ідентифікує вас особисто, але є унікальним для вашої інсталяції застосунку та може зберігатися до видалення або повторного встановлення застосунку.</p>
                             </div>
 
                             <div>
