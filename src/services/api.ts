@@ -1,6 +1,6 @@
 const API_BASE = import.meta.env.DEV
     ? "/api-proxy"
-    : "https://dev-api.statch.io";
+    : "https://api.statch.io";
 
 export type SignupResult =
     | { success: true }
