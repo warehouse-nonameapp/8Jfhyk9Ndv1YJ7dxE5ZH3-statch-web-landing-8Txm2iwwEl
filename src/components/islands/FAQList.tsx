@@ -1,23 +1,63 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-
+type Locale = 'uk' | 'en';
 
 interface FAQItemData {
-    question: string;
-    answer: string;
+    question?: string;
+    answer?: string;
+    question_uk?: string;
+    answer_uk?: string;
+    question_en?: string;
+    answer_en?: string;
 }
 
 interface FAQListProps {
     data: FAQItemData[];
 }
 
+function useLocale(): Locale {
+    // Always start with 'uk' for SSR — actual locale is synced in useEffect
+    const [locale, setLocale] = useState<Locale>('uk');
+
+    useEffect(() => {
+        const saved = localStorage.getItem('locale');
+        if (saved === 'uk' || saved === 'en') {
+            setLocale(saved);
+        }
+
+        const handleLocaleChange = (e: Event) => {
+            const customEvent = e as CustomEvent<{ locale: Locale }>;
+            if (customEvent.detail?.locale) {
+                setLocale(customEvent.detail.locale);
+            }
+        };
+
+        window.addEventListener('localechange', handleLocaleChange);
+        return () => {
+            window.removeEventListener('localechange', handleLocaleChange);
+        };
+    }, []);
+
+    return locale;
+}
+
 export const FAQList = ({ data }: FAQListProps) => {
+    const locale = useLocale();
+
     return (
         <div className="flex flex-col gap-2">
-            {data.map((item, index) => (
-                <FAQItem key={index} question={item.question} answer={item.answer} />
-            ))}
+            {data.map((item, index) => {
+                const question = locale === 'en'
+                    ? (item.question_en || item.question || '')
+                    : (item.question_uk || item.question || '');
+                const answer = locale === 'en'
+                    ? (item.answer_en || item.answer || '')
+                    : (item.answer_uk || item.answer || '');
+                return (
+                    <FAQItem key={index} question={question} answer={answer} />
+                );
+            })}
         </div>
     );
 };

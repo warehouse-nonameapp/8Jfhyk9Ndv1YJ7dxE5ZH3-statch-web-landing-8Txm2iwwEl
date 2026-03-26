@@ -22,8 +22,12 @@ const features = defineCollection({
 const faq = defineCollection({
     type: 'data',
     schema: z.array(z.object({
-        question: z.string(),
-        answer: z.string()
+        question: z.string().optional(),
+        answer: z.string().optional(),
+        question_uk: z.string().optional(),
+        answer_uk: z.string().optional(),
+        question_en: z.string().optional(),
+        answer_en: z.string().optional(),
     }))
 });
 

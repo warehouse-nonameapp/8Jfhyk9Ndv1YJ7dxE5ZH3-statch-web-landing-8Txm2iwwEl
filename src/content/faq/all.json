@@ -1,26 +1,50 @@
 [
     {
-        "question": "Чи можна користуватися Statch безкоштовно?",
-        "answer": "Так, під час бета-тесту Statch безкоштовний. Пізніше з'являться платні тарифи, але користувачі бета-тесту отримають спеціальні умови. 😉"
+        "question_uk": "Що таке Statch?",
+        "answer_uk": "Statch — це мобільний застосунок для обліку товарів і продажів. Ви додаєте товари, фіксуєте замовлення, стежите за залишками — а Statch сам рахує прибуток. Жодних таблиць, жодних складних програм.",
+        "question_en": "What is Statch?",
+        "answer_en": "Statch is a mobile app for tracking inventory and sales. You add products, record orders, monitor stock levels — and Statch calculates your profit automatically. No spreadsheets, no complex software."
     },
     {
-        "question": "Чи потрібен досвід роботи з обліковими системами?",
-        "answer": "Ні! Ми зробили Statch максимально дружнім навіть для початківців. Головний акцент — простота та інтуїтивність."
+        "question_uk": "Для кого це?",
+        "answer_uk": "Для підприємців, які продають фізичні товари — в Instagram, на маркетплейсах, у шоурумах або офлайн. Якщо ви зараз ведете облік у таблицях, месенджерах чи в голові — Statch замінить це все одним застосунком.",
+        "question_en": "Who is this for?",
+        "answer_en": "For entrepreneurs who sell physical goods — on Instagram, marketplaces, in showrooms, or offline. If you're currently tracking things in spreadsheets, messengers, or your head — Statch replaces all of that with one app."
     },
     {
-        "question": "Скільки складів і категорій можна створити?",
-        "answer": "Стільки, скільки вам потрібно. Жодних обмежень на кількість складів, категорій чи товарів у нас немає."
+        "question_uk": "Що таке бета-тест і що я отримаю?",
+        "answer_uk": "Бета-тест — це ранній доступ до Statch до офіційного запуску. Ви користуєтесь застосунком безкоштовно, а ми отримуємо зворотний зв'язок. Усі учасники бета-тесту отримають спеціальні умови після запуску.",
+        "question_en": "What is the beta test and what will I get?",
+        "answer_en": "The beta test is early access to Statch before the official launch. You use the app for free, and we receive your feedback. All beta participants will receive special terms after launch."
     },
     {
-        "question": "Чи можна імпортувати існуючу базу товарів?",
-        "answer": "Так, ми підтримуємо імпорт через CSV з популярних платформ (Prom, Shopify тощо), а також зі звичайного Excel, щоб ви могли швидко перенести дані без ручного копіювання."
+        "question_uk": "Що вже працює в застосунку?",
+        "answer_uk": "Основний функціонал готовий і працює: товари з варіантами (розмір, колір тощо), підтримка кількох складів, автоматичний розрахунок цін (собівартість, роздріб, опт), замовлення зі статусами, повна історія операцій і сповіщення. Цього достатньо, щоб повністю вести облік.",
+        "question_en": "What's already working in the app?",
+        "answer_en": "The core functionality is ready and working: products with variants (size, color, etc.), multiple warehouses, automatic price calculations (cost, retail, wholesale), orders with statuses, full operation history, and notifications. That's enough to run your inventory end-to-end."
     },
     {
-        "question": "Наскільки безпечне зберігання даних?",
-        "answer": "Ми шифруємо всі дані та відповідаємо вимогам безпеки Apple і Google. Також фіксуємо кожен вхід, щоб захистити ваші дані від несанкціонованого доступу."
+        "question_uk": "Чи потрібен досвід з обліковими програмами?",
+        "answer_uk": "Ні. Statch створений так, щоб почати за кілька хвилин — без навчання, без інструкцій, без бухгалтера. Якщо ви вмієте користуватися телефоном — ви вмієте користуватися Statch.",
+        "question_en": "Do I need experience with accounting software?",
+        "answer_en": "No. Statch is built to get started in minutes — no training, no instructions, no accountant needed. If you can use a smartphone, you can use Statch."
     },
     {
-        "question": "Як отримати допомогу, якщо виникнуть питання чи складнощі?",
-        "answer": "Наша команда підтримки завжди на зв'язку: пишіть на пошту або у соцмережі. Ми оперативно допоможемо вирішити будь-яку проблему 💙"
+        "question_uk": "На яких пристроях працює Statch?",
+        "answer_uk": "На iPhone та Android. Після реєстрації на бета-тест ви отримаєте на email інструкцію, як встановити застосунок.",
+        "question_en": "What devices does Statch work on?",
+        "answer_en": "iPhone and Android. After signing up for the beta, you'll receive an email with instructions on how to install the app."
+    },
+    {
+        "question_uk": "Чи збережуться мої дані після завершення бета-тесту?",
+        "answer_uk": "Так. Усе, що ви створите під час бета-тесту — товари, замовлення, історія — залишиться з вами після запуску. Ми заздалегідь попередимо про будь-які зміни.",
+        "question_en": "Will my data be saved after the beta ends?",
+        "answer_en": "Yes. Everything you create during the beta — products, orders, history — will stay with you after launch. We'll notify you in advance of any changes."
+    },
+    {
+        "question_uk": "Statch безкоштовний?",
+        "answer_uk": "Під час бета-тесту — так, повністю безкоштовний і без обмежень. Після запуску Statch перейде на платну підписку, але учасники бета-тесту отримають спеціальні умови.",
+        "question_en": "Is Statch free?",
+        "answer_en": "During the beta — yes, completely free with no limitations. After launch, Statch will move to a paid subscription, but beta participants will receive special terms."
     }
 ]
