@@ -62,7 +62,7 @@ export const FloatingFooter = () => {
                 >
                     <div className="flex items-center justify-between px-5 py-4">
                         {/* Logo */}
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 shrink-0">
                             <img
                                 src={`${import.meta.env.BASE_URL}assets/ic_statch_icon.svg`}
                                 alt="Statch Icon"
@@ -79,7 +79,7 @@ export const FloatingFooter = () => {
                         </div>
 
                         {/* Button */}
-                        <BetaSubscriptionButton className="!py-3 !px-6" />
+                        <BetaSubscriptionButton className="!py-3 !px-6 whitespace-nowrap shrink-0" />
                     </div>
                 </motion.div>
             )}
