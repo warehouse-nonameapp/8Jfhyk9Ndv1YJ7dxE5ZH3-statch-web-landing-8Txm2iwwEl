@@ -6,18 +6,18 @@ interface Props {
 const { darkText = false } = Astro.props;
 ---
 
-<a href="/" class="flex items-center gap-[10px]" aria-label="Statch — повернутись на головну">
+<a href="/" class="flex items-center gap-2 md:gap-[10px]" aria-label="Statch — повернутись на головну">
     <img
         src={import.meta.env.BASE_URL + "assets/ic_statch_icon.svg"}
         alt="Statch Icon"
-        class="w-[24px] h-[24px] shrink-0"
+        class="w-5 h-5 md:w-[24px] md:h-[24px] shrink-0"
         draggable="false"
         style="user-select: none; -webkit-user-drag: none;"
     />
     <img
         src={import.meta.env.BASE_URL + "assets/ic_statch_name.svg"}
         alt="Statch"
-        class="h-[21px]"
+        class="w-[64px] h-[17.64px] md:w-auto md:h-[21px]"
         draggable="false"
         style="user-select: none; -webkit-user-drag: none;"
     />

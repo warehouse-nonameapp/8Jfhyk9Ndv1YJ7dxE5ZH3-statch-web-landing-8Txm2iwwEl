@@ -177,7 +177,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
         <>
             <button
                 onClick={() => setIsOpen(true)}
-                className={`btn-gradient-border bg-[#1C4FD8] hover:bg-[#1946BF] active:bg-[#143899] text-white font-['Mulish'] font-semibold text-[16px] leading-[150%] text-center py-[20px] px-[40px] rounded-[16px] transition-all shadow-sm active:scale-[0.98] focus:outline-none flex items-center justify-center gap-4 inline-flex ${className}`}
+                className={`btn-gradient-border bg-[#1C4FD8] hover:bg-[#1946BF] active:bg-[#143899] text-white font-['Mulish'] font-semibold text-[16px] leading-[150%] text-center py-4 px-8 md:py-[20px] md:px-[40px] rounded-[12px] md:rounded-[16px] transition-all shadow-sm active:scale-[0.98] focus:outline-none flex items-center justify-center gap-4 inline-flex ${className}`}
                 style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
             >
                 {t('join_beta')}

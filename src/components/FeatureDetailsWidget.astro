@@ -17,7 +17,7 @@ interface Props {
 const { title, titleEn, image, points, orientation = "left" } = Astro.props;
 ---
 
-<div class="flex flex-col gap-[40px] w-full animate-on-scroll">
+<div class="flex flex-col gap-6 md:gap-[40px] w-full animate-on-scroll">
     {/* Title — full width on top */}
     <h2
         data-uk={title}
@@ -28,38 +28,31 @@ const { title, titleEn, image, points, orientation = "left" } = Astro.props;
         {title}
     </h2>
 
-    {/* Image + Points row */}
-    <div
-        class="flex flex-col md:flex-row items-start gap-[40px]"
-        style={orientation === "right" ? "flex-direction: row-reverse;" : ""}
-    >
-        {/* Screenshot */}
-        <img
-            src={image}
-            alt={title}
-            style="width: 220px; height: auto; border-radius: 25px; box-shadow: 0 26.4px 110px 0 rgba(82, 112, 250, 0.20); display: block; flex-shrink: 0; align-self: flex-start;"
-        />
+    {/* Image + Points — mobile: points first then image, desktop: side by side per orientation */}
+    <div class={`flex flex-col ${orientation === "left" ? "md:flex-row-reverse" : "md:flex-row"} md:items-start gap-12 md:gap-[40px]`}>
 
-        {/* Points */}
-        <div class="flex flex-col gap-[32px] flex-1">
+        {/* Points — first in DOM so they appear above image on mobile */}
+        <div class="flex flex-col gap-6 md:gap-[32px] flex-1">
             {
                 points.map((point) => (
-                    <div class="flex items-start gap-[24px]">
+                    <div class="flex items-start gap-4 md:gap-[24px]">
+                        {/* Circle */}
                         <div
-                            class="flex items-center justify-center shrink-0"
-                            style="width: 40px; height: 40px; border-radius: 1000px; background: rgba(41, 150, 52, 0.10);"
+                            class="w-[26px] h-[26px] md:w-10 md:h-10 flex items-center justify-center shrink-0 rounded-full"
+                            style="background: rgba(41, 150, 52, 0.10);"
                         >
                             <img
                                 src={import.meta.env.BASE_URL + "assets/ic_green_check.svg"}
                                 alt=""
-                                style="width: 20px; height: 20px; flex-shrink: 0;"
+                                class="w-3 h-3 md:w-5 md:h-5 shrink-0"
                             />
                         </div>
-                        <div class="flex flex-col gap-[12px]">
+                        {/* Text */}
+                        <div class="flex flex-col gap-2 md:gap-[12px]">
                             <h3
                                 data-uk={point.title}
                                 data-en={point.title_en || point.title}
-                                class="font-['Mulish'] text-[18px] leading-[130%] md:text-[24px] font-bold text-[#E0E0E0]"
+                                class="font-['Mulish'] text-[20px] leading-[130%] md:text-[24px] font-bold text-[#E0E0E0]"
                                 style="font-variant-numeric: lining-nums tabular-nums;"
                             >
                                 {point.title}
@@ -67,7 +60,7 @@ const { title, titleEn, image, points, orientation = "left" } = Astro.props;
                             <p
                                 data-uk={point.subtitle}
                                 data-en={point.subtitle_en || point.subtitle}
-                                class="font-['Mulish'] text-[14px] leading-[150%] md:text-[16px] font-semibold text-[#E0E0E0]"
+                                class="font-['Mulish'] text-[16px] leading-[150%] md:text-[16px] font-semibold text-[#E0E0E0]"
                                 style="font-variant-numeric: lining-nums tabular-nums;"
                             >
                                 {point.subtitle}
@@ -77,5 +70,13 @@ const { title, titleEn, image, points, orientation = "left" } = Astro.props;
                 ))
             }
         </div>
+
+        {/* Screenshot — last on mobile (48px gap via parent gap-12), side on desktop */}
+        <img
+            src={image}
+            alt={title}
+            class="w-[220px] h-auto self-center md:self-start"
+            style="border-radius: 25px; box-shadow: 0 26.4px 110px 0 rgba(82, 112, 250, 0.20); display: block; flex-shrink: 0;"
+        />
     </div>
 </div>

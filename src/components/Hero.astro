@@ -51,43 +51,53 @@ const bigCard2Points = [
 ---
 
 <section class="bg-white w-full overflow-x-hidden relative">
-    <div class="relative w-full max-w-[1440px] mx-auto px-6 md:px-[80px] lg:px-[140px] xl:px-[200px] pt-[40px] z-50">
+    <div class="relative w-full max-w-[1440px] mx-auto px-5 md:px-[80px] lg:px-[140px] xl:px-[200px] pt-8 md:pt-[40px] z-50">
         <Header />
     </div>
 
     {/* Hero Text + Button */}
-    <div class="max-w-[1440px] mx-auto px-6 md:px-[80px] lg:px-[140px] xl:px-[200px] pt-[64px] flex flex-col items-center text-center">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-[80px] lg:px-[140px] xl:px-[200px] pt-20 md:pt-[64px] flex flex-col items-center text-center">
         <div class="w-full px-0 md:px-0 lg:px-[80px] xl:px-[120px] flex flex-col items-center text-center">
             <h1
                 data-i18n="header_title"
-                class="text-[32px] leading-[40px] md:text-[48px] md:leading-[64px] font-extrabold text-[#090924] animate-on-scroll tracking-[0.5px] font-['Mulish'] w-full"
+                class="text-[32px] leading-[120%] md:text-[48px] md:leading-[64px] font-extrabold text-[#090924] animate-on-scroll tracking-[0.5px] font-['Mulish'] w-full"
                 style="font-variant-numeric: lining-nums tabular-nums;"
             >
                 {Strings.header_title}
             </h1>
             <p
                 data-i18n="header_description"
-                class="text-[14px] leading-[21px] md:text-[16px] md:leading-[24px] text-[#090924] font-semibold w-full text-center mt-[16px] animate-on-scroll delay-100 font-['Mulish']"
+                class="text-[16px] leading-[150%] md:text-[16px] md:leading-[24px] text-[#090924] font-semibold w-full text-center mt-6 md:mt-[16px] animate-on-scroll delay-100 font-['Mulish']"
                 style="font-variant-numeric: lining-nums tabular-nums;"
             >
                 {Strings.header_description}
             </p>
         </div>
 
-        <div class="mt-[48px] animate-on-scroll delay-200 flex flex-col items-center gap-[12px]">
+        <div class="mt-10 md:mt-[48px] animate-on-scroll delay-200 flex flex-col items-center gap-[12px]">
             <BetaSubscriptionButton client:load />
             <PlatformChipsRow />
         </div>
     </div>
 
     {/* App Screenshot */}
-    <div class="w-full flex justify-center mb-[60px] xl:mb-[120px] animate-on-scroll delay-300">
+    <div class="w-full flex justify-center px-5 md:px-0 mt-16 md:mt-0 mb-10 md:mb-[60px] xl:mb-[120px] animate-on-scroll delay-300">
+        {/* Mobile image */}
         <img
-            src={import.meta.env.BASE_URL + "assets/ic_app_features.png"}
+            src={import.meta.env.BASE_URL + "assets/ic_app_features_mobile.webp"}
+            alt="App Features"
+            draggable="false"
+            class="block md:hidden w-full h-auto"
+            style="user-select: none; -webkit-user-drag: none;"
+        />
+        {/* Desktop image */}
+        <img
+            src={import.meta.env.BASE_URL + "assets/ic_app_features.webp"}
             alt="App Features"
             width="1040"
             height="655.802"
             draggable="false"
+            class="hidden md:block"
             style="aspect-ratio: 157/99; width: 100%; max-width: 1040px; height: auto; user-select: none; -webkit-user-drag: none;"
         />
     </div>
@@ -97,44 +107,41 @@ const bigCard2Points = [
         <div class="flex flex-col items-center text-center px-0 md:px-[120px] mb-[40px] md:mb-[48px] animate-on-scroll">
             <h2
                 data-i18n="features_section_title"
-                class="text-[24px] leading-[31px] md:text-[32px] md:leading-[42px] font-extrabold text-[#090924] font-['Mulish'] w-full"
+                class="text-[24px] leading-[130%] md:text-[32px] md:leading-[42px] font-extrabold text-[#090924] font-['Mulish'] w-full"
                 style="font-variant-numeric: lining-nums tabular-nums;"
             >
                 {Strings.features_section_title}
             </h2>
             <p
                 data-i18n="features_section_subtitle"
-                class="text-[14px] leading-[21px] md:text-[16px] md:leading-[24px] text-[#090924] font-semibold mt-[16px] font-['Mulish']"
+                class="text-[16px] leading-[150%] md:text-[16px] md:leading-[24px] text-[#090924] font-semibold mt-4 md:mt-[16px] font-['Mulish']"
                 style="font-variant-numeric: lining-nums tabular-nums;"
             >
                 {Strings.features_section_subtitle}
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-[24px]">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-[24px]">
             {
                 featureCards.map((card) => (
                     <div
-                        class="flex flex-col items-start gap-[16px] rounded-[24px] bg-[#F5F7FC] animate-on-scroll delay-100"
-                        style="padding: 24px 32px 32px 32px; flex: 1 0 0; align-self: stretch;"
+                        class="flex flex-col items-start gap-3 md:gap-[16px] rounded-[24px] bg-[#F5F7FC] animate-on-scroll delay-100 p-6 md:pt-6 md:px-8 md:pb-8 self-stretch"
+                        style="flex: 1 0 0;"
                     >
                         {/* Icon circle */}
-                        <div
-                            class="flex items-center justify-center shrink-0"
-                            style="width: 64px; height: 64px; border-radius: 1000px; background: #FFF; gap: 8px;"
-                        >
+                        <div class="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center shrink-0 rounded-full bg-white">
                             <img
                                 src={card.icon}
                                 alt={card.titleDefault}
-                                style="width: 24px; height: 24px; flex-shrink: 0;"
+                                class="w-5 h-5 md:w-6 md:h-6 shrink-0"
                             />
                         </div>
 
                         {/* Title + Subtitle */}
-                        <div class="flex flex-col gap-[12px] w-full">
+                        <div class="flex flex-col gap-3 md:gap-[12px] w-full">
                             <h3
                                 data-i18n={card.titleKey}
-                                class="text-[24px] leading-[130%] font-bold text-[#090924] font-['Mulish']"
+                                class="text-[20px] leading-[130%] font-bold md:text-[24px] text-[#090924] font-['Mulish']"
                                 style="font-variant-numeric: lining-nums tabular-nums; align-self: stretch;"
                             >
                                 {card.titleDefault}
@@ -157,37 +164,55 @@ const bigCard2Points = [
 
             {/* Card 1: Product History */}
             <div
-                class="flex items-end gap-[16px] rounded-[24px] bg-[#F5F7FC] animate-on-scroll w-full overflow-hidden"
+                class="flex flex-col md:flex-row md:items-end gap-0 md:gap-[16px] rounded-[24px] bg-[#F7F8FA] md:bg-[#F5F7FC] animate-on-scroll w-full p-6 md:p-0"
                 style="max-width: 1040px;"
             >
+                {/* Mobile: Title + Subtitle */}
+                <div class="flex flex-col w-full md:hidden">
+                    <h2
+                        data-i18n="big_card_1_title"
+                        class="font-['Mulish'] text-[24px] font-extrabold leading-[130%] text-[#090924] w-full"
+                        style="font-variant-numeric: lining-nums tabular-nums;"
+                    >
+                        Всі товари і залишки під контролем
+                    </h2>
+                    <p
+                        data-i18n="big_card_1_desc"
+                        class="font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#090924] mt-4 w-full"
+                        style="font-variant-numeric: lining-nums tabular-nums;"
+                    >
+                        Додавайте товари, змінюйте кількість, списуйте або переміщуйте між складами — вся історія зберігається.
+                    </p>
+                </div>
+
                 {/* Screenshot */}
-                <div class="flex items-end shrink-0 pb-4 pr-4 pl-6">
+                <div class="w-full md:w-auto shrink-0 flex items-center justify-center mt-10 md:mt-0 md:-mt-4 px-[34px] pb-[34px] md:px-0 md:pb-4 md:pr-4 md:pl-6">
                     <img
                         src={import.meta.env.BASE_URL + "assets/ic_product_history.png"}
                         alt="Product History"
                         draggable="false"
-                        class="md:h-[300px] lg:h-[380px] xl:h-[479px] w-auto object-contain"
+                        class="w-full h-auto md:w-auto md:h-[300px] lg:h-[380px] xl:h-[479px] object-contain"
                         style="user-select: none; -webkit-user-drag: none;"
                     />
                 </div>
 
-                {/* Text */}
-                <div class="flex flex-col flex-1 self-stretch pt-8 pr-8 pb-4 pl-0 xl:pt-[40px] xl:pr-[48px] xl:pb-4">
+                {/* Desktop: Title + Subtitle + Bullets / Mobile: Bullets only */}
+                <div class="flex flex-col flex-1 self-stretch mt-10 md:mt-0 md:pt-8 md:pr-8 md:pb-4 md:pl-0 xl:pt-[40px] xl:pr-[48px] xl:pb-4">
                     <h2
                         data-i18n="big_card_1_title"
-                        class="font-['Mulish'] text-[32px] font-[800] leading-[130%] text-[#090924] w-full"
+                        class="hidden md:block font-['Mulish'] text-[32px] font-[800] leading-[130%] text-[#090924] w-full"
                         style="font-variant-numeric: lining-nums tabular-nums; align-self: stretch; font-weight: 800;"
                     >
                         Всі товари і залишки під контролем
                     </h2>
                     <p
                         data-i18n="big_card_1_desc"
-                        class="font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#090924] mt-[12px] w-full"
+                        class="hidden md:block font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#090924] mt-[12px] w-full"
                         style="font-variant-numeric: lining-nums tabular-nums; align-self: stretch;"
                     >
                         Додавайте товари, змінюйте кількість, списуйте або переміщуйте між складами — вся історія зберігається.
                     </p>
-                    <div class="flex flex-col mt-[24px]" style="gap: 16px;">
+                    <div class="flex flex-col md:mt-[24px]" style="gap: 16px;">
                         {bigCard1Points.map((item) => (
                             <div class="flex items-center gap-[12px]">
                                 <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0; filter: drop-shadow(0 2px 8px rgba(28, 79, 216, 0.20));">
@@ -207,27 +232,57 @@ const bigCard2Points = [
             </div>
 
             {/* Card 2: Orders */}
+            {/* md:flex-row-reverse so on desktop text appears left, image right */}
             <div
-                class="flex items-end gap-[16px] rounded-[24px] bg-[#F5F7FC] animate-on-scroll w-full overflow-hidden"
+                class="flex flex-col md:flex-row-reverse md:items-end gap-0 md:gap-[16px] rounded-[24px] bg-[#F7F8FA] md:bg-[#F5F7FC] animate-on-scroll w-full p-6 md:p-0"
                 style="max-width: 1040px;"
             >
-                {/* Text */}
-                <div class="flex flex-col flex-1 self-stretch pt-8 pr-0 pb-4 pl-8 xl:pt-[40px] xl:pb-4 xl:pl-[48px]">
+                {/* Mobile: Title + Subtitle */}
+                <div class="flex flex-col w-full md:hidden">
                     <h2
                         data-i18n="big_card_2_title"
-                        class="font-['Mulish'] text-[32px] leading-[130%] text-[#090924] w-full"
+                        class="font-['Mulish'] text-[24px] font-extrabold leading-[130%] text-[#090924] w-full"
+                        style="font-variant-numeric: lining-nums tabular-nums;"
+                    >
+                        Всі замовлення в одному місці
+                    </h2>
+                    <p
+                        data-i18n="big_card_2_desc"
+                        class="font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#090924] mt-4 w-full"
+                        style="font-variant-numeric: lining-nums tabular-nums;"
+                    >
+                        Створюйте замовлення, додавайте товари, застосовуйте знижки і змінюйте статус — все в одному екрані.
+                    </p>
+                </div>
+
+                {/* Screenshot */}
+                <div class="w-full md:w-auto shrink-0 flex items-center justify-center mt-10 md:mt-0 md:-mt-4 px-[34px] pb-[34px] md:px-0 md:pb-4 md:pl-4 md:pr-6">
+                    <img
+                        src={import.meta.env.BASE_URL + "assets/ic_order_details.png"}
+                        alt="Order Details"
+                        draggable="false"
+                        class="w-full h-auto md:w-auto md:h-[300px] lg:h-[380px] xl:h-[479px] object-contain"
+                        style="user-select: none; -webkit-user-drag: none;"
+                    />
+                </div>
+
+                {/* Desktop: Title + Subtitle + Bullets / Mobile: Bullets only */}
+                <div class="flex flex-col flex-1 self-stretch mt-10 md:mt-0 md:pt-8 md:pr-0 md:pb-4 md:pl-8 xl:pt-[40px] xl:pb-4 xl:pl-[48px]">
+                    <h2
+                        data-i18n="big_card_2_title"
+                        class="hidden md:block font-['Mulish'] text-[32px] leading-[130%] text-[#090924] w-full"
                         style="font-variant-numeric: lining-nums tabular-nums; align-self: stretch; font-weight: 800;"
                     >
                         Всі замовлення в одному місці
                     </h2>
                     <p
                         data-i18n="big_card_2_desc"
-                        class="font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#090924] mt-[12px] w-full"
+                        class="hidden md:block font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#090924] mt-[12px] w-full"
                         style="font-variant-numeric: lining-nums tabular-nums; align-self: stretch;"
                     >
                         Створюйте замовлення, додавайте товари, застосовуйте знижки і змінюйте статус — все в одному екрані.
                     </p>
-                    <div class="flex flex-col mt-[24px]" style="gap: 16px;">
+                    <div class="flex flex-col md:mt-[24px]" style="gap: 16px;">
                         {bigCard2Points.map((item) => (
                             <div class="flex items-center gap-[12px]">
                                 <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0; filter: drop-shadow(0 2px 8px rgba(28, 79, 216, 0.20));">
@@ -244,24 +299,13 @@ const bigCard2Points = [
                         ))}
                     </div>
                 </div>
-
-                {/* Screenshot */}
-                <div class="flex items-end shrink-0 pb-4 pl-4 pr-6">
-                    <img
-                        src={import.meta.env.BASE_URL + "assets/ic_order_details.png"}
-                        alt="Order Details"
-                        draggable="false"
-                        class="md:h-[300px] lg:h-[380px] xl:h-[479px] w-auto object-contain"
-                        style="user-select: none; -webkit-user-drag: none;"
-                    />
-                </div>
             </div>
 
         </div>
     </div>
 
     {/* Boxes decorative image */}
-    <div class="relative z-0 max-w-[1440px] mx-auto px-6 md:px-[80px] lg:px-[140px] xl:px-[200px] mt-[40px] pb-[40px]">
+    <div class="hidden md:block relative z-0 max-w-[1440px] mx-auto px-6 md:px-[80px] lg:px-[140px] xl:px-[200px] mt-[40px] pb-[40px]">
         <img
             src={import.meta.env.BASE_URL + "assets/boxes.svg"}
             alt=""

@@ -4,8 +4,8 @@ import { Strings } from "../consts/strings";
 ---
 
 <section
-    class="relative z-30 -mt-[24px] md:-mt-[40px] overflow-hidden"
-    style="border-radius: 40px 40px 0 0; background: #14161A;"
+    class="relative z-30 -mt-[24px] md:-mt-[40px] overflow-hidden rounded-t-[24px] md:rounded-t-[40px]"
+    style="background: #14161A;"
 >
 
     {/* Dot-grid decorations (left and right) */}
@@ -22,11 +22,11 @@ import { Strings } from "../consts/strings";
 
     {/* Content */}
     <div
-        class="relative z-10 max-w-[1440px] mx-auto px-6 md:px-[80px] lg:px-[140px] xl:px-[200px] pt-[80px] md:pt-[100px] pb-[80px] md:pb-0 flex flex-col items-center text-center"
+        class="relative z-10 max-w-[1440px] mx-auto px-5 md:px-[80px] lg:px-[140px] xl:px-[200px] pt-8 md:pt-[100px] pb-0 md:pb-0 flex flex-col items-center text-center"
     >
         <h2
             data-i18n="cta_title"
-            class="font-['Mulish'] text-[28px] leading-[40px] md:text-[48px] md:leading-[64px] font-extrabold tracking-[0.5px] text-white text-center mb-[16px] animate-on-scroll max-w-[800px]"
+            class="font-['Mulish'] text-[32px] leading-[120%] md:text-[48px] md:leading-[64px] font-extrabold md:tracking-[0.5px] text-[#E0E0E0] text-center mb-6 md:mb-[16px] animate-on-scroll max-w-[800px]"
             style="font-variant-numeric: lining-nums tabular-nums;"
         >
             {Strings.cta_title}
@@ -34,7 +34,7 @@ import { Strings } from "../consts/strings";
 
         <p
             data-i18n="cta_description"
-            class="font-['Mulish'] text-[14px] leading-[150%] md:text-[16px] font-semibold text-white text-center max-w-[770px] mb-[48px] animate-on-scroll delay-100"
+            class="font-['Mulish'] text-[16px] leading-[150%] font-extrabold md:font-semibold text-[#E0E0E0] text-center max-w-[770px] mb-10 md:mb-[48px] animate-on-scroll delay-100"
             style="font-variant-numeric: lining-nums tabular-nums;"
         >
             {Strings.cta_description}
@@ -43,12 +43,22 @@ import { Strings } from "../consts/strings";
         <div class="w-full flex justify-center animate-on-scroll delay-200">
             <BetaSubscriptionButton
                 client:visible
-                className="w-full max-w-[280px] h-[56px] !py-0 md:w-auto md:h-auto md:!py-[20px] md:max-w-none"
+                className="md:w-auto md:h-auto md:!py-[20px] md:!px-[40px]"
             />
         </div>
     </div>
 
-    {/* Footer background image — top flush with button bottom, bottom flush with section bottom */}
+    {/* Mobile footer image */}
+    <div class="block md:hidden w-full mt-10 px-5">
+        <img
+            src={import.meta.env.BASE_URL + "assets/ic_footer_background_mobile.svg"}
+            alt=""
+            aria-hidden="true"
+            class="w-full h-auto block pointer-events-none"
+        />
+    </div>
+
+    {/* Desktop footer image */}
     <div class="hidden md:block w-full max-w-[1440px] mx-auto px-[80px] lg:px-[140px] xl:px-[200px]">
         <img
             src={import.meta.env.BASE_URL + "assets/ic_footer_background.svg"}

@@ -27,7 +27,7 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
 
     return (
         <div
-            className="bg-[#FFF] rounded-[24px] border border-[#E3EAF1] overflow-hidden cursor-pointer hover:border-primary transition-colors flex flex-col items-start self-stretch px-[32px] md:px-[40px] py-[32px] w-full"
+            className="bg-[#FFF] rounded-[24px] border border-[#E3EAF1] overflow-hidden cursor-pointer hover:border-primary transition-colors flex flex-col items-start self-stretch p-5 md:px-[40px] md:py-[32px] w-full"
             style={{ boxShadow: "0 8px 16px 0 rgba(201, 209, 230, 0.20)" }}
             onClick={() => setIsOpen(!isOpen)}
         >
@@ -38,7 +38,7 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="shrink-0"
                 >
-                    <svg width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 md:w-10 md:h-10 text-[#CCCCE7]">
+                    <svg width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 md:w-10 md:h-10 text-[#CCCCE7]">
                         <path fillRule="evenodd" clipRule="evenodd" d="M8.824 14.421C9.475 13.77 10.53 13.77 11.181 14.421L20.003 23.243L28.824 14.421C29.475 13.77 30.53 13.77 31.181 14.421C31.832 15.072 31.832 16.127 31.181 16.778L21.181 26.778C20.53 27.429 19.475 27.429 18.824 26.778L8.824 16.778C8.173 16.127 8.173 15.072 8.824 14.421Z" fill="currentColor" />
                     </svg>
                 </motion.div>
@@ -54,7 +54,7 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
                         transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
                         className="w-full overflow-hidden"
                     >
-                        <div className="bg-[#F8F8F8] rounded-[16px] flex px-[24px] py-[16px] items-center text-text-main font-semibold text-sm md:text-base leading-relaxed w-[calc(100%-112px)] md:w-[calc(100%-120px)]">
+                        <div className="bg-[#F8F8F8] rounded-[8px] md:rounded-[16px] flex p-4 md:px-[24px] md:py-[16px] items-center text-text-main font-semibold text-[14px] md:text-base leading-[150%] w-full md:w-[calc(100%-120px)]">
                             {answer}
                         </div>
                     </motion.div>
