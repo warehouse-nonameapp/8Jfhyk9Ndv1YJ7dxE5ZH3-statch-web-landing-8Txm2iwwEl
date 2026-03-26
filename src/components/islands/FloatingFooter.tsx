@@ -6,23 +6,43 @@ export const FloatingFooter = () => {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        const handleScroll = () => {
-            // Show only if scrolled past 200px and not at the very bottom
-            const scrolled = window.scrollY > 200;
-            const bottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100;
+        const heroCta = document.getElementById("hero-cta-anchor");
+        const featuresBanner = document.getElementById("features-banner-anchor");
+        const ctaCta = document.getElementById("cta-anchor");
 
-            // Only show on mobile/compact screens (< 768px for example) if needed logic matches design
-            // For now, we follow logic: show if scrolled and not at bottom
-            setIsVisible(scrolled && !bottom);
+        let heroHidden = false;
+        let featuresBannerVisible = false;
+        let ctaVisible = false;
+
+        const update = () => {
+            setIsVisible(heroHidden && !featuresBannerVisible && !ctaVisible);
         };
 
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+        const heroObserver = new IntersectionObserver(
+            ([entry]) => { heroHidden = !entry.isIntersecting; update(); },
+            { threshold: 0 }
+        );
 
-    // Only render on mobile via CSS media queries logic usually, 
-    // but here we control visibility with JS. 
-    // Optimization: Add 'md:hidden' class to parent to strictly enforce mobile only.
+        const featuresBannerObserver = new IntersectionObserver(
+            ([entry]) => { featuresBannerVisible = entry.isIntersecting; update(); },
+            { threshold: 0 }
+        );
+
+        const ctaObserver = new IntersectionObserver(
+            ([entry]) => { ctaVisible = entry.isIntersecting; update(); },
+            { threshold: 0 }
+        );
+
+        if (heroCta) heroObserver.observe(heroCta);
+        if (featuresBanner) featuresBannerObserver.observe(featuresBanner);
+        if (ctaCta) ctaObserver.observe(ctaCta);
+
+        return () => {
+            heroObserver.disconnect();
+            featuresBannerObserver.disconnect();
+            ctaObserver.disconnect();
+        };
+    }, []);
 
     return (
         <AnimatePresence>
@@ -31,11 +51,35 @@ export const FloatingFooter = () => {
                     initial={{ y: 100, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: 100, opacity: 0 }}
-                    className="fixed bottom-0 left-0 right-0 z-40 p-4 bg-white/80 backdrop-blur-md border-t border-border-light md:hidden flex justify-center pb-8"
+                    transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+                    className="fixed bottom-0 left-0 right-0 z-40 md:hidden"
+                    style={{
+                        borderRadius: "12px 12px 0 0",
+                        background: "linear-gradient(180deg, rgba(242, 246, 255, 0.80) 0%, #F2F6FF 100%)",
+                        backdropFilter: "blur(2px)",
+                        WebkitBackdropFilter: "blur(2px)",
+                    }}
                 >
-                    {/* Simplified Button for floating footer */}
-                    <div>
-                        <BetaSubscriptionButton />
+                    <div className="flex items-center justify-between px-5 py-4">
+                        {/* Logo */}
+                        <div className="flex items-center gap-2">
+                            <img
+                                src={`${import.meta.env.BASE_URL}assets/ic_statch_icon.svg`}
+                                alt="Statch Icon"
+                                width={20}
+                                height={20}
+                                draggable={false}
+                            />
+                            <img
+                                src={`${import.meta.env.BASE_URL}assets/ic_statch_name.svg`}
+                                alt="Statch"
+                                style={{ width: 64, height: 17.64 }}
+                                draggable={false}
+                            />
+                        </div>
+
+                        {/* Button */}
+                        <BetaSubscriptionButton className="!py-3 !px-6" />
                     </div>
                 </motion.div>
             )}

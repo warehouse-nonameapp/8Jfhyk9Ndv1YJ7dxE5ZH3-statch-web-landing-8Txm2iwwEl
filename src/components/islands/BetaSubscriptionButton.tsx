@@ -54,6 +54,17 @@ const translationsMap: Record<Locale, Record<string, string>> = {
     },
 };
 
+function useIsMobile(): boolean {
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        const check = () => setIsMobile(window.innerWidth < 768);
+        check();
+        window.addEventListener('resize', check);
+        return () => window.removeEventListener('resize', check);
+    }, []);
+    return isMobile;
+}
+
 function useLocale(): Locale {
     // Always start with 'uk' for SSR — actual locale is synced in useEffect
     const [locale, setLocale] = useState<Locale>('uk');
@@ -88,6 +99,7 @@ interface Props {
 
 export const BetaSubscriptionButton = ({ className = "" }: Props) => {
     const locale = useLocale();
+    const isMobile = useIsMobile();
     const t = (key: string): string => translationsMap[locale][key] ?? translationsMap['uk'][key] ?? key;
 
     const [isOpen, setIsOpen] = useState(false);
@@ -186,7 +198,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
             {typeof document !== 'undefined' && createPortal(
                 <AnimatePresence>
                     {isOpen && (
-                        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
+                        <div className={`fixed inset-0 z-[9999] flex ${isMobile ? 'items-end' : 'items-center justify-center p-4'}`}>
                             <motion.div
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
@@ -195,15 +207,25 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                 className="absolute inset-0 bg-black/50 backdrop-blur-sm"
                             />
                             <motion.div
-                                initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                                animate={{ opacity: 1, scale: 1, y: 0 }}
-                                exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                                className="bg-white rounded-[24px] w-full max-w-[560px] relative shadow-2xl z-10 overflow-hidden"
+                                drag={isMobile ? "y" : false}
+                                dragConstraints={{ top: 0 }}
+                                dragElastic={{ top: 0, bottom: 0.3 }}
+                                onDragEnd={(_, info) => { if (info.offset.y > 80) reset(); }}
+                                initial={{ y: isMobile ? "100%" : 20, opacity: 0, scale: isMobile ? 1 : 0.95 }}
+                                animate={{ y: 0, opacity: 1, scale: 1 }}
+                                exit={{ y: isMobile ? "100%" : 20, opacity: 0, scale: isMobile ? 1 : 0.95 }}
+                                transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+                                className="bg-white rounded-t-[24px] md:rounded-[24px] w-full md:max-w-[560px] relative shadow-2xl z-10 overflow-hidden"
                             >
-                                {/* Close button */}
+                                {/* Drag handle — mobile only */}
+                                <div className="flex justify-center pt-4 md:hidden">
+                                    <div className="w-16 h-1 rounded-full bg-[#D2D6E3]" />
+                                </div>
+
+                                {/* Close button — desktop only */}
                                 <button
                                     onClick={reset}
-                                    className="absolute z-20"
+                                    className="hidden md:block absolute z-20"
                                     style={{ top: 16, right: 16 }}
                                 >
                                     <img
@@ -214,10 +236,10 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                 </button>
 
                                 {step === 'input' ? (
-                                    <div className="flex flex-col p-[40px]">
+                                    <div className="flex flex-col pt-6 px-5 pb-10 md:p-[40px]">
                                         {/* Title */}
                                         <h2
-                                            className="font-['Mulish'] text-[24px] font-bold leading-[130%] text-[#090924]"
+                                            className="font-['Mulish'] text-[20px] md:text-[24px] font-bold leading-[130%] text-[#090924]"
                                             style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                         >
                                             {t('beta_modal_title')}
@@ -225,16 +247,16 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
 
                                         {/* Description */}
                                         <p
-                                            className="font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#090924] mt-[12px]"
+                                            className="font-['Mulish'] text-[14px] md:text-[16px] font-semibold leading-[150%] text-[#090924] mt-3 md:mt-[12px]"
                                             style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                         >
                                             {t('beta_modal_description')}
                                         </p>
 
                                         {/* Email field */}
-                                        <div className="flex flex-col gap-[8px] mt-[32px]">
+                                        <div className="flex flex-col gap-1 md:gap-[8px] mt-6 md:mt-[32px]">
                                             <label
-                                                className="font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#090924]"
+                                                className="font-['Mulish'] text-[14px] md:text-[16px] font-semibold leading-[150%] text-[#090924]"
                                                 style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                             >
                                                 {t('beta_email_label')}
@@ -246,7 +268,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                                 onChange={(e) => { setEmail(e.target.value); setError(false); }}
                                                 onFocus={() => setFocused(true)}
                                                 onBlur={() => { setTouched(true); setFocused(false); }}
-                                                className="w-full outline-none font-['Mulish'] text-[16px] font-semibold text-[#090924] placeholder:text-[#A6A6BC]"
+                                                className="w-full outline-none font-['Mulish'] text-[14px] md:text-[16px] font-semibold text-[#090924] placeholder:text-[#B8BABF] md:placeholder:text-[#A6A6BC]"
                                                 style={{
                                                     display: 'flex',
                                                     padding: 16,
@@ -265,7 +287,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                             />
                                             {touched && email && !ValidationUtils.isValidEmail(email) && (
                                                 <p
-                                                    className="font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#FF4C4C] mt-[8px]"
+                                                    className="font-['Mulish'] text-[14px] font-semibold leading-[150%] text-[#FF4C4C] mt-[8px]"
                                                     style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                                 >
                                                     {t('beta_invalid_email')}
@@ -277,7 +299,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                         <button
                                             onClick={handleSubmit}
                                             disabled={loading || !ValidationUtils.isValidEmail(email)}
-                                            className="btn-gradient-border w-full bg-[#1C4FD8] hover:bg-[#1946BF] active:bg-[#143899] text-white font-['Mulish'] font-semibold text-[16px] leading-[150%] py-[20px] px-[40px] rounded-[16px] disabled:cursor-not-allowed transition-all shadow-md active:scale-[0.98] flex items-center justify-center gap-[16px] mt-[20px]"
+                                            className="btn-gradient-border w-full bg-[#1C4FD8] hover:bg-[#1946BF] active:bg-[#143899] text-white font-['Mulish'] font-semibold text-[16px] leading-[150%] py-4 px-8 md:py-[20px] md:px-[40px] rounded-[12px] md:rounded-[16px] disabled:cursor-not-allowed transition-all shadow-md active:scale-[0.98] flex items-center justify-center gap-[16px] mt-10 md:mt-[20px]"
                                             style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                         >
                                             {loading ? (
@@ -294,14 +316,14 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                         </button>
 
                                         {error && (
-                                            <p className="font-['Mulish'] text-[14px] text-[#FF4C4C] font-semibold text-center mt-[12px]">
+                                            <p className="font-['Mulish'] text-[14px] text-[#FF4C4C] font-semibold text-center mt-3">
                                                 {t('beta_error')}
                                             </p>
                                         )}
 
                                         {/* Disclaimer */}
                                         <p
-                                            className="font-['Mulish'] text-[12px] font-semibold leading-[150%] text-[#A6A6BC] text-center mt-[20px]"
+                                            className="font-['Mulish'] text-[12px] font-semibold leading-[150%] text-[#A6A6BC] text-center mt-3 md:mt-[20px]"
                                             style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                         >
                                             {t('beta_disclaimer')}{' '}
@@ -324,54 +346,54 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                         </p>
                                     </div>
                                 ) : step === 'already_exists' ? (
-                                    <div className="flex flex-col items-center text-center p-[40px] animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                    <div className="flex flex-col items-center text-center pt-6 px-5 pb-10 md:p-[40px] animate-in fade-in slide-in-from-bottom-4 duration-500">
                                         <div className="text-[72px] mb-[24px]">🎉</div>
                                         <h3
-                                            className="font-['Mulish'] text-[24px] font-bold text-[#090924] mb-[12px] leading-[130%]"
+                                            className="font-['Mulish'] text-[20px] md:text-[24px] font-bold text-[#090924] mb-[12px] leading-[130%]"
                                             style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                         >
                                             {t('beta_already_title')}
                                         </h3>
                                         <p
-                                            className="font-['Mulish'] text-[16px] text-[#090924] font-semibold mb-[40px] leading-[150%]"
+                                            className="font-['Mulish'] text-[14px] md:text-[16px] text-[#090924] font-semibold mb-10 md:mb-[40px] leading-[150%]"
                                             style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                         >
                                             {t('beta_already_desc')}
                                         </p>
                                         <button
                                             onClick={reset}
-                                            className="btn-gradient-border w-full bg-[#1C4FD8] hover:bg-[#1946BF] active:bg-[#143899] text-white font-['Mulish'] font-semibold text-[16px] leading-[150%] py-[20px] px-[40px] rounded-[16px] transition-all shadow-md active:scale-[0.98] flex items-center justify-center"
+                                            className="btn-gradient-border w-full bg-[#1C4FD8] hover:bg-[#1946BF] active:bg-[#143899] text-white font-['Mulish'] font-semibold text-[16px] leading-[150%] py-4 px-8 md:py-[20px] md:px-[40px] rounded-[12px] md:rounded-[16px] transition-all shadow-md active:scale-[0.98] flex items-center justify-center"
                                             style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                         >
                                             {t('beta_already_btn')}
                                         </button>
                                     </div>
                                 ) : (
-                                    <div className="flex flex-col items-center text-center p-[40px] animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                    <div className="flex flex-col items-center text-center pt-6 px-5 pb-10 md:p-[40px] animate-in fade-in slide-in-from-bottom-4 duration-500">
                                         <div className="w-[144px] h-[144px] shrink-0 mb-[24px]" style={{ filter: 'drop-shadow(0 0 40px rgba(99, 214, 126, 0.40))' }}>
                                             <img src={`${import.meta.env.BASE_URL}assets/ic_success.svg`} alt="Success" className="w-[144px] h-[144px]" />
                                         </div>
                                         <h3
-                                            className="font-['Mulish'] text-[24px] font-bold text-[#090924] mb-[12px] leading-[130%]"
+                                            className="font-['Mulish'] text-[20px] md:text-[24px] font-bold text-[#090924] mb-[12px] leading-[130%]"
                                             style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                         >
                                             {t('beta_success_title')}
                                         </h3>
                                         <p
-                                            className="font-['Mulish'] text-[16px] text-[#090924] font-semibold mb-[12px] leading-[150%] whitespace-pre-line"
+                                            className="font-['Mulish'] text-[14px] md:text-[16px] text-[#090924] font-semibold mb-[12px] leading-[150%] whitespace-pre-line"
                                             style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                         >
                                             {t('beta_success_description')}
                                         </p>
                                         <p
-                                            className="font-['Mulish'] text-[16px] text-[#090924] font-semibold mb-[40px] leading-[150%]"
+                                            className="font-['Mulish'] text-[14px] md:text-[16px] text-[#090924] font-semibold mb-10 md:mb-[40px] leading-[150%]"
                                             style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                         >
                                             {t('beta_success_subtext')}
                                         </p>
                                         <button
                                             onClick={reset}
-                                            className="btn-gradient-border w-full bg-[#1C4FD8] hover:bg-[#1946BF] active:bg-[#143899] text-white font-['Mulish'] font-semibold text-[16px] leading-[150%] py-[20px] px-[40px] rounded-[16px] transition-all shadow-md active:scale-[0.98] flex items-center justify-center"
+                                            className="btn-gradient-border w-full bg-[#1C4FD8] hover:bg-[#1946BF] active:bg-[#143899] text-white font-['Mulish'] font-semibold text-[16px] leading-[150%] py-4 px-8 md:py-[20px] md:px-[40px] rounded-[12px] md:rounded-[16px] transition-all shadow-md active:scale-[0.98] flex items-center justify-center"
                                             style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
                                         >
                                             {t('beta_understand')}
