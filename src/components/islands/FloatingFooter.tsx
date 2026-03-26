@@ -60,26 +60,8 @@ export const FloatingFooter = () => {
                         WebkitBackdropFilter: "blur(2px)",
                     }}
                 >
-                    <div className="flex items-center justify-between px-5 py-4">
-                        {/* Logo */}
-                        <div className="flex items-center gap-2 shrink-0">
-                            <img
-                                src={`${import.meta.env.BASE_URL}assets/ic_statch_icon.svg`}
-                                alt="Statch Icon"
-                                width={20}
-                                height={20}
-                                draggable={false}
-                            />
-                            <img
-                                src={`${import.meta.env.BASE_URL}assets/ic_statch_name.svg`}
-                                alt="Statch"
-                                style={{ width: 64, height: 17.64 }}
-                                draggable={false}
-                            />
-                        </div>
-
-                        {/* Button */}
-                        <BetaSubscriptionButton className="!py-3 !px-6 whitespace-nowrap shrink-0" />
+                    <div className="flex items-center justify-center px-5 py-4">
+                        <BetaSubscriptionButton className="!py-3 !px-6 whitespace-nowrap" />
                     </div>
                 </motion.div>
             )}
