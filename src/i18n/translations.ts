@@ -4,7 +4,7 @@ export const translations: Record<Locale, Record<string, string>> = {
   uk: {
     // Header / Hero
     header_title: "Облік товарів, який не заважає бізнесу 🙌",
-    header_description: "Додавайте товари, фіксуйте продажі, стежте за залишками — Statch сам порахує прибуток.",
+    header_description: "Додавайте товари, фіксуйте продажі, стежте за залишками — Statch сам порахує маржу.",
 
     // Features section
     features_section_title: "Усе для обліку — в одному застосунку",
@@ -79,7 +79,7 @@ export const translations: Record<Locale, Record<string, string>> = {
   en: {
     // Header / Hero
     header_title: "Inventory tracking that stays out of your way 🙌",
-    header_description: "Add products, record sales, track stock levels — Statch calculates your profit automatically.",
+    header_description: "Add products, record sales, track stock levels — and see your margin on every sale.",
 
     // Features section
     features_section_title: "Everything you need — in one app",

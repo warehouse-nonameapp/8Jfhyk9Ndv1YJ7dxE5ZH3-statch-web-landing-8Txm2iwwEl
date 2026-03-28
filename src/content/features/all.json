@@ -9,7 +9,7 @@
         "points": [
             {
                 "title": "Створюєте товар",
-                "subtitle": "Додайте назву, ціну і базову інформацію — і можна одразу починати.",
+                "subtitle": "Додайте назву, ціну та базову інформацію — і можна одразу починати.",
                 "title_en": "Create a product",
                 "subtitle_en": "Add a name, price, and basic details — and you're ready to go."
             },
@@ -29,9 +29,9 @@
     },
     {
         "id": "prices-profit",
-        "title": "🏷️  Ціни і прибуток",
-        "title_uk": "🏷️  Ціни і прибуток",
-        "title_en": "🏷️  Prices & profit",
+        "title": "🏷️  Ціни і маржа",
+        "title_uk": "🏷️  Ціни і маржа",
+        "title_en": "🏷️  Prices & margin",
         "image": "/assets/ic_retail_pricing.png",
         "orientation": "left",
         "points": [
@@ -49,15 +49,15 @@
             },
             {
                 "title": "Для товару, категорії або всіх товарів",
-                "subtitle": "Ціни можна задати для товару, категорії або для всіх товарів — система застосує їх автоматично.",
+                "subtitle": "Налаштування цін можна задати для товару, категорії або для всіх товарів — система застосує їх автоматично.",
                 "title_en": "Per product, category, or all products",
-                "subtitle_en": "Set prices for a single product, a category, or all products — the system applies them automatically."
+                "subtitle_en": "Pricing settings can be applied to a single product, a category, or all products — the system handles it automatically."
             },
             {
-                "title": "Прибуток рахується автоматично",
-                "subtitle": "Statch показує прибуток з кожного замовлення.",
-                "title_en": "Profit calculated automatically",
-                "subtitle_en": "Statch shows your profit from every order."
+                "title": "Маржа видна одразу",
+                "subtitle": "Statch показує маржу з кожного замовлення.",
+                "title_en": "Margin visible instantly",
+                "subtitle_en": "Statch shows your margin on every order."
             }
         ]
     },

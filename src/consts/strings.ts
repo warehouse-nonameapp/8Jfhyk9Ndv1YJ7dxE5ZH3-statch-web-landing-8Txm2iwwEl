@@ -1,6 +1,6 @@
 export const Strings = {
     header_title: "Облік товарів, який не заважає бізнесу 🙌",
-    header_description: "Додавайте товари, фіксуйте продажі, стежте за залишками — Statch сам порахує прибуток.",
+    header_description: "Додавайте товари, фіксуйте продажі, стежте за залишками — Statch сам порахує маржу.",
 
     features_section_title: "Усе для обліку — в одному застосунку",
     features_section_subtitle: "Ви займаєтесь бізнесом — Statch веде облік.",

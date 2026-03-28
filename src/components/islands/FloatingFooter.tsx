@@ -9,13 +9,15 @@ export const FloatingFooter = () => {
         const heroCta = document.getElementById("hero-cta-anchor");
         const featuresBanner = document.getElementById("features-banner-anchor");
         const ctaCta = document.getElementById("cta-anchor");
+        const mainFooter = document.getElementById("main-footer");
 
         let heroHidden = false;
         let featuresBannerVisible = false;
         let ctaVisible = false;
+        let footerVisible = false;
 
         const update = () => {
-            setIsVisible(heroHidden && !featuresBannerVisible && !ctaVisible);
+            setIsVisible(heroHidden && !featuresBannerVisible && !ctaVisible && !footerVisible);
         };
 
         const heroObserver = new IntersectionObserver(
@@ -33,14 +35,21 @@ export const FloatingFooter = () => {
             { threshold: 0 }
         );
 
+        const footerObserver = new IntersectionObserver(
+            ([entry]) => { footerVisible = entry.isIntersecting; update(); },
+            { threshold: 0 }
+        );
+
         if (heroCta) heroObserver.observe(heroCta);
         if (featuresBanner) featuresBannerObserver.observe(featuresBanner);
         if (ctaCta) ctaObserver.observe(ctaCta);
+        if (mainFooter) footerObserver.observe(mainFooter);
 
         return () => {
             heroObserver.disconnect();
             featuresBannerObserver.disconnect();
             ctaObserver.disconnect();
+            footerObserver.disconnect();
         };
     }, []);
 
