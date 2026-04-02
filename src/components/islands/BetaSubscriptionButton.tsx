@@ -13,13 +13,13 @@ const translationsMap: Record<Locale, Record<string, string>> = {
     uk: {
         join_beta: "Приєднатись до бета-тесту",
         beta_modal_title: "Запис на бета-тест Statch ✍️",
-        beta_modal_description: "Ніякого спаму. Тільки один лист із запрошенням — коли все буде готово.",
+        beta_modal_description: "Ви отримаєте лист із підтвердженням одразу, а коли бета буде готова — ще один із запрошенням.",
         beta_email_label: "Email",
         beta_send: "Надіслати",
         beta_sending: "Надсилання...",
         beta_error: "Щось пішло не так. Спробуйте ще раз.",
         beta_success_title: "Готово!",
-        beta_success_description: "Ви в списку! Як тільки відкриємо доступ — одразу напишемо.",
+        beta_success_description: "Ми надіслали лист із підтвердженням — перевірте пошту. Коли бета буде готова, надішлемо ще один лист із інструкціями.",
         beta_success_subtext: "Дякуємо! Незабаром побачимось у Statch. 🙌",
         beta_understand: "Зрозуміло",
         beta_already_title: "Ви вже зареєстровані!",
@@ -34,13 +34,13 @@ const translationsMap: Record<Locale, Record<string, string>> = {
     en: {
         join_beta: "Join the beta test",
         beta_modal_title: "Sign up for the Statch beta ✍️",
-        beta_modal_description: "No spam. Just one invitation email — when everything is ready.",
+        beta_modal_description: "You'll get a confirmation email right away, and another one with your invite when the beta is ready.",
         beta_email_label: "Email",
         beta_send: "Send",
         beta_sending: "Sending...",
         beta_error: "Something went wrong. Please try again.",
         beta_success_title: "Done!",
-        beta_success_description: "You're on the list! We'll reach out as soon as we open access.",
+        beta_success_description: "We sent you a confirmation email — check your inbox. Once the beta is ready, you'll get another email with instructions.",
         beta_success_subtext: "Thank you! See you in Statch soon. 🙌",
         beta_understand: "Got it",
         beta_already_title: "You're already registered!",
@@ -263,7 +263,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                             </label>
                                             <input
                                                 type="email"
-                                                placeholder="example@gmail.com"
+                                                placeholder="example@mail.com"
                                                 value={email}
                                                 onChange={(e) => { setEmail(e.target.value); setError(false); }}
                                                 onFocus={() => setFocused(true)}
