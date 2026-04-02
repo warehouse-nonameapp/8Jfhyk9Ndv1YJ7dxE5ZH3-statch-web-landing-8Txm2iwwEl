@@ -71,6 +71,22 @@ const resolvedOgImage = ogImage.startsWith("http") ? ogImage : "https://statch.i
 		<meta id="twitter-description" name="twitter:description" content={resolvedOgDescUk} />
 		<meta name="twitter:image" content={resolvedOgImage} />
 
+		<!-- SEO Metadata -->
+		<link rel="canonical" href={"https://statch.io" + Astro.url.pathname} />
+		<meta name="theme-color" content="#2054E1" />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "SoftwareApplication",
+			"name": "Statch",
+			"operatingSystem": "Android, iOS, Web",
+			"applicationCategory": "BusinessApplication",
+			"offers": {
+				"@type": "Offer",
+				"price": "0",
+				"priceCurrency": "USD"
+			}
+		})} />
+
 	</head>
 	<body>
 		<slot />
