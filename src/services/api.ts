@@ -32,7 +32,7 @@ export const ApiService = {
                 // Try to extract error code from response body
                 try {
                     const data = await response.json();
-                    const errorCode = data?.errorCode || data?.error || data?.code || "unknown";
+                    const errorCode = data?.errorCode || data?.errorMessage || data?.error || data?.code || "unknown";
                     return { success: false, errorCode };
                 } catch {
                     return { success: false, errorCode: "unknown" };
