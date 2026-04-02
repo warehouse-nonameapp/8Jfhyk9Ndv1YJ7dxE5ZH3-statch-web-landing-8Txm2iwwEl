@@ -3,12 +3,17 @@ import { defineConfig } from 'astro/config';
 
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://statch.io',
   base: '/',
-  integrations: [react()],
+  integrations: [react(), sitemap()],
+
+  redirects: {
+    '/beta-test': '/'
+  },
 
   vite: {
     plugins: [tailwindcss()]
