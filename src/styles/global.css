@@ -81,8 +81,9 @@
     --color-background-dark: #0D0E10;
     --color-background-darker: #161822;
 
-    --color-error: #FF5959;
-    --color-error-variant: #FFECEC;
+    --color-error: #EC6363;
+    --color-error-variant: #FCF1F1;
+    --color-error-contrast: #933737;
     --color-success: #3ECB55;
     --color-warning: #F6CF45;
 
