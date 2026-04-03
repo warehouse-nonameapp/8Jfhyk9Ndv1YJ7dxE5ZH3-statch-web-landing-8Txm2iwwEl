@@ -5,15 +5,15 @@ import AppLogo from "../components/header/AppLogo.astro";
 
 <Layout titleEn="Statch | Page not found" titleUk="Statch | Сторінку не знайдено">
 	<main class="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-gradient-light px-4">
-		<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary opacity-5 rounded-full blur-[120px] animate-pulse-glow"></div>
-		<div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-error opacity-[0.03] rounded-full blur-[120px] animate-pulse-glow delay-500"></div>
+		<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-error opacity-10 rounded-full blur-[120px] animate-pulse-glow"></div>
+		<div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-error opacity-10 rounded-full blur-[120px] animate-pulse-glow delay-500"></div>
 
 		<div class="z-10 flex flex-col items-center text-center max-w-2xl animate-on-scroll">
 			<div class="mb-12 scale-125">
 				<AppLogo />
 			</div>
 			
-			<div class="text-[120px] leading-none font-extrabold text-primary opacity-20 mb-4 tracking-tighter">404</div>
+			<div class="text-[120px] leading-none font-extrabold text-error opacity-20 mb-4 tracking-tighter">404</div>
 
 			<h1 class="text-3xl md:text-5xl font-extrabold text-text-main mb-6 tracking-tight leading-tight" data-i18n="error_404_title">
 				Page not found
@@ -23,7 +23,7 @@ import AppLogo from "../components/header/AppLogo.astro";
 				It looks like you followed a broken link or the page was removed.
 			</p>
 
-			<a href="/" class="px-8 py-4 bg-primary text-white font-bold rounded-2xl shadow-xl shadow-primary/20 hover:scale-105 transition-transform active:scale-95 text-center">
+			<a href="/" class="btn-gradient-border bg-[#1C4FD8] hover:bg-[#1946BF] active:bg-[#143899] text-white font-['Mulish'] font-semibold text-[16px] leading-[150%] py-4 px-8 md:py-[20px] md:px-[40px] rounded-[12px] md:rounded-[16px] transition-all shadow-sm active:scale-[0.98] flex items-center justify-center text-center">
 				<span data-i18n="back_to_home">Back to home</span>
 			</a>
 		</div>
