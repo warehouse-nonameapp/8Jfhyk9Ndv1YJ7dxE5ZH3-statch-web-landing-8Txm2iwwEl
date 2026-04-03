@@ -276,6 +276,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                                     gap: 8,
                                                     alignSelf: 'stretch',
                                                     borderRadius: 8,
+                                                    fontSize: 16,
                                                     border: touched && email && !ValidationUtils.isValidEmail(email)
                                                         ? '1px solid #FF4C4C'
                                                         : focused
