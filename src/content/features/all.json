@@ -8,19 +8,19 @@
         "orientation": "right",
         "points": [
             {
-                "title": "Створюєте товар",
+                "title": "Створіть товар",
                 "subtitle": "Вкажіть назву, ціну та основне — і товар готовий до продажу.",
                 "title_en": "Create a product",
                 "subtitle_en": "Add a name, price, and the basics — and the product is ready to sell."
             },
             {
-                "title": "Додаєте варіанти",
+                "title": "Додайте варіанти",
                 "subtitle": "Один товар може мати варіанти: наприклад, розмір, колір або модель. У кожного варіанту — своя ціна і залишок, але все зберігається разом і не створює плутанини.",
                 "title_en": "Add variants",
                 "subtitle_en": "One product can have variants — like size, colour, or model. Each variant has its own price and stock level, but everything stays together without confusion."
             },
             {
-                "title": "Додаєте фото",
+                "title": "Додайте фото",
                 "subtitle": "Фото товару або варіантів — щоб швидко знаходити потрібне.",
                 "title_en": "Add photos",
                 "subtitle_en": "Photos for products or variants — so you can find what you need quickly."
@@ -54,7 +54,7 @@
                 "subtitle_en": "Set pricing for a single product, a category, or your entire catalogue — Statch applies it automatically."
             },
             {
-                "title": "Маржа видна одразу",
+                "title": "Маржу видно одразу",
                 "subtitle": "Statch покаже, скільки ви заробляєте з кожного замовлення.",
                 "title_en": "Margin visible instantly",
                 "subtitle_en": "Statch shows how much you earn on every order."
@@ -120,8 +120,8 @@
         "orientation": "right",
         "points": [
             {
-                "title": "Налаштовуєте під себе",
-                "subtitle": "Обираєте, які сповіщення отримувати і з яким інтервалом.",
+                "title": "Налаштуйте під себе",
+                "subtitle": "Оберіть, які сповіщення отримувати і з яким інтервалом.",
                 "title_en": "Customise to your needs",
                 "subtitle_en": "Choose which notifications to receive and how often."
             },

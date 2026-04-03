@@ -35,7 +35,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     big_card_2_desc: "Маржа по кожному замовленню видна одразу — без формул і підрахунків вручну.",
     big_card_2_p1: "Деталі замовлення на одному екрані",
     big_card_2_p2: "Знижки, повернення і коментарі",
-    big_card_2_p3: "Маржа видна одразу",
+    big_card_2_p3: "Маржу видно одразу",
     big_card_2_p4: "Статуси і повна історія",
 
     // Mid-page banner (FeaturesList)
