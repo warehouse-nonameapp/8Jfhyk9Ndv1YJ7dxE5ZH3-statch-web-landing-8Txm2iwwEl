@@ -26,7 +26,7 @@ const translationsMap: Record<Locale, Record<string, string>> = {
         beta_already_desc: "Ви вже зареєстровані на бета-тест. Перевірте вашу пошту — там є інструкції та подальші кроки. Також перевірте папку «Спам», якщо лист не прийшов.",
         beta_already_btn: "Зрозуміло 👍",
         beta_invalid_email: "Невірний формат ел. пошти",
-        beta_disclaimer: "Натискаючи «Відправити», ви погоджуєтесь з нашими",
+        beta_disclaimer: "Натискаючи «Надіслати», ви погоджуєтесь з нашими",
         beta_disclaimer_terms: "Умовами використання",
         beta_disclaimer_and: "та",
         beta_disclaimer_privacy: "Політикою конфіденційності",
