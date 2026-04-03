@@ -1,37 +1,37 @@
 [
     {
         "id": "create-products",
-        "title": "📦  Товари і варіанти — за кілька натискань",
-        "title_uk": "📦  Товари і варіанти — за кілька натискань",
-        "title_en": "📦  Products & variants — in just a few taps",
+        "title": "📦  Створюйте товари та варіанти за секунди",
+        "title_uk": "📦  Створюйте товари та варіанти за секунди",
+        "title_en": "📦  Create products & variants in seconds",
         "image": "/assets/ic_create_nomenclature.png",
         "orientation": "right",
         "points": [
             {
                 "title": "Створюєте товар",
-                "subtitle": "Додайте назву, ціну та базову інформацію — і можна одразу починати.",
+                "subtitle": "Вкажіть назву, ціну та основне — і товар готовий до продажу.",
                 "title_en": "Create a product",
-                "subtitle_en": "Add a name, price, and basic details — and you're ready to go."
+                "subtitle_en": "Add a name, price, and the basics — and the product is ready to sell."
             },
             {
-                "title": "Додаєте варіанти товару",
+                "title": "Додаєте варіанти",
                 "subtitle": "Один товар може мати варіанти: наприклад, розмір, колір або модель. У кожного варіанту — своя ціна і залишок, але все зберігається разом і не створює плутанини.",
-                "title_en": "Add product variants",
+                "title_en": "Add variants",
                 "subtitle_en": "One product can have variants — like size, colour, or model. Each variant has its own price and stock level, but everything stays together without confusion."
             },
             {
                 "title": "Додаєте фото",
-                "subtitle": "Додавайте фото до товару або варіантів, щоб швидко знаходити потрібне.",
+                "subtitle": "Фото товару або варіантів — щоб швидко знаходити потрібне.",
                 "title_en": "Add photos",
-                "subtitle_en": "Attach photos to products or variants so you can find what you need quickly."
+                "subtitle_en": "Photos for products or variants — so you can find what you need quickly."
             }
         ]
     },
     {
         "id": "prices-profit",
-        "title": "🏷️  Ціни і маржа",
-        "title_uk": "🏷️  Ціни і маржа",
-        "title_en": "🏷️  Prices & margin",
+        "title": "💵  Ціни і маржа без складних формул",
+        "title_uk": "💵  Ціни і маржа без складних формул",
+        "title_en": "💵  Prices & margin without complex formulas",
         "image": "/assets/ic_retail_pricing.png",
         "orientation": "left",
         "points": [
@@ -49,93 +49,93 @@
             },
             {
                 "title": "Для товару, категорії або всіх товарів",
-                "subtitle": "Налаштування цін можна задати для товару, категорії або для всіх товарів — система застосує їх автоматично.",
+                "subtitle": "Налаштуйте ціни для одного товару, категорії або всього каталогу — Statch застосує автоматично.",
                 "title_en": "Per product, category, or all products",
-                "subtitle_en": "Pricing settings can be applied to a single product, a category, or all products — the system handles it automatically."
+                "subtitle_en": "Set pricing for a single product, a category, or your entire catalogue — Statch applies it automatically."
             },
             {
                 "title": "Маржа видна одразу",
-                "subtitle": "Statch показує маржу з кожного замовлення.",
+                "subtitle": "Statch покаже, скільки ви заробляєте з кожного замовлення.",
                 "title_en": "Margin visible instantly",
-                "subtitle_en": "Statch shows your margin on every order."
+                "subtitle_en": "Statch shows how much you earn on every order."
             }
         ]
     },
     {
         "id": "easy-accounting",
-        "title": "😍 Облік без таблиць",
-        "title_uk": "😍 Облік без таблиць",
-        "title_en": "😍 Tracking without spreadsheets",
+        "title": "😍 Облік без таблиць і хаосу",
+        "title_uk": "😍 Облік без таблиць і хаосу",
+        "title_en": "😍 Tracking without spreadsheets or chaos",
         "image": "/assets/ic_categories_grid.png",
         "orientation": "right",
         "points": [
             {
                 "title": "Категорії товарів",
-                "subtitle": "Товари зберігаються по категоріях — як папки на комп'ютері.",
+                "subtitle": "Розкладіть товари по категоріях — як папки на комп'ютері.",
                 "title_en": "Product categories",
-                "subtitle_en": "Products are organised by category — just like folders on your computer."
+                "subtitle_en": "Organise products by category — just like folders on your computer."
             },
             {
                 "title": "Легко знайти потрібний товар",
-                "subtitle": "Весь асортимент розкладений по категоріях, тому нічого не губиться.",
+                "subtitle": "Весь асортимент впорядкований — знайти потрібне можна за секунду.",
                 "title_en": "Find any product easily",
-                "subtitle_en": "Your entire range is organised by category, so nothing gets lost."
+                "subtitle_en": "Your entire range is organised — find what you need in a second."
             }
         ]
     },
     {
         "id": "orders-sales",
-        "title": "⚡ Замовлення і продажі",
-        "title_uk": "⚡ Замовлення і продажі",
-        "title_en": "⚡ Orders & sales",
+        "title": "⚡ Замовлення і продажі в одному місці",
+        "title_uk": "⚡ Замовлення і продажі в одному місці",
+        "title_en": "⚡ Orders & sales in one place",
         "image": "/assets/ic_orders.png",
         "orientation": "left",
         "points": [
             {
                 "title": "Створення замовлення за кілька секунд",
-                "subtitle": "Оберіть товар, кількість і збережіть — замовлення створено.",
+                "subtitle": "Оберіть товар, вкажіть кількість — замовлення готове.",
                 "title_en": "Create an order in seconds",
-                "subtitle_en": "Select a product, set the quantity, and save — order created."
+                "subtitle_en": "Select a product, set the quantity — order ready."
             },
             {
-                "title": "Редагування і статуси",
-                "subtitle": "Можна змінити статус, кількість товару або додати коментар.",
-                "title_en": "Editing and statuses",
-                "subtitle_en": "Change the status, update quantities, or add a comment."
+                "title": "Статуси і редагування",
+                "subtitle": "Змінюйте статус, кількість або додавайте коментар — в один клік.",
+                "title_en": "Statuses and editing",
+                "subtitle_en": "Change the status, update quantities, or add a comment — in one click."
             },
             {
-                "title": "Всі замовлення в одному місці",
-                "subtitle": "Вся історія замовлень зберігається і завжди під рукою.",
-                "title_en": "All orders in one place",
-                "subtitle_en": "Your full order history is saved and always at hand."
+                "title": "Історія завжди під рукою",
+                "subtitle": "Кожне замовлення зберігається — нічого не загубиться.",
+                "title_en": "History always at hand",
+                "subtitle_en": "Every order is saved — nothing gets lost."
             }
         ]
     },
     {
         "id": "notifications",
-        "title": "🔔 Нагадування і важливі сповіщення",
-        "title_uk": "🔔 Нагадування і важливі сповіщення",
-        "title_en": "🔔 Reminders & important notifications",
+        "title": "🔔 Бізнес під контролем, навіть коли ви зайняті",
+        "title_uk": "🔔 Бізнес під контролем, навіть коли ви зайняті",
+        "title_en": "🔔 Business under control, even when you're busy",
         "image": "/assets/ic_notifications.png",
         "orientation": "right",
         "points": [
             {
-                "title": "Налаштовуєш сповіщення",
-                "subtitle": "Обираєш, які сповіщення отримувати.",
-                "title_en": "Configure your notifications",
-                "subtitle_en": "Choose which notifications you want to receive."
+                "title": "Налаштовуєте під себе",
+                "subtitle": "Обираєте, які сповіщення отримувати і з яким інтервалом.",
+                "title_en": "Customise to your needs",
+                "subtitle_en": "Choose which notifications to receive and how often."
             },
             {
                 "title": "Нагадування про важливе",
-                "subtitle": "Statch нагадає, якщо товар закінчується або довго не було продажів.",
+                "subtitle": "Statch повідомить, якщо товар довго не продається — щоб ви встигли зреагувати.",
                 "title_en": "Reminders for what matters",
-                "subtitle_en": "Statch will remind you when stock is running low or sales have been slow."
+                "subtitle_en": "Statch will let you know if a product hasn't been selling — so you can act in time."
             },
             {
                 "title": "Сповіщення про замовлення",
-                "subtitle": "Отримаєш сповіщення, якщо замовлення зависло або довго не змінюється статус.",
+                "subtitle": "Отримаєте нагадування, якщо замовлення зависло і потребує уваги.",
                 "title_en": "Order notifications",
-                "subtitle_en": "Get notified if an order is stuck or the status hasn't changed in a while."
+                "subtitle_en": "Get a reminder if an order is stuck and needs attention."
             }
         ]
     }

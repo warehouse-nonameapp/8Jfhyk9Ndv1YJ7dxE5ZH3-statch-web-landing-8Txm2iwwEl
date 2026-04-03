@@ -10,43 +10,43 @@ const featureCards = [
         titleKey: "card_easy_start_title",
         descKey: "card_easy_start_desc",
         titleDefault: "Легкий старт",
-        descDefault: "Почати можна за кілька хвилин — без навчання і довгих інструкцій.",
+        descDefault: "Жодних інструкцій — реєструєтесь і починаєте працювати за кілька хвилин.",
     },
     {
         icon: import.meta.env.BASE_URL + "assets/ic_shopping-bag.svg",
         titleKey: "card_orders_title",
         descKey: "card_orders_desc",
         titleDefault: "Продажі і замовлення",
-        descDefault: "Додавайте товари в замовлення і фіксуйте продажі в кілька натискань.",
+        descDefault: "Додавайте товари в замовлення і фіксуйте продажі в кілька кліків.",
     },
     {
         icon: import.meta.env.BASE_URL + "assets/ic_package.svg",
         titleKey: "card_stock_title",
         descKey: "card_stock_desc",
         titleDefault: "Залишки і товари",
-        descDefault: "Товари, варіанти, фото, ціни і залишки — все в одному місці.",
+        descDefault: "Назви, фото, варіанти, ціни та залишки — все організовано і під рукою.",
     },
     {
         icon: import.meta.env.BASE_URL + "assets/ic_bell.svg",
         titleKey: "card_notifications_title",
         descKey: "card_notifications_desc",
         titleDefault: "Нагадування і сповіщення",
-        descDefault: "Statch нагадає, якщо товар закінчується або давно не було продажів.",
+        descDefault: "Statch нагадає про замовлення, що зависло, або товар без продажів — інтервал налаштовуєте самі.",
     },
 ];
 
 const bigCard1Points = [
-    { key: "big_card_1_p1", default: "Видно, що є в наявності" },
-    { key: "big_card_1_p2", default: "Вся історія змін зберігається" },
-    { key: "big_card_1_p3", default: "Списання і переміщення товарів" },
-    { key: "big_card_1_p4", default: "Нічого не загубиться" },
+    { key: "big_card_1_p1", default: "Актуальні залишки в реальному часі" },
+    { key: "big_card_1_p2", default: "Повна історія кожного товару" },
+    { key: "big_card_1_p3", default: "Списання та переміщення між складами" },
+    { key: "big_card_1_p4", default: "Жодна зміна не загубиться" },
 ];
 
 const bigCard2Points = [
-    { key: "big_card_2_p1", default: "Додавання товарів в замовлення" },
-    { key: "big_card_2_p2", default: "Знижки і повернення" },
-    { key: "big_card_2_p3", default: "Статуси замовлень" },
-    { key: "big_card_2_p4", default: "Історія всіх замовлень" },
+    { key: "big_card_2_p1", default: "Деталі замовлення на одному екрані" },
+    { key: "big_card_2_p2", default: "Знижки, повернення і коментарі" },
+    { key: "big_card_2_p3", default: "Маржа видна одразу" },
+    { key: "big_card_2_p4", default: "Статуси і повна історія" },
 ];
 ---
 
@@ -174,14 +174,14 @@ const bigCard2Points = [
                         class="font-['Mulish'] text-[24px] font-extrabold leading-[130%] text-[#090924] w-full"
                         style="font-variant-numeric: lining-nums tabular-nums;"
                     >
-                        Всі товари і залишки під контролем
+                        📦 Історія змін — завжди під рукою
                     </h2>
                     <p
                         data-i18n="big_card_1_desc"
                         class="font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#090924] mt-4 w-full"
                         style="font-variant-numeric: lining-nums tabular-nums;"
                     >
-                        Додавайте товари, змінюйте кількість, списуйте або переміщуйте між складами — вся історія зберігається.
+                        Будь-яка зміна кількості, списання чи переміщення — фіксується автоматично. Ви завжди бачите, що і коли змінилось.
                     </p>
                 </div>
 
@@ -203,14 +203,14 @@ const bigCard2Points = [
                         class="hidden md:block font-['Mulish'] text-[32px] font-[800] leading-[130%] text-[#090924] w-full"
                         style="font-variant-numeric: lining-nums tabular-nums; align-self: stretch; font-weight: 800;"
                     >
-                        Всі товари і залишки під контролем
+                        📦 Історія змін — завжди під рукою
                     </h2>
                     <p
                         data-i18n="big_card_1_desc"
                         class="hidden md:block font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#090924] mt-[12px] w-full"
                         style="font-variant-numeric: lining-nums tabular-nums; align-self: stretch;"
                     >
-                        Додавайте товари, змінюйте кількість, списуйте або переміщуйте між складами — вся історія зберігається.
+                        Будь-яка зміна кількості, списання чи переміщення — фіксується автоматично. Ви завжди бачите, що і коли змінилось.
                     </p>
                     <div class="flex flex-col md:mt-[24px]" style="gap: 16px;">
                         {bigCard1Points.map((item) => (
@@ -244,14 +244,14 @@ const bigCard2Points = [
                         class="font-['Mulish'] text-[24px] font-extrabold leading-[130%] text-[#090924] w-full"
                         style="font-variant-numeric: lining-nums tabular-nums;"
                     >
-                        Всі замовлення в одному місці
+                        💰 Прибуток рахується автоматично
                     </h2>
                     <p
                         data-i18n="big_card_2_desc"
                         class="font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#090924] mt-4 w-full"
                         style="font-variant-numeric: lining-nums tabular-nums;"
                     >
-                        Створюйте замовлення, додавайте товари, застосовуйте знижки і змінюйте статус — все в одному екрані.
+                        Маржа по кожному замовленню видна одразу — без формул і підрахунків вручну.
                     </p>
                 </div>
 
@@ -273,14 +273,14 @@ const bigCard2Points = [
                         class="hidden md:block font-['Mulish'] text-[32px] leading-[130%] text-[#090924] w-full"
                         style="font-variant-numeric: lining-nums tabular-nums; align-self: stretch; font-weight: 800;"
                     >
-                        Всі замовлення в одному місці
+                        💰 Прибуток рахується автоматично
                     </h2>
                     <p
                         data-i18n="big_card_2_desc"
                         class="hidden md:block font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#090924] mt-[12px] w-full"
                         style="font-variant-numeric: lining-nums tabular-nums; align-self: stretch;"
                     >
-                        Створюйте замовлення, додавайте товари, застосовуйте знижки і змінюйте статус — все в одному екрані.
+                        Маржа по кожному замовленню видна одразу — без формул і підрахунків вручну.
                     </p>
                     <div class="flex flex-col md:mt-[24px]" style="gap: 16px;">
                         {bigCard2Points.map((item) => (
