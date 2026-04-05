@@ -66,26 +66,14 @@ function useIsMobile(): boolean {
 }
 
 function useLocale(): Locale {
-    // Always start with 'uk' for SSR — actual locale is synced in useEffect
     const [locale, setLocale] = useState<Locale>('uk');
 
     useEffect(() => {
-        // Read from localStorage after hydration
-        const saved = localStorage.getItem('locale');
-        if (saved === 'en' || saved === 'uk') {
-            setLocale(saved);
+        // Read from document language after hydration
+        const lang = document.documentElement.lang as Locale;
+        if (lang === 'en' || lang === 'uk') {
+            setLocale(lang);
         }
-
-        const handleLocaleChange = (e: Event) => {
-            const customEvent = e as CustomEvent<{ locale: Locale }>;
-            if (customEvent.detail?.locale) {
-                setLocale(customEvent.detail.locale);
-            }
-        };
-        window.addEventListener('localechange', handleLocaleChange);
-        return () => {
-            window.removeEventListener('localechange', handleLocaleChange);
-        };
     }, []);
 
     return locale;
@@ -130,7 +118,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
         setLoading(true);
         setError(false);
 
-        const currentLocale = typeof localStorage !== 'undefined' ? (localStorage.getItem('locale') || 'uk') : 'uk';
+        const currentLocale = typeof document !== 'undefined' ? (document.documentElement.lang || 'uk') : 'uk';
         const result = await ApiService.signupToBeta(email, currentLocale);
 
         if (result.success) {
@@ -227,6 +215,7 @@ export const BetaSubscriptionButton = ({ className = "" }: Props) => {
                                     onClick={reset}
                                     className="hidden md:block absolute z-20"
                                     style={{ top: 16, right: 16 }}
+                                    aria-label="Close dialog"
                                 >
                                     <img
                                         src={`${import.meta.env.BASE_URL}assets/ic_close.svg`}

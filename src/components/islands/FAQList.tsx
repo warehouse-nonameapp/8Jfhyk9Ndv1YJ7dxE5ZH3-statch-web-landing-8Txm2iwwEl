@@ -17,26 +17,13 @@ interface FAQListProps {
 }
 
 function useLocale(): Locale {
-    // Always start with 'uk' for SSR — actual locale is synced in useEffect
     const [locale, setLocale] = useState<Locale>('uk');
 
     useEffect(() => {
-        const saved = localStorage.getItem('locale');
-        if (saved === 'uk' || saved === 'en') {
-            setLocale(saved);
+        const lang = document.documentElement.lang as Locale;
+        if (lang === 'uk' || lang === 'en') {
+            setLocale(lang);
         }
-
-        const handleLocaleChange = (e: Event) => {
-            const customEvent = e as CustomEvent<{ locale: Locale }>;
-            if (customEvent.detail?.locale) {
-                setLocale(customEvent.detail.locale);
-            }
-        };
-
-        window.addEventListener('localechange', handleLocaleChange);
-        return () => {
-            window.removeEventListener('localechange', handleLocaleChange);
-        };
     }, []);
 
     return locale;

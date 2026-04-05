@@ -1,6 +1,10 @@
 ---
 import { getEntry } from "astro:content";
 import { FAQList } from "./islands/FAQList";
+import { useTranslations } from "../i18n/utils";
+
+const lang = Astro.currentLocale || "uk";
+const t = useTranslations(lang as any);
 
 const faqEntry = await getEntry("faq", "all");
 const faqData = faqEntry?.data || [];
@@ -13,10 +17,8 @@ const faqData = faqEntry?.data || [];
     <div class="max-w-[1440px] mx-auto px-5 md:px-[80px] lg:px-[140px] xl:px-[200px]">
         <h2
             class="text-[#090924] text-[24px] md:text-[32px] font-extrabold leading-[130%] font-sans tabular-nums lining-nums mb-4 md:mb-[40px] animate-on-scroll"
-            data-uk="Часто питають, тож відповідаємо 🤓"
-            data-en="People often ask, so here we go 🤓"
         >
-            Часто питають, тож відповідаємо 🤓
+            {t('faq_title')}
         </h2>
         <FAQList client:visible data={faqData} />
     </div>

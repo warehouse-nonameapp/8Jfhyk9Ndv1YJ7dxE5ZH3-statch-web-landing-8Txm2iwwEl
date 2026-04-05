@@ -1,0 +1,26 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/Hero.astro";
+import FeaturesList from "../../components/FeaturesList.astro";
+import FAQSection from "../../components/FAQSection.astro";
+import CTA from "../../components/CTA.astro";
+import Footer from "../../components/Footer.astro";
+import { FloatingFooter } from "../../components/islands/FloatingFooter";
+---
+
+<Layout
+    titleEn="Statch | Simple Inventory for Small Business"
+    ogTitleEn="Statch — Simple Inventory for Small Business"
+    ogDescriptionEn="A simple app for tracking products, sales, and stock — instead of Excel and notebooks. Try it free."
+>
+    <main class="w-full relative">
+        <Hero />
+        <FeaturesList />
+        <FAQSection />
+        <CTA />
+        <Footer hideCTA={true} />
+
+        {/* Mobile Floating Footer */}
+        <FloatingFooter client:load />
+    </main>
+</Layout>

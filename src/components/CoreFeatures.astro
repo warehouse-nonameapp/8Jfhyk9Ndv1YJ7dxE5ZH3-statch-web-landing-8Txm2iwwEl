@@ -1,36 +1,36 @@
 ---
 import BetaTestBanner from "./BetaTestBanner.astro";
+import { useTranslations } from "../i18n/utils";
+
+const lang = Astro.currentLocale || "uk";
+const t = useTranslations(lang as any);
 
 const features = [
   {
     icon: import.meta.env.BASE_URL + "assets/ic_lightning.svg",
-    title: "Легкий старт",
-    description:
-      "Неважливо, чи ти лише починаєш продавати, чи вже давно працюєш з обліком — тут усе інтуїтивно. Кілька хвилин, і ти вже в темі.",
+    title: t("core_feature_1_title"),
+    description: t("core_feature_1_description"),
     iconBg: "#0F1015",
     color: "#299634",
   },
   {
     icon: import.meta.env.BASE_URL + "assets/ic_shopping_bag.svg",
-    title: "Зручний менеджмент замовлень",
-    description:
-      "Статуси під контролем, історія змін збережена. А ще ти можеш додавати собі нотатки, щоб не забути щось важливе у майбутньому.",
+    title: t("core_feature_2_title"),
+    description: t("core_feature_2_description"),
     iconBg: "#0F1015",
     color: "#CFA421",
   },
   {
     icon: import.meta.env.BASE_URL + "assets/ic_package.svg",
-    title: "Управління залишками",
-    description:
-      "Жодного хаосу у товарах та категоріях — усе чітко розкладено по поличках. Або по складах 😉",
+    title: t("core_feature_3_title"),
+    description: t("core_feature_3_description"),
     iconBg: "#0F1015",
     color: "#C32A2A",
   },
   {
     icon: import.meta.env.BASE_URL + "assets/ic_cpu.svg",
-    title: "Автоматизація",
-    description:
-      "Імпорт товарів, нагадування про 'забуті' замовлення та товари без продажу. Жодна дрібниця не пройде повз.",
+    title: t("core_feature_4_title"),
+    description: t("core_feature_4_description"),
     iconBg: "#0F1015",
     color: "#AB2CB7",
   },
@@ -46,13 +46,12 @@ const features = [
       <h2
         class="self-stretch text-[#E0E0E0] text-center text-3xl md:text-[32px] font-extrabold leading-[130%] tracking-[1px] font-sans tabular-nums lining-nums animate-on-scroll"
       >
-        Що ще вміє Statch? Зараз розповімо! 😎
+        {t("core_features_title")}
       </h2>
       <p
         class="mt-6 self-stretch text-[#E0E0E0] text-center text-sm md:text-base font-semibold leading-[150%] font-sans tabular-nums lining-nums animate-on-scroll delay-100"
       >
-        Статуси під контролем, історія змін збережена. А ще ти можеш додавати
-        собі нотатки, щоб не забути щось важливе у майбутньому.
+        {t("core_features_description")}
       </p>
     </div>
 

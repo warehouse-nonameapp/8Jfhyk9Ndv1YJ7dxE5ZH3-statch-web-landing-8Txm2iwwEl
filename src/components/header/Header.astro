@@ -1,17 +1,19 @@
 ---
 import AppLogo from "./AppLogo.astro";
 
-interface Props {
-    darkText?: boolean;
-}
 
-const { darkText = false } = Astro.props;
+// Compute locale routes
+const currentLocale = Astro.currentLocale || "uk";
+const pathname = Astro.url.pathname;
+const cleanPathname = pathname.replace(/^\/en/, '');
+const ukUrl = cleanPathname === '' ? '/' : cleanPathname;
+const enUrl = '/en' + (cleanPathname === '/' ? '/' : cleanPathname);
 ---
 
 <div class="w-full flex items-center">
     {/* Left: Logo */}
     <div class="flex-1">
-        <AppLogo darkText={darkText} />
+        <AppLogo />
     </div>
 
     {/* Right: Language switcher */}
@@ -20,45 +22,23 @@ const { darkText = false } = Astro.props;
         id="lang-switcher"
         style="font-variant-numeric: lining-nums tabular-nums;"
     >
-        <button
-            class="font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#090924] lang-btn"
-            data-lang="uk"
-            aria-pressed="true"
+        <a
+            href={ukUrl}
+            class="font-['Mulish'] text-[16px] font-semibold leading-[150%] transition-colors duration-200"
+            style={{ color: currentLocale === 'uk' ? '#090924' : '#B2BACF' }}
+            aria-current={currentLocale === 'uk' ? "page" : undefined}
+            aria-label="Switch to Ukrainian"
         >
             Укр
-        </button>
-        <button
-            class="font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#B2BACF] lang-btn"
-            data-lang="en"
-            aria-pressed="false"
+        </a>
+        <a
+            href={enUrl}
+            class="font-['Mulish'] text-[16px] font-semibold leading-[150%] transition-colors duration-200"
+            style={{ color: currentLocale === 'en' ? '#090924' : '#B2BACF' }}
+            aria-current={currentLocale === 'en' ? "page" : undefined}
+            aria-label="Switch to English"
         >
             Eng
-        </button>
+        </a>
     </div>
 </div>
-
-<script>
-    const switcher = document.getElementById("lang-switcher");
-    if (switcher) {
-        // Restore saved locale on load
-        const saved = localStorage.getItem("locale") || "uk";
-        switcher.querySelectorAll<HTMLButtonElement>(".lang-btn").forEach((b) => {
-            const selected = b.dataset.lang === saved;
-            b.style.color = selected ? "#090924" : "#B2BACF";
-            b.setAttribute("aria-pressed", String(selected));
-        });
-
-        switcher.addEventListener("click", (e) => {
-            const btn = (e.target as HTMLElement).closest(".lang-btn") as HTMLButtonElement | null;
-            if (!btn) return;
-            const lang = btn.dataset.lang || "uk";
-            localStorage.setItem("locale", lang);
-            window.dispatchEvent(new CustomEvent('localechange', { detail: { locale: lang } }));
-            switcher.querySelectorAll<HTMLButtonElement>(".lang-btn").forEach((b) => {
-                const selected = b === btn;
-                b.style.color = selected ? "#090924" : "#B2BACF";
-                b.setAttribute("aria-pressed", String(selected));
-            });
-        });
-    }
-</script>

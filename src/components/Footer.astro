@@ -1,6 +1,6 @@
 ---
-import { Strings } from "../consts/strings";
 import { BetaSubscriptionButton } from "./islands/BetaSubscriptionButton";
+import { useTranslations } from "../i18n/utils";
 
 interface Props {
     hideCTA?: boolean;
@@ -8,6 +8,9 @@ interface Props {
 
 const currentYear = new Date().getFullYear();
 const { hideCTA = false } = Astro.props;
+
+const lang = Astro.currentLocale || "uk";
+const t = useTranslations(lang as any);
 ---
 
 <footer
@@ -31,6 +34,7 @@ const { hideCTA = false } = Astro.props;
                             "assets/ic_footer_radial_background.webp"}
                         alt=""
                         class="w-full h-auto object-bottom object-cover md:object-contain opacity-60"
+                        loading="lazy"
                     />
                 </picture>
             </div>
@@ -43,17 +47,15 @@ const { hideCTA = false } = Astro.props;
                     class="flex flex-col items-start md:items-center text-left md:text-center text-white"
                 >
                     <h2
-                        data-i18n="cta_title"
                         class="text-[24px] md:text-[48px] font-extrabold mb-4 md:mb-6 leading-tight animate-on-scroll"
                     >
-                        {Strings.cta_title}
+                        {t("cta_title")}
                     </h2>
 
                     <p
-                        data-i18n="cta_description"
                         class="text-[14px] md:text-[18px] font-semibold opacity-80 max-w-2xl mb-10 md:mb-12 leading-relaxed animate-on-scroll delay-100"
                     >
-                        {Strings.cta_description}
+                        {t("cta_description")}
                     </p>
 
                     <div class="w-full md:w-auto origin-center">
@@ -86,11 +88,13 @@ const { hideCTA = false } = Astro.props;
                             src={import.meta.env.BASE_URL + "assets/ic_statch_icon_footer.svg"}
                             alt="Statch Icon"
                             class="w-10 h-10"
+                            loading="lazy"
                         />
                         <img
                             src={import.meta.env.BASE_URL + "assets/ic_statch_name_footer.svg"}
                             alt="Statch"
                             class="h-[35px]"
+                            loading="lazy"
                         />
                     </div>
                 </div>
@@ -102,33 +106,29 @@ const { hideCTA = false } = Astro.props;
                     {/* Site Column */}
                     <div class="flex flex-col items-start gap-4">
                         <h3
-                            data-i18n="footer_site"
                             class="text-[#4F5161] font-extrabold text-[16px] leading-[150%] md:font-semibold md:text-base"
                             style="font-variant-numeric: lining-nums tabular-nums;"
                         >
-                            {Strings.footer_site_title}
+                            {t("footer_site")}
                         </h3>
                         <div class="flex flex-col items-start gap-4">
                             <a
-                                href="/beta-test"
+                                href={lang === "en" ? "/en" : "/"}
                                 class="text-[#E0E0E0] hover:text-[#3E6BE1] font-extrabold text-[16px] leading-[150%] md:font-medium md:text-base transition-colors"
                                 style="font-variant-numeric: lining-nums tabular-nums;"
-                                data-i18n="footer_app"
-                                >{Strings.footer_app}</a
+                                >{t("footer_app")}</a
                             >
                             <a
-                                href="/terms"
+                                href={lang === "en" ? "/en/terms" : "/terms"}
                                 class="text-[#E0E0E0] hover:text-[#3E6BE1] font-extrabold text-[16px] leading-[150%] md:font-medium md:text-base transition-colors"
                                 style="font-variant-numeric: lining-nums tabular-nums;"
-                                data-i18n="footer_terms_use"
-                                >{Strings.footer_terms_use}</a
+                                >{t("footer_terms_use")}</a
                             >
                             <a
-                                href="/privacy"
+                                href={lang === "en" ? "/en/privacy" : "/privacy"}
                                 class="text-[#E0E0E0] hover:text-[#3E6BE1] font-extrabold text-[16px] leading-[150%] md:font-medium md:text-base transition-colors"
                                 style="font-variant-numeric: lining-nums tabular-nums;"
-                                data-i18n="footer_privacy"
-                                >{Strings.footer_privacy}</a
+                                >{t("footer_privacy")}</a
                             >
                         </div>
                     </div>
@@ -136,11 +136,10 @@ const { hideCTA = false } = Astro.props;
                     {/* Socials Column */}
                     <div class="flex flex-col items-start gap-4">
                         <h3
-                            data-i18n="footer_socials"
                             class="text-[#4F5161] font-extrabold text-[16px] leading-[150%] md:font-semibold md:text-base"
                             style="font-variant-numeric: lining-nums tabular-nums;"
                         >
-                            {Strings.footer_socials_title}
+                            {t("footer_socials")}
                         </h3>
                         <div class="flex flex-col items-start gap-4">
                             <a
@@ -165,11 +164,10 @@ const { hideCTA = false } = Astro.props;
                     {/* Contacts Column */}
                     <div class="flex flex-col items-start gap-4">
                         <h3
-                            data-i18n="footer_contacts"
                             class="text-[#4F5161] font-extrabold text-[16px] leading-[150%] md:font-semibold md:text-base"
                             style="font-variant-numeric: lining-nums tabular-nums;"
                         >
-                            {Strings.footer_contacts_title}
+                            {t("footer_contacts")}
                         </h3>
                         <a
                             href="mailto:say.hello@statch.io"
@@ -184,17 +182,15 @@ const { hideCTA = false } = Astro.props;
             {/* Copyright & Message */}
             <div class="flex flex-col gap-2 mt-10 md:mt-[40px]">
                 <p
-                    data-i18n="footer_copyright"
                     class="text-[#4F5161] font-extrabold text-[16px] leading-[150%] md:font-semibold md:text-base"
                     style="font-variant-numeric: lining-nums tabular-nums;"
                 >
-                    {Strings.footer_copyright.replace("{year}", currentYear.toString())}
+                    {t("footer_copyright")}
                 </p>
                 <p
-                    data-i18n="footer_message"
                     class="text-[#4F5161] font-extrabold text-[16px] leading-[150%] md:font-semibold md:text-base"
                     style="font-variant-numeric: lining-nums tabular-nums;"
-                >{Strings.footer_message}</p>
+                >{t("footer_message")}</p>
             </div>
         </div>
 
