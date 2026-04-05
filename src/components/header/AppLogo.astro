@@ -1,12 +1,10 @@
 ---
-interface Props {
-    darkText?: boolean;
-}
-
-const { darkText = false } = Astro.props;
+const lang = Astro.currentLocale || "uk";
+const homeUrl = lang === "en" ? "/en/" : "/";
+const ariaLabel = lang === "en" ? "Statch — back to home" : "Statch — повернутись на головну";
 ---
 
-<a href="/" class="flex items-center gap-2 md:gap-[10px]" aria-label="Statch — повернутись на головну">
+<a href={homeUrl} class="flex items-center gap-2 md:gap-[10px]" aria-label={ariaLabel}>
     <img
         src={import.meta.env.BASE_URL + "assets/ic_statch_icon.svg"}
         alt="Statch Icon"

@@ -5,6 +5,10 @@ import { BetaSubscriptionButton } from "./islands/BetaSubscriptionButton";
 
 const featuresEntry = await getEntry("features", "all");
 const features = featuresEntry?.data || [];
+
+import { useTranslations } from "../i18n/utils";
+const lang = Astro.currentLocale || "uk";
+const t = useTranslations(lang as any);
 ---
 
 <section
@@ -40,18 +44,16 @@ const features = featuresEntry?.data || [];
                             {/* Text */}
                             <div class="flex flex-col gap-4 md:gap-[16px] flex-1 text-center md:text-left items-center md:items-start">
                                 <h2
-                                    data-i18n="banner_title"
                                     class="font-['Mulish'] text-[24px] md:text-[32px] font-extrabold leading-[130%] text-[#E0E0E0]"
                                     style="font-variant-numeric: lining-nums tabular-nums;"
                                 >
-                                    Спробуйте Statch безкоштовно
+                                    {t("banner_title")}
                                 </h2>
                                 <p
-                                    data-i18n="banner_desc"
                                     class="font-['Mulish'] text-[16px] font-semibold leading-[150%] text-white md:text-[#E0E0E0]"
                                     style="font-variant-numeric: lining-nums tabular-nums;"
                                 >
-                                    Жодних складних програм — облік, який зрозумілий з першого кліку.
+                                    {t("banner_desc")}
                                 </p>
                             </div>
 
@@ -71,6 +73,7 @@ const features = featuresEntry?.data || [];
         <img
             src={import.meta.env.BASE_URL + "assets/ic_blue_boxes.svg"}
             alt=""
+            loading="lazy"
             class="block w-full max-w-[349px] h-auto md:w-auto md:max-w-none md:max-h-[188px]"
         />
     </div>

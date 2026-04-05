@@ -2,7 +2,10 @@
 import Header from "./header/Header.astro";
 import { BetaSubscriptionButton } from "./islands/BetaSubscriptionButton";
 import PlatformChipsRow from "./header/PlatformChipsRow.astro";
-import { Strings } from "../consts/strings";
+import { useTranslations } from "../i18n/utils";
+
+const lang = Astro.currentLocale || "uk";
+const t = useTranslations(lang as any);
 
 const featureCards = [
     {
@@ -59,18 +62,16 @@ const bigCard2Points = [
     <div class="max-w-[1440px] mx-auto px-6 md:px-[80px] lg:px-[140px] xl:px-[200px] pt-20 md:pt-[64px] flex flex-col items-center text-center">
         <div class="w-full px-0 md:px-0 lg:px-[80px] xl:px-[120px] flex flex-col items-center text-center">
             <h1
-                data-i18n="header_title"
                 class="text-[32px] leading-[120%] md:text-[48px] md:leading-[64px] font-extrabold text-[#090924] animate-on-scroll tracking-[0.5px] font-['Mulish'] w-full"
                 style="font-variant-numeric: lining-nums tabular-nums;"
             >
-                {Strings.header_title}
+                {t("header_title")}
             </h1>
             <p
-                data-i18n="header_description"
                 class="text-[16px] leading-[150%] md:text-[16px] md:leading-[24px] text-[#090924] font-semibold w-full text-center mt-6 md:mt-[16px] animate-on-scroll delay-100 font-['Mulish']"
                 style="font-variant-numeric: lining-nums tabular-nums;"
             >
-                {Strings.header_description}
+                {t("header_description")}
             </p>
         </div>
 
@@ -106,18 +107,16 @@ const bigCard2Points = [
     <div class="max-w-[1440px] mx-auto px-6 md:px-[80px] lg:px-[140px] xl:px-[200px] pb-[100px]">
         <div class="flex flex-col items-center text-center px-0 md:px-[120px] mb-[40px] md:mb-[48px] animate-on-scroll">
             <h2
-                data-i18n="features_section_title"
                 class="text-[24px] leading-[130%] md:text-[32px] md:leading-[42px] font-extrabold text-[#090924] font-['Mulish'] w-full"
                 style="font-variant-numeric: lining-nums tabular-nums;"
             >
-                {Strings.features_section_title}
+                {t("features_section_title")}
             </h2>
             <p
-                data-i18n="features_section_subtitle"
                 class="text-[16px] leading-[150%] md:text-[16px] md:leading-[24px] text-[#090924] font-semibold mt-4 md:mt-[16px] font-['Mulish']"
                 style="font-variant-numeric: lining-nums tabular-nums;"
             >
-                {Strings.features_section_subtitle}
+                {t("features_section_subtitle")}
             </p>
         </div>
 
@@ -140,18 +139,16 @@ const bigCard2Points = [
                         {/* Title + Subtitle */}
                         <div class="flex flex-col gap-3 md:gap-[12px] w-full">
                             <h3
-                                data-i18n={card.titleKey}
                                 class="text-[20px] leading-[130%] font-bold md:text-[24px] text-[#090924] font-['Mulish']"
                                 style="font-variant-numeric: lining-nums tabular-nums; align-self: stretch;"
                             >
-                                {card.titleDefault}
+                                {t(card.titleKey as any)}
                             </h3>
                             <p
-                                data-i18n={card.descKey}
                                 class="text-[16px] leading-[150%] font-semibold text-[#090924] font-['Mulish']"
                                 style="font-variant-numeric: lining-nums tabular-nums;"
                             >
-                                {card.descDefault}
+                                {t(card.descKey as any)}
                             </p>
                         </div>
                     </div>
@@ -170,18 +167,16 @@ const bigCard2Points = [
                 {/* Mobile: Title + Subtitle */}
                 <div class="flex flex-col w-full md:hidden">
                     <h2
-                        data-i18n="big_card_1_title"
                         class="font-['Mulish'] text-[24px] font-extrabold leading-[130%] text-[#090924] w-full"
                         style="font-variant-numeric: lining-nums tabular-nums;"
                     >
-                        📦 Історія змін — завжди під рукою
+                        {t("big_card_1_title")}
                     </h2>
                     <p
-                        data-i18n="big_card_1_desc"
                         class="font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#090924] mt-4 w-full"
                         style="font-variant-numeric: lining-nums tabular-nums;"
                     >
-                        Будь-яка зміна кількості, списання чи переміщення — фіксується автоматично. Ви завжди бачите, що і коли змінилось.
+                        {t("big_card_1_desc")}
                     </p>
                 </div>
 
@@ -199,18 +194,16 @@ const bigCard2Points = [
                 {/* Desktop: Title + Subtitle + Bullets / Mobile: Bullets only */}
                 <div class="flex flex-col flex-1 self-stretch mt-10 md:mt-0 md:pt-8 md:pr-8 md:pb-4 md:pl-0 xl:pt-[40px] xl:pr-[48px] xl:pb-4">
                     <h2
-                        data-i18n="big_card_1_title"
                         class="hidden md:block font-['Mulish'] text-[32px] font-[800] leading-[130%] text-[#090924] w-full"
                         style="font-variant-numeric: lining-nums tabular-nums; align-self: stretch; font-weight: 800;"
                     >
-                        📦 Історія змін — завжди під рукою
+                        {t("big_card_1_title")}
                     </h2>
                     <p
-                        data-i18n="big_card_1_desc"
                         class="hidden md:block font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#090924] mt-[12px] w-full"
                         style="font-variant-numeric: lining-nums tabular-nums; align-self: stretch;"
                     >
-                        Будь-яка зміна кількості, списання чи переміщення — фіксується автоматично. Ви завжди бачите, що і коли змінилось.
+                        {t("big_card_1_desc")}
                     </p>
                     <div class="flex flex-col md:mt-[24px]" style="gap: 16px;">
                         {bigCard1Points.map((item) => (
@@ -219,11 +212,10 @@ const bigCard2Points = [
                                     <circle cx="4" cy="4" r="4" fill="#1C4FD8"/>
                                 </svg>
                                 <span
-                                    data-i18n={item.key}
                                     class="font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#090924]"
                                     style="font-variant-numeric: lining-nums tabular-nums;"
                                 >
-                                    {item.default}
+                                    {t(item.key as any)}
                                 </span>
                             </div>
                         ))}
@@ -240,18 +232,16 @@ const bigCard2Points = [
                 {/* Mobile: Title + Subtitle */}
                 <div class="flex flex-col w-full md:hidden">
                     <h2
-                        data-i18n="big_card_2_title"
                         class="font-['Mulish'] text-[24px] font-extrabold leading-[130%] text-[#090924] w-full"
                         style="font-variant-numeric: lining-nums tabular-nums;"
                     >
-                        💰 Прибуток рахується автоматично
+                        {t("big_card_2_title")}
                     </h2>
                     <p
-                        data-i18n="big_card_2_desc"
                         class="font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#090924] mt-4 w-full"
                         style="font-variant-numeric: lining-nums tabular-nums;"
                     >
-                        Маржу по кожному замовленню видно одразу — без формул і підрахунків вручну.
+                        {t("big_card_2_desc")}
                     </p>
                 </div>
 
@@ -269,18 +259,16 @@ const bigCard2Points = [
                 {/* Desktop: Title + Subtitle + Bullets / Mobile: Bullets only */}
                 <div class="flex flex-col flex-1 self-stretch mt-10 md:mt-0 md:pt-8 md:pr-0 md:pb-4 md:pl-8 xl:pt-[40px] xl:pb-4 xl:pl-[48px]">
                     <h2
-                        data-i18n="big_card_2_title"
                         class="hidden md:block font-['Mulish'] text-[32px] leading-[130%] text-[#090924] w-full"
                         style="font-variant-numeric: lining-nums tabular-nums; align-self: stretch; font-weight: 800;"
                     >
-                        💰 Прибуток рахується автоматично
+                        {t("big_card_2_title")}
                     </h2>
                     <p
-                        data-i18n="big_card_2_desc"
                         class="hidden md:block font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#090924] mt-[12px] w-full"
                         style="font-variant-numeric: lining-nums tabular-nums; align-self: stretch;"
                     >
-                        Маржу по кожному замовленню видно одразу — без формул і підрахунків вручну.
+                        {t("big_card_2_desc")}
                     </p>
                     <div class="flex flex-col md:mt-[24px]" style="gap: 16px;">
                         {bigCard2Points.map((item) => (
@@ -289,11 +277,10 @@ const bigCard2Points = [
                                     <circle cx="4" cy="4" r="4" fill="#1C4FD8"/>
                                 </svg>
                                 <span
-                                    data-i18n={item.key}
                                     class="font-['Mulish'] text-[16px] font-semibold leading-[150%] text-[#090924]"
                                     style="font-variant-numeric: lining-nums tabular-nums;"
                                 >
-                                    {item.default}
+                                    {t(item.key as any)}
                                 </span>
                             </div>
                         ))}

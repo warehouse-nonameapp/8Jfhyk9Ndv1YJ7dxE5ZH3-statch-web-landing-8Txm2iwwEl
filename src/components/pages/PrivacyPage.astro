@@ -1,0 +1,533 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../header/Header.astro";
+import Footer from "../Footer.astro";
+
+interface Props {
+    lang: "uk" | "en";
+}
+
+const { lang } = Astro.props;
+
+const copies = {
+    meta: {
+        uk: {
+            title: "Statch | Політика конфіденційності",
+            desc: "Ознайомтесь з політикою конфіденційності Statch — як ми збираємо, використовуємо та захищаємо ваші дані."
+        },
+        en: {
+            title: "Statch | Privacy Policy",
+            desc: "Read Statch's Privacy Policy — how we collect, use, and protect your data."
+        }
+    },
+    back: { uk: "Назад до бета-тесту", en: "Back to beta-test" },
+    title: { uk: "Політика конфіденційності", en: "Privacy Policy" },
+    updated: { uk: "Останнє оновлення:", en: "Last updated:" },
+    date: { uk: "1 квітня 2026", en: "1 April 2026" },
+    tldrTitle: { uk: "Коротко (TL;DR)", en: "Quick Summary (TL;DR)" },
+    tldrBottom: { uk: "Лише повний текст нижче має юридичну силу.", en: "Only the full text below has legal force." },
+    tldrs: [
+        {
+            uk: { title: "Економія даних:", text: " Ми збираємо лише дані, необхідні для надання та покращення сервісу Statch." },
+            en: { title: "Data Economy:", text: " We collect only the data necessary to provide and improve the Statch service." }
+        },
+        {
+            uk: { title: "Без продажу:", text: " Ми не продаємо ваші дані третім особам." },
+            en: { title: "No Selling:", text: " We do not sell your data to third parties." }
+        },
+        {
+            uk: { title: "Контроль:", text: " Ви маєте повний контроль над своїми бізнес-записами та можете видалити їх у будь-який час." },
+            en: { title: "Control:", text: " You have full control over your business records and can delete them at any time." }
+        },
+        {
+            uk: { title: "Безпека:", text: " Ми використовуємо зашифроване сховище та стандартні галузеві заходи безпеки для захисту вашої інформації." },
+            en: { title: "Security:", text: " We use encrypted storage and industry-standard security measures to protect your info." }
+        },
+        {
+            uk: { title: "Права:", text: " Відповідно до GDPR, ви маєте право на доступ, виправлення або видалення ваших даних, звернувшись до нас." },
+            en: { title: "Rights:", text: " Under GDPR, you have the right to access, rectify, or erase your data by contacting us." }
+        },
+    ],
+    sections: [
+        {
+            id: "1",
+            title: { uk: "Хто ми", en: "Who We Are" },
+            html: {
+                uk: `<p>Statch — мобільний застосунок для малого бізнесу, роздрібних торговців та всіх, хто продає товари — онлайн, офлайн або в обох форматах — розроблений і керований спільно:</p>
+                     <p><span class="font-bold">Владислав Петрук</span>, який провадить діяльність як фізична особа — підприємець (<span class="italic">jednoosobowa działalność gospodarcza</span>), зареєстрована в Польщі, NIP: 6343029041, юридична адреса: вул. Ogińskiego 11, 03-318 Варшава, Польща</p>
+                     <p><span class="font-bold">Павло Зоря</span>, який провадить діяльність як фізична особа — підприємець (ФОП), зареєстрована в Україні, РНОКПП: 3638804410, юридична адреса: Україна</p>
+                     <p>Разом іменуються «Statch», «ми», «нас», «наш».</p>
+                     <p><span class="font-bold">Спільне контролювання:</span> Відповідно до статті 26 GDPR, обидві сторони виступають як спільні контролери персональних даних, що обробляються через Застосунок. Польська юридична особа Vladyslav Petruk є провідним контролером і основним контактом з питань захисту даних в ЄС. Між сторонами укладено угоду про спільне контролювання, що визначає їхні відповідні обов'язки щодо дотримання вимог GDPR. Суть цієї угоди надається суб'єктам даних на запит.</p>
+                     <p>Торговельна марка Statch зареєстрована в Україні. Застосунок доступний на iOS та Android.</p>
+                     <p>З будь-яких питань щодо конфіденційності зверніться до нас: <a href="mailto:privacy@statch.io" class="text-[#2054E1] hover:underline font-semibold">privacy@statch.io</a></p>`,
+                en: `<p>Statch is a mobile application for small businesses, retailers, and anyone who sells products — online, offline, or both — developed and operated jointly by:</p>
+                     <p><span class="font-bold">Vladyslav Petruk</span>, conducting business as a sole trader (<span class="italic">jednoosobowa działalność gospodarcza</span>) registered in Poland, NIP: 6343029041, registered address: ul. Ogińskiego 11, 03-318 Warszawa, Poland</p>
+                     <p><span class="font-bold">Pavlo Zoria</span>, conducting business as a sole trader (<span class="italic">фізична особа — підприємець</span>, ФОП) registered in Ukraine, РНОКПП: 3638804410, registered address: Ukraine</p>
+                     <p>Together referred to as "Statch", "we", "us", "our".</p>
+                     <p><span class="font-bold">Joint controllership:</span> In accordance with Article 26 GDPR, both parties act as joint controllers for the personal data processed through the App. Vladyslav Petruk's Polish-registered entity serves as the lead controller and primary point of contact for data protection matters within the EU. A joint controller arrangement is in place between the parties, determining their respective responsibilities for compliance with GDPR obligations. The essence of this arrangement is made available to data subjects upon request.</p>
+                     <p>The Statch trademark is registered in Ukraine. The application is available on iOS and Android.</p>
+                     <p>For any privacy-related questions, contact us at: <a href="mailto:privacy@statch.io" class="text-[#2054E1] hover:underline font-semibold">privacy@statch.io</a></p>`
+            }
+        },
+        {
+            id: "2",
+            title: { uk: "Сфера застосування", en: "Scope" },
+            html: {
+                uk: `<p>Ця Політика конфіденційності пояснює, які персональні дані ми збираємо при використанні вами мобільного застосунку Statch («Застосунок»), навіщо ми їх збираємо, як використовуємо і які права ви маєте відповідно до Загального регламенту про захист даних (GDPR) та чинного польського та права ЄС. Користувачі з України також зберігають права відповідно до чинного українського законодавства про захист персональних даних, які ми поважаємо та не прагнемо обмежити.</p>`,
+                en: `<p>This Privacy Policy explains what personal data we collect when you use the Statch mobile application ("App"), why we collect it, how we use it, and what rights you have under the General Data Protection Regulation (GDPR) and applicable Polish and EU law. Users based in Ukraine also retain rights under applicable Ukrainian personal data protection legislation, which we respect and do not seek to exclude.</p>`
+            }
+        },
+        {
+            id: "3",
+            title: { uk: "Дані, які ми збираємо", en: "Data We Collect" },
+            html: {
+                uk: `<div class="flex flex-col gap-6">
+                       <div>
+                         <h3 class="text-[18px] font-bold mb-3 text-[#090924]">3.1 Облікові та автентифікаційні дані</h3>
+                         <p>При реєстрації та вході ми збираємо:</p>
+                         <ul class="list-disc ml-5 mt-2 space-y-2">
+                           <li><span class="font-bold">Номер телефону</span> — використовується для SMS-автентифікації через Twilio</li>
+                           <li><span class="font-bold">Ім'я та адреса електронної пошти</span> — надаються Apple або Google при вході через Apple або Google Sign-In; використовуються для повідомлень, пов'язаних з обліковим записом там, де доступно</li>
+                         </ul>
+                         <p class="mt-3 italic">Порада: Якщо ви входите за допомогою номера телефону, рекомендуємо також прив'язати обліковий запис Google або Apple у налаштуваннях Застосунку.</p>
+                       </div>
+                       <div>
+                         <h3 class="text-[18px] font-bold mb-3 text-[#090924]">3.2 Дані профілю компанії</h3>
+                         <p>Після реєстрації вам необхідно створити профіль компанії. Це включає:</p>
+                         <ul class="list-disc ml-5 mt-2 space-y-1">
+                           <li>Назву компанії</li><li>Налаштування валюти</li><li>Необов'язково: контактні дані та фотографію компанії</li>
+                         </ul>
+                       </div>
+                       <div>
+                         <h3 class="text-[18px] font-bold mb-3 text-[#090924]">3.3 Бізнес-дані та дані про запаси</h3>
+                         <p>Застосунок призначений для зберігання ваших бізнес-даних, включно з:</p>
+                         <ul class="list-disc ml-5 mt-2 space-y-1">
+                           <li>Номенклатурами товарів, характеристиками, варіантами та фотографіями</li>
+                           <li>Артикулами, цінами та налаштуваннями цін</li>
+                           <li>Назвами складів, адресами, номерами телефонів, електронними адресами та коментарями</li>
+                           <li>Категоріями та підкатегоріями</li>
+                           <li>Шаблонами товарів та характеристиками</li>
+                           <li>Замовленнями, включно з необов'язковими іменами клієнтів та контактними даними</li>
+                           <li>Записами про рухи товарів (рухи запасів, списання, переміщення, повернення, замовлення)</li>
+                         </ul>
+                         <p class="mt-3">Ці дані вводяться вами і належать вашому бізнесу. Ми обробляємо їх виключно для забезпечення функціональності Застосунку.</p>
+                         <p class="mt-2"><span class="font-bold">Примітка щодо персональних даних третіх осіб у замовленнях:</span> Коли ви додаєте контактні дані клієнтів до замовлень, ви є контролером даних ваших клієнтів і несете відповідальність за наявність законної підстави для їх збору та зберігання.</p>
+                       </div>
+                       <div>
+                         <h3 class="text-[18px] font-bold mb-3 text-[#090924]">3.4 Інформація про пристрій</h3>
+                         <p>Кожен запит до нашого сервера містить обмежені метадані пристрою: платформу (iOS або Android), версію застосунку, версію ОС та ідентифікатор інсталяції Firebase.</p>
+                       </div>
+                       <div>
+                         <h3 class="text-[18px] font-bold mb-3 text-[#090924]">3.5 Сповіщення</h3>
+                         <p>Якщо ви надасте дозвіл, ми можемо надсилати push-сповіщення. Ви можете керувати дозволами на сповіщення в будь-який час у налаштуваннях пристрою або в Застосунку.</p>
+                       </div>
+                       <div>
+                         <h3 class="text-[18px] font-bold mb-3 text-[#090924]">3.6 Причина видалення облікового запису</h3>
+                         <p>Коли ви подаєте запит на видалення облікового запису, ми просимо вас обрати причину. Ця інформація зберігається в анонімізованій або агрегованій формі для цілей покращення продукту.</p>
+                       </div>
+                       <div>
+                         <h3 class="text-[18px] font-bold mb-3 text-[#090924]">3.7 Аналітика</h3>
+                         <p>Ми використовуємо <span class="font-bold">Microsoft Clarity</span> на сайті Statch для розуміння того, як відвідувачі взаємодіють з нашими сторінками. Всі аналітичні дані обробляються в агрегованій, псевдонімізованій формі.</p>
+                       </div>
+                     </div>`,
+                en: `<div class="flex flex-col gap-6">
+                       <div>
+                         <h3 class="text-[18px] font-bold mb-3 text-[#090924]">3.1 Account &amp; Authentication Data</h3>
+                         <p>When you register and sign in, we collect:</p>
+                         <ul class="list-disc ml-5 mt-2 space-y-2">
+                           <li><span class="font-bold">Phone number</span> — used for SMS-based authentication via Twilio</li>
+                           <li><span class="font-bold">Name and email address</span> — provided by Apple or Google when you sign in with Apple or Google Sign-In; used for account-related notifications where available</li>
+                         </ul>
+                         <p class="mt-3 italic">Tip: If you sign in with a phone number, we recommend also linking a Google or Apple account in the App settings.</p>
+                       </div>
+                       <div>
+                         <h3 class="text-[18px] font-bold mb-3 text-[#090924]">3.2 Company Profile Data</h3>
+                         <p>After registration, you are required to create a company profile. This includes:</p>
+                         <ul class="list-disc ml-5 mt-2 space-y-1">
+                           <li>Company name</li><li>Currency preference</li><li>Optionally: contact details and a company photo</li>
+                         </ul>
+                       </div>
+                       <div>
+                         <h3 class="text-[18px] font-bold mb-3 text-[#090924]">3.3 Business &amp; Inventory Data</h3>
+                         <p>The App is designed to store your business data, including:</p>
+                         <ul class="list-disc ml-5 mt-2 space-y-1">
+                           <li>Product nomenclatures, specifications, variants, and photos</li>
+                           <li>SKUs, prices (retail, wholesale, cost), and pricing settings</li>
+                           <li>Warehouse names, addresses, phone numbers, email addresses, and comments</li>
+                           <li>Categories and subcategories</li>
+                           <li>Product templates and specifications</li>
+                           <li>Orders, including optional customer names and contact details</li>
+                           <li>Product history records (stock movements, write-offs, transfers, returns, orders)</li>
+                         </ul>
+                         <p class="mt-3">This data is entered by you and belongs to your business. We process it solely to provide the App's functionality.</p>
+                         <p class="mt-2"><span class="font-bold">Note on third-party personal data in orders:</span> When you add customer contact details to orders, you act as the data controller for your customers' data and are responsible for having a lawful basis to collect and store it.</p>
+                       </div>
+                       <div>
+                         <h3 class="text-[18px] font-bold mb-3 text-[#090924]">3.4 Device Information</h3>
+                         <p>Each request to our backend includes limited device metadata: platform (iOS or Android), application version, operating system version, and Firebase Installation ID.</p>
+                       </div>
+                       <div>
+                         <h3 class="text-[18px] font-bold mb-3 text-[#090924]">3.5 Notifications</h3>
+                         <p>If you grant permission, we may send push notifications. You can manage or revoke notification permissions at any time in your device settings or within the App.</p>
+                       </div>
+                       <div>
+                         <h3 class="text-[18px] font-bold mb-3 text-[#090924]">3.6 Account Deletion Reason</h3>
+                         <p>When you submit an account deletion request, we ask you to select a reason. This information is retained in anonymised or aggregated form for product improvement purposes.</p>
+                       </div>
+                       <div>
+                         <h3 class="text-[18px] font-bold mb-3 text-[#090924]">3.7 Analytics</h3>
+                         <p>We use <span class="font-bold">Microsoft Clarity</span> on the Statch website to understand how visitors interact with our pages. All analytics data is processed in an aggregated, pseudonymised form.</p>
+                       </div>
+                     </div>`
+            }
+        },
+        {
+            id: "4",
+            title: { uk: "Навіщо ми обробляємо дані", en: "Why We Process Data" },
+            html: {
+                uk: `<div class="overflow-x-auto">
+                       <table class="w-full text-left text-[14px] md:text-[16px] border-collapse">
+                         <thead><tr class="bg-[#FAFBFC] border-b border-[#E3EAF1]">
+                           <th class="py-3 px-4 font-bold text-[#090924]">Мета</th>
+                           <th class="py-3 px-4 font-bold text-[#090924]">Дані, що використовуються</th>
+                           <th class="py-3 px-4 font-bold text-[#090924]">Правова підстава</th>
+                         </tr></thead>
+                         <tbody class="text-[#090924] opacity-80">
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Надання автентифікації та управління обліковим записом</td><td class="py-3 px-4">Номер телефону, Apple/Google ID, електронна пошта</td><td class="py-3 px-4">Виконання договору (ст. 6(1)(b) GDPR)</td></tr>
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Забезпечення основної функціональності Застосунку</td><td class="py-3 px-4">Бізнес-дані, запаси, склади, замовлення</td><td class="py-3 px-4">Виконання договору (ст. 6(1)(b) GDPR)</td></tr>
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Надсилання повідомлень облікового запису</td><td class="py-3 px-4">Електронна адреса</td><td class="py-3 px-4">Виконання договору (ст. 6(1)(b) GDPR)</td></tr>
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Сумісність пристрою та push-сповіщення</td><td class="py-3 px-4">Інформація про пристрій</td><td class="py-3 px-4">Законний інтерес (ст. 6(1)(f) GDPR)</td></tr>
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Звіти про збої та моніторинг стабільності</td><td class="py-3 px-4">Стан пристрою, версія ОС/застосунку, стек трасування</td><td class="py-3 px-4">Законний інтерес (ст. 6(1)(f) GDPR)</td></tr>
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Надсилання рекламних сповіщень та опитувань (за згодою)</td><td class="py-3 px-4">Налаштування сповіщень</td><td class="py-3 px-4">Згода (ст. 6(1)(a) GDPR)</td></tr>
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Покращення сайту та Застосунку за допомогою аналітики</td><td class="py-3 px-4">Агреговані дані використання</td><td class="py-3 px-4">Законний інтерес (ст. 6(1)(f) GDPR)</td></tr>
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Розуміння причин видалення для покращення продукту</td><td class="py-3 px-4">Анонімізована причина видалення</td><td class="py-3 px-4">Законний інтерес (ст. 6(1)(f) GDPR)</td></tr>
+                           <tr><td class="py-3 px-4">Дотримання правових зобов'язань</td><td class="py-3 px-4">За необхідністю</td><td class="py-3 px-4">Правове зобов'язання (ст. 6(1)(c) GDPR)</td></tr>
+                         </tbody>
+                       </table>
+                     </div>`,
+                en: `<div class="overflow-x-auto">
+                       <table class="w-full text-left text-[14px] md:text-[16px] border-collapse">
+                         <thead><tr class="bg-[#FAFBFC] border-b border-[#E3EAF1]">
+                           <th class="py-3 px-4 font-bold text-[#090924]">Purpose</th>
+                           <th class="py-3 px-4 font-bold text-[#090924]">Data Used</th>
+                           <th class="py-3 px-4 font-bold text-[#090924]">Legal Basis</th>
+                         </tr></thead>
+                         <tbody class="text-[#090924] opacity-80">
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Providing authentication and account management</td><td class="py-3 px-4">Phone number, Apple/Google ID, email</td><td class="py-3 px-4">Performance of contract (Art. 6(1)(b) GDPR)</td></tr>
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Delivering core App functionality</td><td class="py-3 px-4">Business, inventory, warehouse, order data</td><td class="py-3 px-4">Performance of contract (Art. 6(1)(b) GDPR)</td></tr>
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Sending account notifications</td><td class="py-3 px-4">Email address</td><td class="py-3 px-4">Performance of contract (Art. 6(1)(b) GDPR)</td></tr>
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Device compatibility and push notifications</td><td class="py-3 px-4">Device info</td><td class="py-3 px-4">Legitimate interest (Art. 6(1)(f) GDPR)</td></tr>
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Crash reporting and stability monitoring</td><td class="py-3 px-4">Device state, OS/app version, stack traces</td><td class="py-3 px-4">Legitimate interest (Art. 6(1)(f) GDPR)</td></tr>
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Sending promotional notifications and surveys (where opted in)</td><td class="py-3 px-4">Notification preferences</td><td class="py-3 px-4">Consent (Art. 6(1)(a) GDPR)</td></tr>
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Improving the website and App via analytics</td><td class="py-3 px-4">Aggregated usage data</td><td class="py-3 px-4">Legitimate interest (Art. 6(1)(f) GDPR)</td></tr>
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Understanding account deletion reasons for product improvement</td><td class="py-3 px-4">Anonymised deletion reason</td><td class="py-3 px-4">Legitimate interest (Art. 6(1)(f) GDPR)</td></tr>
+                           <tr><td class="py-3 px-4">Compliance with legal obligations</td><td class="py-3 px-4">As required</td><td class="py-3 px-4">Legal obligation (Art. 6(1)(c) GDPR)</td></tr>
+                         </tbody>
+                       </table>
+                     </div>`
+            }
+        },
+        {
+            id: "5",
+            title: { uk: "Сторонні сервіси", en: "Third-Party Services" },
+            html: {
+                uk: `<p>Ми використовуємо такі сторонні сервіси для роботи Застосунку. Там, де це вимагається GDPR, ми уклали Угоди про обробку даних з цими постачальниками.</p>
+                     <div class="overflow-x-auto mt-4">
+                       <table class="w-full text-left text-[14px] md:text-[16px] border-collapse">
+                         <thead><tr class="bg-[#FAFBFC] border-b border-[#E3EAF1]">
+                           <th class="py-3 px-4 font-bold text-[#090924]">Сервіс</th>
+                           <th class="py-3 px-4 font-bold text-[#090924]">Постачальник</th>
+                           <th class="py-3 px-4 font-bold text-[#090924]">Призначення</th>
+                         </tr></thead>
+                         <tbody class="text-[#090924] opacity-80">
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Microsoft Clarity</td><td class="py-3 px-4">Microsoft Corporation</td><td class="py-3 px-4">Аналітика сайту — перегляди сторінок, кліки, глибина прокрутки та анонімізовані записи сесій</td></tr>
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Firebase Crashlytics</td><td class="py-3 px-4">Google LLC</td><td class="py-3 px-4">Автоматичні звіти про збої</td></tr>
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Google Sign-In</td><td class="py-3 px-4">Google LLC</td><td class="py-3 px-4">Автентифікація</td></tr>
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Apple Sign-In</td><td class="py-3 px-4">Apple Inc.</td><td class="py-3 px-4">Автентифікація</td></tr>
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Google Cloud Platform</td><td class="py-3 px-4">Google LLC</td><td class="py-3 px-4">Хмарна інфраструктура та зберігання файлів</td></tr>
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Twilio</td><td class="py-3 px-4">Twilio Inc.</td><td class="py-3 px-4">SMS-коди підтвердження</td></tr>
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">MongoDB Atlas</td><td class="py-3 px-4">MongoDB, Inc.</td><td class="py-3 px-4">Хмарна база даних для зберігання облікових та бізнес-даних</td></tr>
+                           <tr><td class="py-3 px-4">Resend</td><td class="py-3 px-4">Resend, Inc.</td><td class="py-3 px-4">Доставка транзакційних листів</td></tr>
+                         </tbody>
+                       </table>
+                     </div>
+                     <p class="mt-4">Ми ведемо цей список як реєстр субпроцесорів. Якщо ми додаємо або змінюємо субпроцесорів, ми відповідно оновимо цей розділ.</p>`,
+                en: `<p>We use the following third-party services to operate the App. Where required by GDPR, we have entered into Data Processing Agreements with these providers.</p>
+                     <div class="overflow-x-auto mt-4">
+                       <table class="w-full text-left text-[14px] md:text-[16px] border-collapse">
+                         <thead><tr class="bg-[#FAFBFC] border-b border-[#E3EAF1]">
+                           <th class="py-3 px-4 font-bold text-[#090924]">Service</th>
+                           <th class="py-3 px-4 font-bold text-[#090924]">Provider</th>
+                           <th class="py-3 px-4 font-bold text-[#090924]">Purpose</th>
+                         </tr></thead>
+                         <tbody class="text-[#090924] opacity-80">
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Microsoft Clarity</td><td class="py-3 px-4">Microsoft Corporation</td><td class="py-3 px-4">Website analytics — page views, clicks, scroll depth, and anonymised session recordings</td></tr>
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Firebase Crashlytics</td><td class="py-3 px-4">Google LLC</td><td class="py-3 px-4">Automatic crash reporting</td></tr>
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Google Sign-In</td><td class="py-3 px-4">Google LLC</td><td class="py-3 px-4">Authentication</td></tr>
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Apple Sign-In</td><td class="py-3 px-4">Apple Inc.</td><td class="py-3 px-4">Authentication</td></tr>
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Google Cloud Platform</td><td class="py-3 px-4">Google LLC</td><td class="py-3 px-4">Cloud infrastructure and file storage (product photos, etc.)</td></tr>
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">Twilio</td><td class="py-3 px-4">Twilio Inc.</td><td class="py-3 px-4">SMS verification codes</td></tr>
+                           <tr class="border-b border-[#E3EAF1]"><td class="py-3 px-4">MongoDB Atlas</td><td class="py-3 px-4">MongoDB, Inc.</td><td class="py-3 px-4">Cloud database to store account and business data</td></tr>
+                           <tr><td class="py-3 px-4">Resend</td><td class="py-3 px-4">Resend, Inc.</td><td class="py-3 px-4">Transactional email delivery — account-related notifications</td></tr>
+                         </tbody>
+                       </table>
+                     </div>
+                     <p class="mt-4">We maintain this list as our register of sub-processors. If we add or change sub-processors, we will update this section accordingly.</p>`
+            }
+        },
+        {
+            id: "6",
+            title: { uk: "Зберігання та передача даних", en: "Data Storage and Transfers" },
+            html: {
+                uk: `<p>Ваші дані зберігаються на серверах <span class="font-bold">Google Cloud Platform</span> та кластерах баз даних <span class="font-bold">MongoDB Atlas</span>. Як Google (GCP), так і MongoDB, Inc. можуть обробляти дані в регіонах поза Європейською економічною зоною (ЄЕЗ). Там, де відбуваються такі передачі, вони захищені відповідними гарантіями (Стандартні договірні положення) відповідно до Розділу V GDPR.</p>
+                     <p><span class="font-bold">Інші міжнародні передачі:</span> Twilio Inc. (SMS-верифікація), Resend, Inc. (доставка електронної пошти) та Microsoft Corporation (Clarity аналітика) є американськими постачальниками. Дані, що передаються цим постачальникам, захищені Стандартними договірними положеннями та/або рішенням ЄС про адекватність там, де це застосовно.</p>`,
+                en: `<p>Your data is stored on <span class="font-bold">Google Cloud Platform</span> servers and <span class="font-bold">MongoDB Atlas</span> database clusters. Both Google (GCP) and MongoDB, Inc. may process data in regions outside the European Economic Area (EEA). Where such transfers occur, they are protected by appropriate safeguards (Standard Contractual Clauses) in accordance with GDPR Chapter V.</p>
+                     <p><span class="font-bold">Other international transfers:</span> Twilio Inc. (SMS verification), Resend, Inc. (email delivery), and Microsoft Corporation (Clarity analytics) are US-based providers. Data transferred to these providers is protected by Standard Contractual Clauses and/or an EU adequacy decision where applicable.</p>`
+            }
+        },
+        {
+            id: "7",
+            title: { uk: "Зберігання даних", en: "Data Retention" },
+            html: {
+                uk: `<p>Ми зберігаємо ваші дані протягом усього часу, поки ваш обліковий запис активний, або стільки, скільки необхідно для надання сервісу.</p>
+                     <p><span class="font-bold">Видалення облікового запису:</span> Ви можете запросити видалення облікового запису з Застосунку. Після запиту:</p>
+                     <ul class="list-disc ml-5 space-y-2">
+                       <li>Ви отримаєте підтвердження (електронним листом, якщо з вашим обліковим записом пов'язана адреса електронної пошти).</li>
+                       <li>Ваш обліковий запис входить у <span class="font-bold">30-денний пільговий період</span>, протягом якого ви можете скасувати видалення.</li>
+                       <li>Через 30 днів ваш обліковий запис і <span class="font-bold">всі пов'язані дані остаточно видаляються</span>.</li>
+                     </ul>
+                     <p><span class="font-bold">Експорт даних:</span> Наразі ми не пропонуємо автоматичний експорт даних. Якщо вам потрібна копія даних перед видаленням, зверніться до нас на <a href="mailto:support@statch.io" class="text-[#2054E1] hover:underline font-semibold">support@statch.io</a>.</p>`,
+                en: `<p>We retain your data for as long as your account is active or as necessary to provide the service.</p>
+                     <p><span class="font-bold">Account deletion:</span> You may request account deletion from within the App. Upon request:</p>
+                     <ul class="list-disc ml-5 space-y-2">
+                       <li>You will receive a confirmation notification (via email if your account has an associated email address).</li>
+                       <li>Your account enters a <span class="font-bold">30-day grace period</span> during which you may cancel the deletion by logging in.</li>
+                       <li>After 30 days, your account and <span class="font-bold">all associated data are permanently deleted</span>.</li>
+                     </ul>
+                     <p><span class="font-bold">Data export:</span> We do not currently offer an automated data export feature. If you need a copy of your data before deletion, please contact us at <a href="mailto:support@statch.io" class="text-[#2054E1] hover:underline font-semibold">support@statch.io</a>.</p>`
+            }
+        },
+        {
+            id: "8",
+            title: { uk: "Повідомлення про витік", en: "Data Breach Notification" },
+            html: {
+                uk: `<p>У разі витоку персональних даних, який може призвести до ризику для ваших прав і свобод, ми повідомимо <span class="font-bold">Польське управління з захисту персональних даних (UODO)</span> без зайвих затримок і, де це можливо, протягом 72 годин після того, як нам стане відомо про витік, відповідно до статті 33 GDPR.</p>
+                     <p>Якщо витік, ймовірно, призведе до <span class="font-bold">високого ризику</span> для ваших прав і свобод, ми також повідомимо постраждалих користувачів без зайвих затримок, відповідно до статті 34 GDPR.</p>`,
+                en: `<p>In the event of a personal data breach that is likely to result in a risk to your rights and freedoms, we will notify the <span class="font-bold">Polish Data Protection Authority (UODO)</span> without undue delay and, where feasible, within 72 hours of becoming aware of the breach, in accordance with Article 33 GDPR.</p>
+                     <p>Where a breach is likely to result in a <span class="font-bold">high risk</span> to your rights and freedoms, we will also notify affected users without undue delay, in accordance with Article 34 GDPR.</p>`
+            }
+        },
+        {
+            id: "9",
+            title: { uk: "Ваші права", en: "Your Rights" },
+            html: {
+                uk: `<p>Як суб'єкт даних, ви маєте такі права:</p>
+                     <ul class="list-disc ml-5 space-y-2">
+                       <li><span class="font-bold">Право на доступ</span> — запросити копію персональних даних, які ми зберігаємо про вас</li>
+                       <li><span class="font-bold">Право на виправлення</span> — запросити виправлення неточних даних</li>
+                       <li><span class="font-bold">Право на видалення</span> — запросити видалення ваших даних (див. Розділ 7)</li>
+                       <li><span class="font-bold">Право на обмеження обробки</span> — запросити обмеження обробки ваших даних</li>
+                       <li><span class="font-bold">Право на переносимість даних</span> — отримати ваші дані у структурованому, машинозчитуваному форматі</li>
+                       <li><span class="font-bold">Право на заперечення</span> — заперечувати обробку на підставі законного інтересу</li>
+                       <li><span class="font-bold">Право на відкликання згоди</span> — там, де обробка ґрунтується на згоді, ви можете відкликати її в будь-який час</li>
+                     </ul>
+                     <p class="mt-4">Щоб скористатися будь-яким із цих прав, зверніться до нас на <a href="mailto:privacy@statch.io" class="text-[#2054E1] hover:underline font-semibold">privacy@statch.io</a>. Ми відповімо протягом 30 днів. Ви також маєте право подати скаргу до <span class="font-bold">Польського управління з захисту персональних даних (UODO)</span>: <a href="https://www.uodo.gov.pl" target="_blank" class="text-[#2054E1] hover:underline">www.uodo.gov.pl</a></p>`,
+                en: `<p>As a data subject, you have the following rights:</p>
+                     <ul class="list-disc ml-5 space-y-2">
+                       <li><span class="font-bold">Right of access</span> — request a copy of the personal data we hold about you</li>
+                       <li><span class="font-bold">Right to rectification</span> — request correction of inaccurate data</li>
+                       <li><span class="font-bold">Right to erasure</span> — request deletion of your data (see Section 7)</li>
+                       <li><span class="font-bold">Right to restriction</span> — request that we limit processing of your data</li>
+                       <li><span class="font-bold">Right to data portability</span> — receive your data in a structured, machine-readable format</li>
+                       <li><span class="font-bold">Right to object</span> — object to processing based on legitimate interest</li>
+                       <li><span class="font-bold">Right to withdraw consent</span> — where processing is based on consent, you may withdraw it at any time</li>
+                     </ul>
+                     <p class="mt-4">To exercise any of these rights, contact us at <a href="mailto:privacy@statch.io" class="text-[#2054E1] hover:underline font-semibold">privacy@statch.io</a>. We will respond within 30 days. You also have the right to lodge a complaint with the <span class="font-bold">Polish Data Protection Authority (UODO)</span>: <a href="https://www.uodo.gov.pl" target="_blank" class="text-[#2054E1] hover:underline">www.uodo.gov.pl</a></p>`
+            }
+        },
+        {
+            id: "10",
+            title: { uk: "Неповнолітні", en: "Children" },
+            html: {
+                uk: `<p>Застосунок не призначений для використання особами віком до 18 років. Ми свідомо не збираємо персональні дані дітей.</p>`,
+                en: `<p>The App is not intended for use by individuals under the age of 18. We do not knowingly collect personal data from children.</p>`
+            }
+        },
+        {
+            id: "11",
+            title: { uk: "Зміни до політики", en: "Changes to Policy" },
+            html: {
+                uk: `<p>Ми можемо час від часу оновлювати цю Політику конфіденційності. <span class="font-bold">Щодо суттєвих змін</span> (таких як зміни в практиці збору даних) <span class="font-bold">ми повідомимо вас щонайменше за 30 днів через Застосунок або електронною поштою (якщо доступно) та запитаємо ваше підтвердження перед набранням чинності змін.</span></p>
+                     <p><span class="font-bold">Щодо несуттєвих змін</span> (таких як уточнення), ми оновимо дату «Останнє оновлення» вгорі. Продовження використання Застосунку після публікації таких оновлень означає ваше прийняття змін.</p>`,
+                en: `<p>We may update this Privacy Policy from time to time. <span class="font-bold">For material changes</span> (such as changes to data collection practices), <span class="font-bold">we will notify you at least 30 days in advance via the App or by email (if available) and request your affirmative acceptance before the changes take effect.</span></p>
+                     <p><span class="font-bold">For non-material changes</span> (such as clarifications), we will update the "Last updated" date at the top. Continued use of the App after such updates are published constitutes your acceptance of the changes.</p>`
+            }
+        },
+        {
+            id: "12",
+            title: { uk: "Контакти", en: "Contact" },
+            html: {
+                uk: `<p>Якщо у вас виникли запитання щодо цієї Політики конфіденційності, зверніться до нас:</p>
+                     <p>Email: <a href="mailto:privacy@statch.io" class="text-[#2054E1] hover:underline font-semibold">privacy@statch.io</a></p>
+                     <p>Підтримка: <a href="mailto:support@statch.io" class="text-[#2054E1] hover:underline font-semibold">support@statch.io</a></p>`,
+                en: `<p>If you have any questions about this Privacy Policy, please contact us at:</p>
+                     <p>Email: <a href="mailto:privacy@statch.io" class="text-[#2054E1] hover:underline font-semibold">privacy@statch.io</a></p>
+                     <p>Support: <a href="mailto:support@statch.io" class="text-[#2054E1] hover:underline font-semibold">support@statch.io</a></p>`
+            }
+        },
+    ]
+};
+---
+
+<Layout
+    titleUk={copies.meta.uk.title}
+    titleEn={copies.meta.en.title}
+    ogTitleUk={copies.meta.uk.title}
+    ogTitleEn={copies.meta.en.title}
+    ogDescriptionUk={copies.meta.uk.desc}
+    ogDescriptionEn={copies.meta.en.desc}
+>
+    <div class="bg-white min-h-screen text-[#090924] font-sans terms-page-container">
+        <div class="relative w-full max-w-[1440px] mx-auto px-5 md:px-[80px] lg:px-[140px] xl:px-[200px] pt-8 md:pt-[40px] z-50 component-header">
+            <Header />
+        </div>
+
+        <main class="max-w-[1440px] mx-auto px-6 md:px-[80px] lg:px-[140px] xl:px-[200px] pt-8 md:pt-16 pb-24 md:pb-32 mt-5 md:mt-10">
+            <a href={lang === "en" ? "/en" : "/"} class="component-back-btn inline-flex items-center text-[#A6A6BC] hover:text-[#2054E1] mb-8 font-semibold transition-colors">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                <span>{copies.back[lang]}</span>
+            </a>
+
+            <div class="mb-14 heading-section component-heading">
+                <h1 class="text-[32px] md:text-[48px] font-extrabold mb-6 leading-tight text-[#090924]">
+                    {copies.title[lang]}
+                </h1>
+                <div class="flex flex-col md:flex-row gap-2 md:gap-4 text-[#090924]" style="font-variant-numeric: lining-nums tabular-nums;">
+                    <p class="text-[16px] leading-[24px] font-normal font-sans">
+                        <span class="font-extrabold">{copies.updated[lang]}</span> {copies.date[lang]}
+                    </p>
+                </div>
+            </div>
+
+            {/* TL;DR Section */}
+            <div class="bg-[#FAFBFC] p-6 md:p-8 rounded-2xl mb-16 w-full max-w-[1046px]">
+                <h2 class="text-[20px] md:text-[24px] font-bold mb-4 text-[#090924]">
+                    {copies.tldrTitle[lang]}
+                </h2>
+                <ul class="space-y-4">
+                    {copies.tldrs.map(tldr => (
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 rounded-full bg-[#1C4FD8] mt-2 shrink-0 drop-shadow-[0_2px_8px_rgba(28,79,216,0.20)]"></div>
+                            <span class="text-[16px] text-[#090924]">
+                                <span class="font-bold">{tldr[lang].title}</span>{tldr[lang].text}
+                            </span>
+                        </li>
+                    ))}
+                    <li class="flex items-start gap-3">
+                        <div class="w-2 h-2 rounded-full bg-[#1C4FD8] mt-2 shrink-0 drop-shadow-[0_2px_8px_rgba(28,79,216,0.20)]"></div>
+                        <span class="text-[16px] text-[#090924] italic opacity-80">{copies.tldrBottom[lang]}</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start relative">
+
+                {/* Sidebar Selector (Sticky) */}
+                <aside class="hidden lg:flex flex-col sticky top-32 w-[250px] shrink-0 border-l border-[#E3EAF1] pl-5 terms-sidebar space-y-3 relative">
+                    {copies.sections.map((item) => (
+                        <a href={`#section-${item.id}`} class="terms-link flex items-center gap-2 group transition-colors" style="font-variant-numeric: lining-nums tabular-nums;">
+                            <span class="terms-num text-[12px] font-semibold text-[#A6A6BC] leading-[18px] w-5 h-[18px] text-left shrink-0 group-hover:text-[#2054E1]">{item.id}.</span>
+                            <span class="terms-label text-[12px] font-semibold text-[#A6A6BC] leading-[18px] group-hover:text-[#2054E1]">
+                                {item.title[lang]}
+                            </span>
+                        </a>
+                    ))}
+                </aside>
+
+                {/* Content Sections */}
+                <div class="flex flex-col gap-12 md:gap-16 max-w-[700px] w-full terms-content">
+                    {copies.sections.map((item) => (
+                        <section id={`section-${item.id}`} class="scroll-mt-32">
+                            <h2 class="text-[20px] md:text-[24px] font-bold mb-5 text-[#090924]">
+                                {item.id}. {item.title[lang]}
+                            </h2>
+                            <div class="flex flex-col gap-4 text-[16px] text-[#090924] opacity-80 leading-relaxed" set:html={item.html[lang]} />
+                        </section>
+                    ))}
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="component-footer">
+        <Footer hideCTA={true} />
+    </div>
+
+    <script>
+        if (typeof window !== 'undefined') {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('layout') === 'contentOnly') {
+                document.documentElement.classList.add('layout-content-only');
+            }
+        }
+
+        const sections = document.querySelectorAll<HTMLElement>('section[id]');
+        const navLinks = document.querySelectorAll<HTMLElement>('.terms-link');
+        let currentActiveId: string | null = null;
+
+        const updateActiveLink = () => {
+            if (sections.length === 0) return;
+            let sectionId: string | null = sections[0].getAttribute('id');
+            const scrollPos = window.scrollY + window.innerHeight * 0.3;
+
+            sections.forEach(sec => {
+                const rect = sec.getBoundingClientRect();
+                const absoluteTop = rect.top + window.scrollY;
+                if (absoluteTop <= scrollPos) {
+                    sectionId = sec.getAttribute('id');
+                }
+            });
+
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+                sectionId = sections[sections.length - 1].getAttribute('id');
+            }
+
+            if (currentActiveId !== sectionId) {
+                currentActiveId = sectionId;
+                navLinks.forEach(link => {
+                    const num = link.querySelector('.terms-num');
+                    const label = link.querySelector('.terms-label');
+                    num?.classList.remove('text-[#090924]');
+                    num?.classList.add('text-[#A6A6BC]');
+                    label?.classList.remove('text-[#090924]');
+                    label?.classList.add('text-[#A6A6BC]');
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        num?.classList.remove('text-[#A6A6BC]');
+                        num?.classList.add('text-[#090924]');
+                        label?.classList.remove('text-[#A6A6BC]');
+                        label?.classList.add('text-[#090924]');
+                    }
+                });
+            }
+        };
+
+        window.addEventListener('scroll', updateActiveLink, { passive: true });
+        window.addEventListener('resize', updateActiveLink, { passive: true });
+        updateActiveLink();
+    </script>
+
+    <style is:global>
+        html.layout-content-only .component-header,
+        html.layout-content-only .component-footer,
+        html.layout-content-only .component-back-btn {
+            display: none !important;
+        }
+        html.layout-content-only .component-heading {
+            margin-top: 1rem !important;
+        }
+        html.layout-content-only main {
+            padding-top: 1rem !important;
+            margin-top: 0 !important;
+        }
+    </style>
+</Layout>

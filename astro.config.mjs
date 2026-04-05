@@ -15,6 +15,14 @@ export default defineConfig({
     '/beta-test': '/'
   },
 
+  i18n: {
+    defaultLocale: "uk",
+    locales: ["uk", "en"],
+    routing: {
+      prefixDefaultLocale: false
+    }
+  },
+
   vite: {
     plugins: [tailwindcss()]
   }

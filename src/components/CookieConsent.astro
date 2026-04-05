@@ -1,4 +1,8 @@
 ---
+import { useTranslations } from "../i18n/utils";
+
+const lang = Astro.currentLocale || "uk";
+const t = useTranslations(lang as any);
 ---
 
 <!-- Cookie Consent Banner -->
@@ -15,16 +19,11 @@
                     <circle cx="10" cy="14" r="1" fill="currentColor"/>
                 </svg>
             </div>
-            <p class="cookie-text" data-lang-content="uk">
-                Ми використовуємо кукі та <a href="/privacy#section-3" class="cookie-link">аналітику</a> для покращення вашого досвіду. Ви можете прийняти або відхилити необов'язкові кукі.
-            </p>
-            <p class="cookie-text" data-lang-content="en">
-                We use cookies and <a href="/privacy#section-3" class="cookie-link">analytics</a> to improve your experience. You can accept or decline non-essential cookies.
-            </p>
+            <p class="cookie-text" set:html={t('cookie_text_html')} />
         </div>
         <div class="cookie-actions">
-            <button id="cookie-decline" class="cookie-btn cookie-btn-decline" data-uk="Відхилити" data-en="Decline">Відхилити</button>
-            <button id="cookie-accept" class="cookie-btn cookie-btn-accept" data-uk="Прийняти" data-en="Accept">Прийняти</button>
+            <button id="cookie-decline" class="cookie-btn cookie-btn-decline">{t('cookie_decline')}</button>
+            <button id="cookie-accept" class="cookie-btn cookie-btn-accept">{t('cookie_accept')}</button>
         </div>
     </div>
 </div>

@@ -1,6 +1,9 @@
 ---
 import { BetaSubscriptionButton } from "./islands/BetaSubscriptionButton";
-import { Strings } from "../consts/strings";
+import { useTranslations } from "../i18n/utils";
+
+const lang = Astro.currentLocale || "uk";
+const t = useTranslations(lang as any);
 ---
 
 <section
@@ -25,19 +28,17 @@ import { Strings } from "../consts/strings";
         class="relative z-10 max-w-[1440px] mx-auto px-5 md:px-[80px] lg:px-[140px] xl:px-[200px] pt-8 md:pt-[100px] pb-0 md:pb-0 flex flex-col items-center text-center"
     >
         <h2
-            data-i18n="cta_title"
             class="font-['Mulish'] text-[32px] leading-[120%] md:text-[48px] md:leading-[64px] font-extrabold md:tracking-[0.5px] text-[#E0E0E0] text-center mb-6 md:mb-[16px] animate-on-scroll max-w-[800px]"
             style="font-variant-numeric: lining-nums tabular-nums;"
         >
-            {Strings.cta_title}
+            {t("cta_title")}
         </h2>
 
         <p
-            data-i18n="cta_description"
             class="font-['Mulish'] text-[16px] leading-[150%] font-extrabold md:font-semibold text-[#E0E0E0] text-center max-w-[770px] mb-10 md:mb-[48px] animate-on-scroll delay-100"
             style="font-variant-numeric: lining-nums tabular-nums;"
         >
-            {Strings.cta_description}
+            {t("cta_description")}
         </p>
 
         <div id="cta-anchor" class="w-full flex justify-center animate-on-scroll delay-200">
@@ -54,6 +55,7 @@ import { Strings } from "../consts/strings";
             src={import.meta.env.BASE_URL + "assets/ic_footer_background_mobile.svg"}
             alt=""
             aria-hidden="true"
+            loading="lazy"
             class="w-full h-auto block pointer-events-none"
         />
     </div>
@@ -64,6 +66,7 @@ import { Strings } from "../consts/strings";
             src={import.meta.env.BASE_URL + "assets/ic_footer_background.svg"}
             alt=""
             aria-hidden="true"
+            loading="lazy"
             class="w-full h-auto block pointer-events-none"
         />
     </div>

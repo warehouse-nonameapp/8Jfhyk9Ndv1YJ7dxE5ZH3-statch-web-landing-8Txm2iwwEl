@@ -1,0 +1,513 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../header/Header.astro";
+import Footer from "../Footer.astro";
+
+interface Props {
+    lang: "uk" | "en";
+}
+
+const { lang } = Astro.props;
+
+const copies = {
+    meta: {
+        uk: { title: "Statch | Умови використання", desc: "Умови використання сервісу Statch — права, обов'язки та правила роботи з додатком." },
+        en: { title: "Statch | Terms of Service", desc: "Statch Terms of Service — your rights, responsibilities, and rules for using the app." }
+    },
+    back: {
+        uk: "Назад до бета-тесту",
+        en: "Back to beta-test"
+    },
+    title: {
+        uk: "Умови використання",
+        en: "Terms of Service"
+    },
+    updated: {
+        uk: "Останнє оновлення:",
+        en: "Last updated:"
+    },
+    date: {
+        uk: `1 квітня 2026`,
+        en: `1 April 2026`
+    },
+    tldrTitle: {
+        uk: "Коротко (TL;DR)",
+        en: "Quick Summary (TL;DR)"
+    },
+    tldrs: [
+        {
+            uk: { title: `Призначення:`, text: `Statch — інструмент для управління запасами та замовленнями для малого бізнесу та роздрібних торговців.` },
+            en: { title: `Purpose:`, text: `Statch is an inventory and order management tool for small businesses and retailers.` }
+        },
+        {
+            uk: { title: `Власність:`, text: `Ваші бізнес-дані належать вам; ми лише обробляємо їх для надання та покращення сервісу.` },
+            en: { title: `Ownership:`, text: `You own your business data; we only process it to provide and improve the service.` }
+        },
+        {
+            uk: { title: `Обліковий запис:`, text: `Ви відповідаєте за збереження облікових даних і повинні бути не молодше 18 років.` },
+            en: { title: `Account:`, text: `You are responsible for keeping your credentials safe and must be at least 18 years old.` }
+        },
+        {
+            uk: { title: `Призупинення:`, text: `Ми можемо призупинити або припинити ваш доступ у разі серйозних порушень цих Умов.` },
+            en: { title: `Termination:`, text: `We may suspend or terminate your access for serious violations of these Terms.` }
+        },
+        {
+            uk: { title: `Видалення:`, text: `Видалення облікового запису є остаточним після 30-денного пільгового періоду, включно з усіма записами про запаси.` },
+            en: { title: `Deletion:`, text: `Account deletion is permanent after a 30-day grace period, including all your inventory records.` }
+        },
+        {
+            uk: { title: `Відповідальність:`, text: `Застосунок надається «як є» — зберігайте власні резервні копії критично важливих бізнес-даних.` },
+            en: { title: `Liability:`, text: `The App is provided "as is" — please keep your own backups of critical business data.` }
+        },
+    ],
+    tldrBottom: {
+        uk: `Лише повний текст нижче має юридичну силу.`,
+        en: `Only the full text below has legal force.`
+    },
+    sections: [
+        {
+            id: "1",
+            title: { uk: `Хто ми`, en: `Who We Are` },
+            html: { uk: `<p>Ці Умови використання («Умови») регулюють використання вами мобільного застосунку Statch («Застосунок»), що управляється засновниками Statch:</p>
+                            <p><span class="font-bold">Владислав Петрук</span>, який провадить діяльність як фізична особа — підприємець (<span class="italic">jednoosobowa działalność gospodarcza</span>), зареєстрована в Польщі, NIP: 6343029041, юридична адреса: вул. Ogińskiego 11, 03-318 Варшава, Польща</p>
+                            <p><span class="font-bold">Павло Зоря</span>, який провадить діяльність як фізична особа — підприємець (ФОП), зареєстрована в Україні, РНОКПП: 3638804410, юридична адреса: Україна</p>
+                            <p>Разом іменуються «Statch», «ми», «нас», «наш».</p>
+                            <p>Назва та логотип Statch є зареєстрованими торговельними марками в Україні.</p>
+                            <p>З будь-яких питань щодо цих Умов звертайтесь до нас: <a href="mailto:legal@statch.io" class="text-[#2054E1] hover:underline font-semibold">legal@statch.io</a></p>
+`, en: `<p>These Terms of Service ("Terms") govern your use of the Statch mobile application ("App"), operated by the founders of Statch:</p>
+                            <p><span class="font-bold">Vladyslav Petruk</span>, conducting business as a sole trader (<span class="italic">jednoosobowa działalność gospodarcza</span>) registered in Poland, NIP: 6343029041, registered address: ul. Ogińskiego 11, 03-318 Warsaw, Poland</p>
+                            <p><span class="font-bold">Pavlo Zoria</span>, conducting business as a sole trader (<span class="italic">фізична особа — підприємець</span>, ФОП) registered in Ukraine, РНОКПП: 3638804410, registered address: Ukraine</p>
+                            <p>Together referred to as "Statch", "we", "us", "our".</p>
+                            <p>The Statch name and logo are registered trademarks in Ukraine.</p>
+                            <p>For any questions regarding these Terms, contact us at: <a href="mailto:legal@statch.io" class="text-[#2054E1] hover:underline font-semibold">legal@statch.io</a></p>
+` }
+        },
+        {
+            id: "2",
+            title: { uk: `Прийняття умов`, en: `Acceptance of Terms` },
+            html: { uk: `<p>Завантажуючи, встановлюючи або використовуючи Застосунок, ви погоджуєтесь з цими Умовами. Якщо ви не погоджуєтесь — не використовуйте Застосунок.</p>
+                            <p>Якщо ви використовуєте Застосунок від імені компанії або іншої юридичної особи, ви підтверджуєте, що маєте повноваження зобов'язувати цю особу цими Умовами.</p>
+`, en: `<p>By downloading, installing, or using the App, you agree to be bound by these Terms. If you do not agree, do not use the App.</p>
+                            <p>If you are using the App on behalf of a company or other legal entity, you represent that you have authority to bind that entity to these Terms.</p>
+` }
+        },
+        {
+            id: "3",
+            title: { uk: `Сервіс`, en: `The Service` },
+            html: { uk: `<p>Statch — мобільний застосунок для малого бізнесу, роздрібних торговців та всіх, хто продає товари — онлайн, офлайн або в обох форматах. Застосунок дозволяє вам:</p>
+                            <div class="flex flex-col gap-3">
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Управляти номенклатурами товарів, варіантами та характеристиками</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Організовувати запаси на кількох складах</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Відстежувати історію товарів та рухи запасів</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Створювати замовлення та управляти ними</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Організовувати товари за категоріями</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Використовувати шаблони для спрощення створення товарів</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Управляти налаштуваннями цін (роздрібна, оптова, розрахунок собівартості)</span></div>
+                            </div>
+                            <p class="mt-4"><span class="font-bold">Ліцензія на використання Застосунку:</span> Відповідно до цих Умов, Statch надає вам обмежену, невиключну, непередавальну, відкличну ліцензію на використання Застосунку у ваших внутрішніх бізнес-цілях.</p>
+                            <p>Ми залишаємо за собою право змінювати, призупиняти або припиняти будь-яку частину Застосунку в будь-який час з розумним попередженням там, де це можливо.</p>
+`, en: `<p>Statch is a mobile application designed for small businesses, retailers, and anyone who sells products — whether online, offline, or both. The App allows you to:</p>
+                            <div class="flex flex-col gap-3">
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Manage product nomenclatures, variants, and specifications</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Organize inventory across multiple warehouses</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Track product history and stock movements</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Create and manage orders</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Organize products by categories</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Use templates to streamline product creation</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Manage pricing settings (retail, wholesale, cost calculation)</span></div>
+                            </div>
+                            <p class="mt-4"><span class="font-bold">License to use the App:</span> Subject to these Terms, Statch grants you a limited, non-exclusive, non-transferable, revocable license to use the App for your internal business purposes.</p>
+                            <p>We reserve the right to modify, suspend, or discontinue any part of the App at any time, with reasonable notice where possible.</p>
+` }
+        },
+        {
+            id: "4",
+            title: { uk: `Реєстрація облікового запису`, en: `Account Registration` },
+            html: { uk: `<p>Для використання Застосунку необхідно створити обліковий запис. Реєстрація можлива через:</p>
+                            <div class="flex flex-col gap-3">
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Номер телефону (підтвердження через SMS)</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Вхід через Apple</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Вхід через Google</span></div>
+                            </div>
+                            <p class="mt-4">Ви несете відповідальність за:</p>
+                            <div class="flex flex-col gap-3">
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Надання точних реєстраційних даних</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Збереження конфіденційності облікових даних</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Усі дії, що здійснюються через ваш обліковий запис</span></div>
+                            </div>
+                            <p class="mt-4">Ви зобов'язані негайно повідомити нас на <a href="mailto:support@statch.io" class="text-[#2054E1] hover:underline font-semibold">support@statch.io</a> у разі підозри на несанкціонований доступ до вашого облікового запису.</p>
+                            <p>Для створення облікового запису ви повинні бути не молодше 18 років. <span class="font-bold">Якщо ми виявимо, що власнику облікового запису немає 18 років, ми залишаємо за собою право видалити обліковий запис та всі пов'язані дані.</span></p>
+`, en: `<p>To use the App, you must create an account. You may register using:</p>
+                            <div class="flex flex-col gap-3">
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>A phone number (verified via SMS)</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Apple Sign-In</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Google Sign-In</span></div>
+                            </div>
+                            <p class="mt-4">You are responsible for:</p>
+                            <div class="flex flex-col gap-3">
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Providing accurate registration information</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Maintaining the confidentiality of your account credentials</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>All activity that occurs under your account</span></div>
+                            </div>
+                            <p class="mt-4">You must notify us immediately at <a href="mailto:support@statch.io" class="text-[#2054E1] hover:underline font-semibold">support@statch.io</a> if you suspect unauthorized access to your account.</p>
+                            <p>You must be at least 18 years old to create an account. <span class="font-bold">If we discover that an account holder is under 18, we reserve the right to terminate the account and delete all associated data.</span></p>
+` }
+        },
+        {
+            id: "5",
+            title: { uk: `Профіль компанії`, en: `Company Profile` },
+            html: { uk: `<p>Після реєстрації вам необхідно створити профіль компанії (назва компанії та валюта). Цей профіль використовується для налаштування Застосунку під ваш бізнес. Ви відповідаєте за точність даних компанії.</p>
+`, en: `<p>After registration, you are required to create a company profile (company name and currency). This profile is used to configure the App for your business. You are responsible for the accuracy of your company data.</p>
+` }
+        },
+        {
+            id: "6",
+            title: { uk: `Ваші дані`, en: `Your Data` },
+            html: { uk: `<p>Ви зберігаєте повне право власності на всі бізнес-дані, які вводите в Застосунок, включно з інформацією про товари, складами, замовленнями та фотографіями («Ваші дані»).</p>
+                            <p>Використовуючи Застосунок, ви надаєте нам обмежену, невиключну ліцензію на зберігання, обробку та відображення Ваших даних виключно з метою надання вам сервісу.</p>
+                            <p>Ми не продаємо Ваші дані третім особам. Ми не використовуємо Ваші дані з жодною іншою метою, крім забезпечення роботи та покращення Застосунку.</p>
+                            <p><span class="font-bold">Персональні дані третіх осіб:</span> Якщо ви зберігаєте в Застосунку персональні дані своїх клієнтів або інших третіх осіб (наприклад, контактні дані в замовленнях), ви є контролером цих даних і несете відповідальність за наявність законної підстави для їх збору та обробки. Statch обробляє такі дані виключно як ваш обробник даних відповідно до ваших інструкцій, чинного законодавства про захист даних (включно з GDPR там, де це застосовно) та нашої Політики конфіденційності.</p>
+                            <p>Детальну інформацію про обробку ваших персональних даних дивіться в нашій <a href="/privacy" class="text-[#2054E1] hover:underline font-semibold">Політиці конфіденційності</a>.</p>
+`, en: `<p>You retain full ownership of all business data you enter into the App, including product information, warehouse data, orders, and photos ("Your Data").</p>
+                            <p>By using the App, you grant us a limited, non-exclusive license to store, process, and display Your Data solely for the purpose of providing the service to you.</p>
+                            <p>We do not sell Your Data to third parties. We do not use Your Data for any purpose other than operating and improving the App.</p>
+                            <p><span class="font-bold">Third-party personal data:</span> If you store personal data of your own customers or other third parties in the App (such as contact details in orders), you are the data controller for that data and are responsible for ensuring you have a lawful basis to collect and process it. Statch processes such data solely as your data processor in accordance with your instructions, applicable data protection laws (including GDPR where applicable), and our Privacy Policy.</p>
+                            <p>For details on how we handle your personal data, see our <a href="/privacy" class="text-[#2054E1] hover:underline font-semibold">Privacy Policy</a>.</p>
+` }
+        },
+        {
+            id: "7",
+            title: { uk: `Допустиме використання`, en: `Acceptable Use` },
+            html: { uk: `<p>Ви погоджуєтесь не:</p>
+                            <div class="flex flex-col gap-3">
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Використовувати Застосунок з будь-якою незаконною метою або на порушення чинного законодавства</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Намагатися отримати несанкціонований доступ до будь-якої частини Застосунку або його інфраструктури</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Здійснювати зворотну розробку, декомпіляцію або дизасемблювання Застосунку</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Завантажувати або передавати шкідливий код, віруси або шкідливий контент</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Використовувати Застосунок для зберігання або передачі контенту, що порушує права інтелектуальної власності третіх осіб</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Перепродавати, субліцензувати або іншим чином комерціалізувати Застосунок без нашої письмової згоди</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Використовувати автоматизовані інструменти (боти, скрейпери) для доступу до Застосунку</span></div>
+                            </div>
+                            <p class="mt-4">Ми залишаємо за собою право призупиняти або видаляти облікові записи, що порушують ці правила. <span class="font-bold">Там, де це розумно можливо, ми надамо попередження щонайменше за 7 днів до видалення та надамо можливість завантажити ваші дані.</span> У випадку негайного видалення через серйозні порушення ваші дані обробляються відповідно до нашої Політики конфіденційності та видаляються за тим самим графіком, що і при стандартному видаленні облікового запису.</p>
+`, en: `<p>You agree not to:</p>
+                            <div class="flex flex-col gap-3">
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Use the App for any unlawful purpose or in violation of any applicable law or regulation</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Attempt to gain unauthorized access to any part of the App or its infrastructure</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Reverse engineer, decompile, or disassemble the App</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Upload or transmit any malicious code, viruses, or harmful content</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Use the App to store or transmit content that infringes third-party intellectual property rights</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Resell, sublicense, or otherwise commercialize the App without our written consent</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Use automated tools (bots, scrapers) to access the App</span></div>
+                            </div>
+                            <p class="mt-4">We reserve the right to suspend or terminate accounts that violate these rules. <span class="font-bold">Where reasonably practicable, we will provide at least 7 days' notice before termination and give you an opportunity to retrieve your data.</span> Where termination is immediate due to serious violations, your data will be handled in accordance with our Privacy Policy and deleted on the same schedule as a standard account deletion.</p>
+` }
+        },
+        {
+            id: "8",
+            title: { uk: `Підписки та платежі`, en: `Subscriptions and Payments` },
+            html: { uk: `<p>Застосунок пропонуватиме тарифні плани. Ціни, деталі планів та наявність безкоштовного рівня будуть визначені (TBD) та опубліковані в Застосунку і на нашому сайті до початку будь-яких нарахувань.</p>
+                            <p>Коли будуть введені тарифні плани:</p>
+                            <div class="flex flex-col gap-3">
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Підписки нараховуватимуться авансово на регулярній основі (щомісяця або щорічно, залежно від обраного плану)</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span><span class="font-bold">Підписки автоматично поновлюються, якщо не скасовані щонайменше за 24 години до закінчення поточного платіжного періоду.</span></span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Оплата обробляється через App Store (Apple) або Google Play Store (Google) відповідно до їхніх умов</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Повернення коштів регулюється відповідною політикою повернення платформи</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Здійснюючи покупку через App Store або Google Play Store, ви також погоджуєтесь з умовами надання послуг Apple або Google</span></div>
+                            </div>
+                            <p class="mt-4 font-bold text-[#090924] opacity-100">Повідомлення перед початком нарахування:</p>
+                            <p>Ми повідомимо користувачів щонайменше за 30 днів до введення будь-яких платних тарифних планів. Ми оновимо ці Умови з повними деталями підписки до початку нарахування.</p>
+`, en: `<p>The App will offer subscription plans. Pricing, plan details, and the availability of a free tier are to be determined (TBD) and will be published within the App and on our website before any charges apply.</p>
+                            <p>When subscription plans are introduced:</p>
+                            <div class="flex flex-col gap-3">
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Subscriptions will be billed in advance on a recurring basis (monthly or annually, depending on the selected plan)</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span><span class="font-bold">Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current billing period.</span></span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Payment will be processed through the App Store (Apple) or Google Play Store (Google), subject to their respective terms and conditions</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Refunds are governed by the applicable platform's refund policy</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>By making a purchase through the App Store or Google Play Store, you also agree to Apple's or Google's terms of service, as applicable</span></div>
+                            </div>
+                            <p class="mt-4 font-bold text-[#090924] opacity-100">Notice before billing begins:</p>
+                            <p>We will notify users at least 30 days before any paid subscription plans take effect. We will update these Terms with full subscription details before billing begins.</p>
+` }
+        },
+        {
+            id: "9",
+            title: { uk: `Видалення облікового запису`, en: `Account Deletion` },
+            html: { uk: `<p>Ви можете запросити видалення свого облікового запису з Застосунку в будь-який час.</p>
+                            <p>Після подання запиту на видалення:</p>
+                            <div class="flex flex-col gap-3">
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Ви отримаєте підтвердження (електронним листом, якщо з вашим обліковим записом пов'язана адреса електронної пошти через Google або Apple Sign-In).</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span><span class="font-bold">Ваш обліковий запис входить у 30-денний пільговий період. Ви можете скасувати видалення, увійшовши в систему та підтвердивши скасування протягом цього часу.</span></span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span><span class="font-bold">Через 30 днів ваш обліковий запис і всі пов'язані дані остаточно видаляються, включно з усіма бізнес-даними, записами про запаси, фотографіями та інформацією облікового запису. Ця дія є незворотною.</span></span></div>
+                            </div>
+                            <p class="mt-4"><span class="font-bold">Експорт даних:</span> Наразі ми не пропонуємо автоматичний експорт даних, хоча він запланований у майбутніх версіях. Якщо вам потрібна копія даних перед видаленням, зверніться до нас на <a href="mailto:support@statch.io" class="text-[#2054E1] hover:underline font-semibold">support@statch.io</a> — ми допоможемо в індивідуальному порядку. Це не обмежує ваше право на переносимість даних за GDPR (стаття 20) там, де це застосовно.</p>
+                            <p><span class="font-bold">М'яке видалення в Застосунку:</span> Коли ви видаляєте об'єкти в Застосунку під час звичайного використання (наприклад, товари або склади, що фігурують у наявних замовленнях), система може зберігати певні записи у стані м'якого видалення для збереження цілісності історичних даних. Це відрізняється від видалення облікового запису — при повному видаленні облікового запису всі дані, включно з м'яко видаленими записами, остаточно видаляються.</p>
+`, en: `<p>You may request deletion of your account from within the App at any time.</p>
+                            <p>Upon submitting a deletion request:</p>
+                            <div class="flex flex-col gap-3">
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>You will receive a confirmation notification (via email if your account has an associated email address from Google or Apple Sign-In).</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span><span class="font-bold">Your account enters a 30-day grace period. You may cancel the deletion by logging in and explicitly confirming cancellation during this period.</span></span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span><span class="font-bold">After 30 days, your account and all associated data are permanently deleted, including all business data, inventory records, photos, and account information. This action is irreversible.</span></span></div>
+                            </div>
+                            <p class="mt-4"><span class="font-bold">Data export:</span> We do not currently offer an automated data export feature, though one is planned for a future release. In the meantime, if you need a copy of your data before deletion, please contact us at <a href="mailto:support@statch.io" class="text-[#2054E1] hover:underline font-semibold">support@statch.io</a> and we will assist you on a case-by-case basis. This is without prejudice to your right to data portability under GDPR (Article 20), where applicable.</p>
+                            <p><span class="font-bold">Soft deletion within the App:</span> When you delete entities within the App during normal use (such as products or warehouses that are referenced in existing orders), the system may retain certain records in a soft-deleted state to preserve the integrity of your historical data. This is separate from account deletion — upon full account deletion, all data including soft-deleted records is permanently purged.</p>
+` }
+        },
+        {
+            id: "10",
+            title: { uk: `Інтелектуальна власність`, en: `Intellectual Property` },
+            html: { uk: `<p>Застосунок, включно з його дизайном, кодом, функціями, назвою Statch та логотипом, є інтелектуальною власністю Statch та його засновників. Торговельна марка Statch зареєстрована в Україні.</p>
+                            <p>Ви не можете використовувати нашу назву, логотип або торговельні марки без нашої попередньої письмової згоди.</p>
+                            <p>Жодне положення цих Умов не передає вам будь-яких прав інтелектуальної власності, крім обмеженої ліцензії на використання Застосунку, описаної тут.</p>
+`, en: `<p>The App, including its design, code, features, and the Statch name and logo, are the intellectual property of Statch and its founders. The Statch trademark is registered in Ukraine.</p>
+                            <p>You may not use our name, logo, or trademarks without our prior written consent.</p>
+                            <p>Nothing in these Terms transfers any intellectual property rights to you, other than the limited license to use the App as described herein.</p>
+` }
+        },
+        {
+            id: "11",
+            title: { uk: `Відмова від гарантій`, en: `Disclaimers` },
+            html: { uk: `<p>Застосунок надається <span class="font-bold">«як є»</span> та <span class="font-bold">«як доступний»</span> без жодних гарантій будь-якого роду, явних або підразумівальних, включно з гарантіями товарного стану, придатності для певної мети або безперебійної доступності.</p>
+                            <p>Ми не гарантуємо, що:</p>
+                            <div class="flex flex-col gap-3">
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Застосунок працюватиме без помилок або збоїв</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Будь-які дані, збережені в Застосунку, будуть вільні від втрат або пошкоджень</span></div>
+                            </div>
+                            <p class="mt-4">Ви відповідаєте за ведення незалежних резервних копій <span class="font-bold">будь-яких критично важливих бізнес-даних, збережених у Застосунку</span>.</p>
+`, en: `<p>The App is provided <span class="font-bold">"as is"</span> and <span class="font-bold">"as available"</span> without warranties of any kind, either express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or uninterrupted availability.</p>
+                            <p>We do not warrant that:</p>
+                            <div class="flex flex-col gap-3">
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>The App will be error-free or uninterrupted</span></div>
+                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Any data stored in the App will be free from loss or corruption</span></div>
+                            </div>
+                            <p class="mt-4">You are responsible for maintaining independent backups of <span class="font-bold">any critical business data stored in the App</span>.</p>
+` }
+        },
+        {
+            id: "12",
+            title: { uk: `Обмеження відповідальності`, en: `Limitation of Liability` },
+            html: { uk: `<p>У максимальному обсязі, дозволеному чинним законодавством, Statch не несе відповідальності за будь-які непрямі, випадкові, особливі, наслідкові або штрафні збитки, що виникають у зв'язку з використанням вами Застосунку, включно з втратою прибутку, втратою даних або перервою в роботі бізнесу.</p>
+                            <p>Наша сукупна відповідальність перед вами за будь-якими претензіями, що виникають відповідно до цих Умов, не перевищуватиме суму, сплачену вами нам протягом 12 місяців, що передують претензії, <span class="font-bold">або €100, якщо платежів не здійснювалось.</span></p>
+                            <p><span class="font-bold">Споживачі:</span> Якщо ви є споживачем відповідно до чинного польського або права ЄС, обмеження у цьому розділі застосовуються лише в тій мірі, в якій це дозволено обов'язковими нормами захисту прав споживачів. Ніщо в цих Умовах не виключає та не обмежує нашу відповідальність за смерть або тілесні ушкодження, заподіяні недбалістю, шахрайством або будь-якою іншою відповідальністю, що не може бути виключена відповідно до чинного законодавства.</p>
+`, en: `<p>To the maximum extent permitted by applicable law, Statch shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of the App, including but not limited to loss of profits, loss of data, or business interruption.</p>
+                            <p>Our total liability to you for any claims arising under these Terms shall not exceed the amount you paid us in the 12 months preceding the claim, <span class="font-bold">or €100 if no payments have been made.</span></p>
+                            <p><span class="font-bold">Consumer users:</span> If you are a consumer within the meaning of applicable Polish or EU law, the limitations in this section apply only to the extent permitted by mandatory consumer protection provisions. Nothing in these Terms excludes or limits our liability for death or personal injury caused by negligence, fraud, or any other liability that cannot be excluded under applicable law.</p>
+` }
+        },
+        {
+            id: "13",
+            title: { uk: `Відшкодування збитків`, en: `Indemnification` },
+            html: { uk: `<p>Ви погоджуєтесь захищати, відшкодовувати збитки та утримувати незбитковими Statch та його засновників від будь-яких претензій, зобов'язань, збитків, втрат і витрат (включно з розумними юридичними витратами), що виникають у зв'язку з: (а) використанням вами Застосунку; (б) порушенням вами цих Умов; (в) порушенням вами чинного законодавства; або (г) будь-якими претензіями третіх осіб, що виникають у зв'язку з персональними даними, які ви зберігаєте в Застосунку (включно з даними ваших клієнтів).</p>
+`, en: `<p>You agree to indemnify, defend, and hold harmless Statch and its founders from and against any claims, liabilities, damages, losses, and expenses (including reasonable legal fees) arising out of or in connection with: (a) your use of the App; (b) your violation of these Terms; (c) your violation of any applicable law or regulation; or (d) any claim by a third party arising from personal data you have stored in the App (including your customers' data).</p>
+` }
+        },
+        {
+            id: "14",
+            title: { uk: `Форс-мажор`, en: `Force Majeure` },
+            html: { uk: `<p>Statch не несе відповідальності за будь-яке невиконання або затримку виконання, що виникають з причин, що знаходяться поза межами нашого розумного контролю, включно зі стихійними лихами, діями уряду, перебоями в роботі Інтернету або інфраструктури, збоями сторонніх сервісів або іншими подіями поза нашим контролем. У таких випадках наші зобов'язання за цими Умовами призупиняються на час дії відповідної події.</p>
+`, en: `<p>Statch shall not be liable for any failure or delay in performance resulting from causes beyond our reasonable control, including but not limited to natural disasters, acts of government, internet or infrastructure outages, third-party service failures, or other events outside our control. In such cases, our obligations under these Terms will be suspended for the duration of the event.</p>
+` }
+        },
+        {
+            id: "15",
+            title: { uk: `Застосовне право та спори`, en: `Governing Law and Disputes` },
+            html: { uk: `<p>Ці Умови регулюються та тлумачаться відповідно до законодавства <span class="font-bold">Польщі</span> та, де це застосовно, законодавства <span class="font-bold">Європейського Союзу</span>. Це обумовлено тим, що один із операторів є юридичною особою, зареєстрованою в ЄС, яка підпорядковується польському та праву ЄС, включно з GDPR. <span class="font-bold">Зобов'язання за GDPR поширюються на Statch в силу його реєстрації в ЄС, незалежно від місцезнаходження користувача.</span></p>
+                            <p>Користувачі, що знаходяться в Україні, також можуть мати права відповідно до чинного українського законодавства про захист прав споживачів та цивільного права. Ми поважаємо ці права та не прагнемо їх обмежити через вибір застосовного права.</p>
+                            <p>Будь-які суперечки, що виникають у зв'язку з цими Умовами, підлягають виключній юрисдикції судів <span class="font-bold">Варшави, Польща</span>.</p>
+                            <p>Якщо ви є споживачем-резидентом ЄС, ви також маєте право скористатися платформою ЄС для онлайн-вирішення спорів: <a href="https://ec.europa.eu/consumers/odr" target="_blank" class="text-[#2054E1] hover:underline">https://ec.europa.eu/consumers/odr</a></p>
+`, en: `<p>These Terms are governed by and construed in accordance with the laws of <span class="font-bold">Poland</span> and, where applicable, the laws of the <span class="font-bold">European Union</span>. This reflects that one of the operators is an EU-registered entity subject to Polish and EU law, including GDPR. <span class="font-bold">GDPR obligations apply to Statch by virtue of its EU establishment, regardless of where the user is located.</span></p>
+                            <p>Users based in Ukraine may also have rights under applicable Ukrainian consumer protection and civil law. We respect those rights and will not seek to exclude them through the choice of governing law.</p>
+                            <p>Any disputes arising out of or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts of <span class="font-bold">Warsaw, Poland</span>.</p>
+                            <p>If you are a consumer resident in the EU, you may also have the right to use the EU Online Dispute Resolution platform: <a href="https://ec.europa.eu/consumers/odr" target="_blank" class="text-[#2054E1] hover:underline">https://ec.europa.eu/consumers/odr</a></p>
+` }
+        },
+        {
+            id: "16",
+            title: { uk: `Подільність`, en: `Severability` },
+            html: { uk: `<p>Якщо будь-яке положення цих Умов буде визнано недійсним або таким, що не підлягає виконанню компетентним судом, таке положення буде обмежено або вилучено в мінімально необхідному обсязі, а решта положень продовжуватиме діяти в повному обсязі.</p>
+                            <p>Ці Умови разом з нашою Політикою конфіденційності становлять повну угоду між вами та Statch щодо використання вами Застосунку та замінюють усі попередні угоди, домовленості або заяви з того самого предмета.</p>
+`, en: `<p>If any provision of these Terms is found to be invalid or unenforceable by a court of competent jurisdiction, that provision will be limited or removed to the minimum extent necessary, and the remaining provisions will continue in full force and effect.</p>
+                            <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and Statch regarding your use of the App and supersede all prior agreements, understandings, or representations relating to the same subject matter.</p>
+` }
+        },
+        {
+            id: "17",
+            title: { uk: `Зміни до умов`, en: `Changes to Terms` },
+            html: { uk: `<p>Ми можемо час від часу оновлювати ці Умови. <span class="font-bold">Щодо суттєвих змін</span> (таких як зміни в ціноутворенні підписки, обробці даних або умовах відповідальності) <span class="font-bold">ми повідомимо вас щонайменше за 30 днів через Застосунок або електронною поштою (якщо доступно) та запитаємо ваше підтвердження перед набранням чинності змін.</span> Якщо ви не приймаєте оновлені Умови, ви можете припинити використання Застосунку та запросити видалення облікового запису.</p>
+                            <p><span class="font-bold">Щодо несуттєвих змін</span> (таких як уточнення, форматування або незначні правки формулювань), ми оновимо дату «Останнє оновлення» вгорі. Продовження використання Застосунку після публікації таких оновлень означає ваше прийняття змін.</p>
+`, en: `<p>We may update these Terms from time to time. <span class="font-bold">For material changes</span> (such as changes to subscription pricing, data handling, or liability terms), <span class="font-bold">we will notify you at least 30 days in advance via the App or by email (if available) and request your affirmative acceptance before the changes take effect.</span> If you do not accept the updated Terms, you may stop using the App and request account deletion.</p>
+                            <p><span class="font-bold">For non-material changes</span> (such as clarifications, formatting, or minor wording adjustments), we will update the "Last updated" date at the top. Continued use of the App after such updates are published constitutes your acceptance of the changes.</p>
+` }
+        },
+        {
+            id: "18",
+            title: { uk: `Контакти`, en: `Contact` },
+            html: { uk: `<p>Якщо у вас виникли запитання щодо цих Умов використання, зверніться до нас:</p>
+                            <p>Email: <a href="mailto:legal@statch.io" class="text-[#2054E1] hover:underline font-semibold">legal@statch.io</a></p>
+                            <p>Підтримка: <a href="mailto:support@statch.io" class="text-[#2054E1] hover:underline font-semibold">support@statch.io</a></p>
+`, en: `<p>If you have any questions about these Terms of Service, please contact us at:</p>
+                            <p>Email: <a href="mailto:legal@statch.io" class="text-[#2054E1] hover:underline font-semibold">legal@statch.io</a></p>
+                            <p>Support: <a href="mailto:support@statch.io" class="text-[#2054E1] hover:underline font-semibold">support@statch.io</a></p>
+` }
+        },
+    ]
+};
+---
+
+<Layout
+    titleUk={copies.meta.uk.title}
+    titleEn={copies.meta.en.title}
+    ogTitleUk={copies.meta.uk.title}
+    ogTitleEn={copies.meta.en.title}
+    ogDescriptionUk={copies.meta.uk.desc}
+    ogDescriptionEn={copies.meta.en.desc}
+>
+    <div class="bg-white min-h-screen text-[#090924] font-sans terms-page-container">
+        <div class="relative w-full max-w-[1440px] mx-auto px-5 md:px-[80px] lg:px-[140px] xl:px-[200px] pt-8 md:pt-[40px] z-50 component-header">
+            <Header />
+        </div>
+
+        <main class="max-w-[1440px] mx-auto px-6 md:px-[80px] lg:px-[140px] xl:px-[200px] pt-8 md:pt-16 pb-24 md:pb-32 mt-5 md:mt-10">
+            <a href={lang === "en" ? "/en" : "/"} class="component-back-btn inline-flex items-center text-[#A6A6BC] hover:text-[#2054E1] mb-8 font-semibold transition-colors">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                <span>{copies.back[lang]}</span>
+            </a>
+
+            <div class="mb-14 heading-section component-heading">
+                <h1 class="text-[32px] md:text-[48px] font-extrabold mb-6 leading-tight text-[#090924]">
+                    <span>{copies.title[lang]}</span>
+                </h1>
+                <div class="flex flex-col md:flex-row gap-2 md:gap-4 text-[#090924]" style="font-variant-numeric: lining-nums tabular-nums;">
+                    <p class="text-[16px] leading-[24px] font-normal font-sans">
+                        <span><span class="font-extrabold">{copies.updated[lang]}</span> {copies.date[lang]}</span>
+                    </p>
+                </div>
+            </div>
+
+            {/* TL;DR Section */}
+            <div class="bg-[#FAFBFC] p-6 md:p-8 rounded-2xl mb-16 w-full max-w-[1046px]">
+                <h2 class="text-[20px] md:text-[24px] font-bold mb-4 text-[#090924]">
+                    <span>{copies.tldrTitle[lang]}</span>
+                </h2>
+                <ul class="space-y-4">
+                    {copies.tldrs.map(tldr => (
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 rounded-full bg-[#1C4FD8] mt-2 shrink-0 drop-shadow-[0_2px_8px_rgba(28,79,216,0.20)]"></div>
+                            <span class="text-[16px] text-[#090924]">
+                                <span><span class="font-bold">{tldr[lang].title}</span>{tldr[lang].text}</span>
+                            </span>
+                        </li>
+                    ))}
+                    <li class="flex items-start gap-3">
+                        <div class="w-2 h-2 rounded-full bg-[#1C4FD8] mt-2 shrink-0 drop-shadow-[0_2px_8px_rgba(28,79,216,0.20)]"></div>
+                        <span class="text-[16px] text-[#090924] italic opacity-80">
+                            <span>{copies.tldrBottom[lang]}</span>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start relative">
+
+                {/* Sidebar Selector (Sticky) */}
+                <aside class="hidden lg:flex flex-col sticky top-32 w-[250px] shrink-0 border-l border-[#E3EAF1] pl-5 terms-sidebar space-y-3 relative">
+                    {copies.sections.map((item) => (
+                        <a href={`#section-${item.id}`} class="terms-link flex items-center gap-2 group transition-colors" style="font-variant-numeric: lining-nums tabular-nums;">
+                            <span class="terms-num text-[12px] font-semibold text-[#A6A6BC] leading-[18px] w-5 h-[18px] text-left shrink-0 group-hover:text-[#2054E1]">{item.id}.</span>
+                            <span class="terms-label text-[12px] font-semibold text-[#A6A6BC] leading-[18px] group-hover:text-[#2054E1]">
+                                <span>{item.title[lang]}</span>
+                            </span>
+                        </a>
+                    ))}
+                </aside>
+
+                {/* Content Sections */}
+                <div class="flex flex-col gap-12 md:gap-16 max-w-[700px] w-full terms-content">
+                    {copies.sections.map((item) => (
+                        <section id={`section-${item.id}`} class="scroll-mt-32">
+                            <h2 class="text-[20px] md:text-[24px] font-bold mb-5 text-[#090924]">
+                                <span>{item.id}. {item.title[lang]}</span>
+                            </h2>
+                            <div class="flex flex-col gap-4 text-[16px] text-[#090924] opacity-80 leading-relaxed" set:html={item.html[lang]} />
+                        </section>
+                    ))}
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="component-footer">
+        <Footer hideCTA={true} />
+    </div>
+
+    <script>
+        if (typeof window !== 'undefined') {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('layout') === 'contentOnly') {
+                document.documentElement.classList.add('layout-content-only');
+            }
+        }
+
+        const sections = document.querySelectorAll<HTMLElement>('section[id]');
+        const navLinks = document.querySelectorAll<HTMLElement>('.terms-link');
+        let currentActiveId: string | null = null;
+
+        const updateActiveLink = () => {
+            if (sections.length === 0) return;
+            let sectionId: string | null = sections[0].getAttribute('id');
+            const scrollPos = window.scrollY + window.innerHeight * 0.3;
+
+            sections.forEach(sec => {
+                const rect = sec.getBoundingClientRect();
+                const absoluteTop = rect.top + window.scrollY;
+                if (absoluteTop <= scrollPos) {
+                    sectionId = sec.getAttribute('id');
+                }
+            });
+
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+                sectionId = sections[sections.length - 1].getAttribute('id');
+            }
+
+            if (currentActiveId !== sectionId) {
+                currentActiveId = sectionId;
+                navLinks.forEach(link => {
+                    const num = link.querySelector('.terms-num');
+                    const label = link.querySelector('.terms-label');
+
+                    num?.classList.remove('text-[#090924]');
+                    num?.classList.add('text-[#A6A6BC]');
+                    label?.classList.remove('text-[#090924]');
+                    label?.classList.add('text-[#A6A6BC]');
+
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        num?.classList.remove('text-[#A6A6BC]');
+                        num?.classList.add('text-[#090924]');
+                        label?.classList.remove('text-[#A6A6BC]');
+                        label?.classList.add('text-[#090924]');
+                    }
+                });
+            }
+        };
+
+        window.addEventListener('scroll', updateActiveLink, { passive: true });
+        window.addEventListener('resize', updateActiveLink, { passive: true });
+        updateActiveLink();
+    </script>
+
+    <style is:global>
+        html.layout-content-only .component-header,
+        html.layout-content-only .component-footer,
+        html.layout-content-only .component-back-btn {
+            display: none !important;
+        }
+
+        html.layout-content-only .component-heading {
+            margin-top: 1rem !important;
+        }
+
+        html.layout-content-only main {
+            padding-top: 1rem !important;
+            margin-top: 0 !important;
+        }
+    </style>
+</Layout>
