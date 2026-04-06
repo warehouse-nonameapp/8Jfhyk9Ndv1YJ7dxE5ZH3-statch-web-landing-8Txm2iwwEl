@@ -7,7 +7,7 @@ export const Strings = {
 
     cta_title: "Приєднуйтесь до Statch раніше за всіх! 🚀",
     cta_description: "Залиште email — надішлемо запрошення, щойно відкриємо доступ.",
-    join_beta: "Приєднатись до бета-тесту",
+    join_beta: "Отримати ранній доступ",
 
     footer_policy: "Політика конфіденційності",
     footer_terms: "Умови користування",
@@ -22,7 +22,7 @@ export const Strings = {
     footer_copyright: "© {year} Statch. Усі права захищені.",
     footer_message: "З гордістю створено в Україні 💙💛",
 
-    beta_modal_title: "Запис на бета-тест Statch ✍️",
+    beta_modal_title: "Ранній доступ до Statch ✍️",
     beta_modal_description: "Ніякого спаму. Тільки один лист із запрошенням — коли все буде готово.",
     beta_email_label: "Email",
     beta_email_placeholder: "Email",

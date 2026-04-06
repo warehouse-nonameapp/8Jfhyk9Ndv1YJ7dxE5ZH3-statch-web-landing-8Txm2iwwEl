@@ -12,10 +12,10 @@
         "answer_en": "For entrepreneurs who sell physical goods — for example, on Instagram or simply online. If you're currently tracking things in spreadsheets, messengers, or your head — Statch replaces all of that with one app."
     },
     {
-        "question_uk": "Що таке бета-тест і що я отримаю?",
-        "answer_uk": "Бета-тест — це ранній доступ до Statch до офіційного запуску. Ви користуєтесь застосунком безкоштовно, а ми отримуємо зворотний зв'язок. Усі учасники бета-тесту отримають спеціальні умови після запуску.",
-        "question_en": "What is the beta test and what will I get?",
-        "answer_en": "The beta test is early access to Statch before the official launch. You use the app for free, and we receive your feedback. All beta participants will receive special terms after launch."
+        "question_uk": "Що таке ранній доступ і що я отримаю?",
+        "answer_uk": "Ранній доступ — це можливість користуватись Statch до офіційного запуску. Плануємо відкрити його на початку травня. Ви користуєтесь застосунком безкоштовно, а ми отримуємо зворотний зв'язок. Усі учасники раннього доступу отримають спеціальні умови після запуску.",
+        "question_en": "What is early access and what will I get?",
+        "answer_en": "Early access lets you use Statch before the official launch. We're planning to open it in early May. You use the app for free, and we get your feedback. All early access participants will receive special terms after launch."
     },
     {
         "question_uk": "Що вже працює в застосунку?",
@@ -31,20 +31,20 @@
     },
     {
         "question_uk": "На яких пристроях працює Statch?",
-        "answer_uk": "На iOS та Android. Після реєстрації на бета-тест ви отримаєте на email інструкцію, як встановити застосунок.",
+        "answer_uk": "На iOS та Android. Після реєстрації ви отримаєте на email інструкцію, як встановити застосунок.",
         "question_en": "What devices does Statch work on?",
-        "answer_en": "On iOS and Android devices. After signing up for the beta, you'll receive an email with instructions on how to install the app."
+        "answer_en": "On iOS and Android devices. After signing up, you'll receive an email with instructions on how to install the app."
     },
     {
-        "question_uk": "Чи збережуться мої дані після завершення бета-тесту?",
-        "answer_uk": "Так. Усе, що ви створите під час бета-тесту — товари, замовлення, історія — залишиться з вами після запуску. Ми заздалегідь попередимо про будь-які зміни.",
-        "question_en": "Will my data be saved after the beta ends?",
-        "answer_en": "Yes. Everything you create during the beta — products, orders, history — will stay with you after launch. We'll notify you in advance of any changes."
+        "question_uk": "Чи збережуться мої дані після раннього доступу?",
+        "answer_uk": "Так. Усе, що ви створите під час раннього доступу — товари, замовлення, історія — залишиться з вами після офіційного запуску на початку літа 2026. Ми заздалегідь попередимо про будь-які зміни.",
+        "question_en": "Will my data be saved after early access?",
+        "answer_en": "Yes. Everything you create during early access — products, orders, history — will stay with you after the official launch in early summer 2026. We'll notify you in advance of any changes."
     },
     {
         "question_uk": "Statch безкоштовний?",
-        "answer_uk": "Під час бета-тесту — так, повністю безкоштовний і без обмежень. Після запуску Statch перейде на платну підписку, але учасники бета-тесту отримають спеціальні умови.",
+        "answer_uk": "Під час раннього доступу — так, повністю безкоштовний і без обмежень. Після офіційного запуску на початку літа 2026 Statch перейде на платну підписку, але учасники раннього доступу отримають спеціальні умови.",
         "question_en": "Is Statch free?",
-        "answer_en": "During the beta — yes, completely free with no limitations. After launch, Statch will move to a paid subscription, but beta participants will receive special terms."
+        "answer_en": "During early access — yes, completely free with no limitations. After the official launch in early summer 2026, Statch will move to a paid subscription, but early access participants will receive special terms."
     }
 ]

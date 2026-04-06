@@ -11,7 +11,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     features_section_subtitle: "Ви займаєтесь бізнесом — Statch бере облік на себе.",
 
     // CTA button
-    join_beta: "Приєднатись до бета-тесту",
+    join_beta: "Отримати ранній доступ",
 
     // Small feature cards
     card_easy_start_title: "Легкий старт",
@@ -44,7 +44,7 @@ export const translations: Record<Locale, Record<string, string>> = {
 
     // CTA section
     cta_title: "Приєднуйтесь до Statch раніше за всіх! 🚀",
-    cta_description: "Залиште email — надішлемо запрошення, щойно відкриємо доступ.",
+    cta_description: "Залиште email — плануємо відкрити ранній доступ на початку травня.",
 
     // Footer
     footer_site: "Сайт",
@@ -57,18 +57,18 @@ export const translations: Record<Locale, Record<string, string>> = {
     footer_message: "З гордістю створено в Україні 💙💛",
 
     // Beta modal
-    beta_modal_title: "Запис на бета-тест Statch ✍️",
-    beta_modal_description: "Ніякого спаму. Тільки один лист із запрошенням — коли все буде готово.",
+    beta_modal_title: "Ранній доступ до Statch ✍️",
+    beta_modal_description: "Плануємо відкрити ранній доступ на початку травня. Залиш email — надішлемо запрошення першим.",
     beta_email_label: "Email",
     beta_send: "Надіслати",
     beta_sending: "Надсилання...",
     beta_error: "Щось пішло не так. Спробуйте ще раз.",
     beta_success_title: "Готово!",
-    beta_success_description: "Ви в списку! Як тільки відкриємо доступ — одразу напишемо.",
+    beta_success_description: "Ви в списку! Плануємо відкрити ранній доступ на початку травня — ми напишемо першим.",
     beta_success_subtext: "Дякуємо! Незабаром побачимось у Statch. 🙌",
     beta_understand: "Зрозуміло",
     beta_already_title: "Ви вже в списку!",
-    beta_already_desc: "Ваш email вже зареєстровано. Як тільки відкриємо доступ — одразу напишемо. 🚀",
+    beta_already_desc: "Ваш email вже зареєстровано. Плануємо відкрити ранній доступ на початку травня — ми напишемо першим. 🚀",
     beta_already_btn: "Зрозуміло 👍",
     beta_invalid_email: "Невірний формат ел. пошти",
     beta_disclaimer: "Натискаючи «Відправити», ви погоджуєтесь з нашими",
@@ -119,7 +119,7 @@ export const translations: Record<Locale, Record<string, string>> = {
 
     // CTA section
     cta_title: "Join Statch — This Is Going to Be Big! 🚀",
-    cta_description: "Leave your email — we'll send an invitation as soon as we open access.",
+    cta_description: "Leave your email — we're planning to open early access in early May.",
 
     // Footer
     footer_site: "Site",
@@ -133,17 +133,17 @@ export const translations: Record<Locale, Record<string, string>> = {
 
     // Beta modal
     beta_modal_title: "Sign up for the Statch beta ✍️",
-    beta_modal_description: "No spam. Just one invitation email — when everything is ready.",
+    beta_modal_description: "We're planning to open early access in early May. Leave your email — we'll send your invite first.",
     beta_email_label: "Email",
     beta_send: "Send",
     beta_sending: "Sending...",
     beta_error: "Something went wrong. Please try again.",
     beta_success_title: "Done!",
-    beta_success_description: "You're on the list! We'll reach out as soon as we open access.",
+    beta_success_description: "You're on the list! Early access is planned for early May — we'll reach out first.",
     beta_success_subtext: "Thank you! See you in Statch soon. 🙌",
     beta_understand: "Got it",
     beta_already_title: "You're already on the list!",
-    beta_already_desc: "Your email is already registered. We'll reach out as soon as we open access. 🚀",
+    beta_already_desc: "Your email is already registered. Early access is planned for early May — we'll reach out first. 🚀",
     beta_already_btn: "Got it 👍",
     beta_invalid_email: "Invalid email format",
     beta_disclaimer: "By clicking \"Send\", you agree to our",
