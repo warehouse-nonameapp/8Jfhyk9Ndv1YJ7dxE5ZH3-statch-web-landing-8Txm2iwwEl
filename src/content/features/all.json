@@ -29,9 +29,9 @@
     },
     {
         "id": "prices-profit",
-        "title": "💵  Ціни і маржа без складних формул",
-        "title_uk": "💵  Ціни і маржа без складних формул",
-        "title_en": "💵  Prices & margin without complex formulas",
+        "title": "💵  Ціни і дохід без складних формул",
+        "title_uk": "💵  Ціни і дохід без складних формул",
+        "title_en": "💵  Prices & profit without complex formulas",
         "image": "/assets/ic_retail_pricing.png",
         "orientation": "left",
         "points": [
@@ -54,9 +54,9 @@
                 "subtitle_en": "Set pricing for a single product, a category, or your entire catalogue — Statch applies it automatically."
             },
             {
-                "title": "Маржу видно одразу",
+                "title": "Дохід видно одразу",
                 "subtitle": "Statch покаже, скільки ви заробляєте з кожного замовлення.",
-                "title_en": "Margin visible instantly",
+                "title_en": "Profit visible instantly",
                 "subtitle_en": "Statch shows how much you earn on every order."
             }
         ]

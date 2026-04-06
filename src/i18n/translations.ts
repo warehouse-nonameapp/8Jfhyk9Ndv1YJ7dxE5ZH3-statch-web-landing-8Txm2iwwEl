@@ -32,10 +32,10 @@ export const translations: Record<Locale, Record<string, string>> = {
     big_card_1_p4: "Жодна зміна не загубиться",
 
     big_card_2_title: "💰 Прибуток рахується автоматично",
-    big_card_2_desc: "Маржу по кожному замовленню видно одразу — без формул і підрахунків вручну.",
+    big_card_2_desc: "Дохід по кожному замовленню видно одразу — без формул і підрахунків вручну.",
     big_card_2_p1: "Деталі замовлення на одному екрані",
     big_card_2_p2: "Знижки, повернення і коментарі",
-    big_card_2_p3: "Маржу видно одразу",
+    big_card_2_p3: "Дохід видно одразу",
     big_card_2_p4: "Статуси і повна історія",
 
     // Mid-page banner (FeaturesList)
@@ -107,10 +107,10 @@ export const translations: Record<Locale, Record<string, string>> = {
     big_card_1_p4: "No change gets lost",
 
     big_card_2_title: "💰 Profit calculated automatically",
-    big_card_2_desc: "See your margin on every order instantly — no formulas or manual calculations.",
+    big_card_2_desc: "See your profit on every order instantly — no formulas or manual calculations.",
     big_card_2_p1: "Order details on one screen",
     big_card_2_p2: "Discounts, returns, and comments",
-    big_card_2_p3: "Margin visible instantly",
+    big_card_2_p3: "Profit visible instantly",
     big_card_2_p4: "Statuses and full history",
 
     // Mid-page banner (FeaturesList)
