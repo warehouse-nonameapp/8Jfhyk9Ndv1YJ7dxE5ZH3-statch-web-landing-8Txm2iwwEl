@@ -202,33 +202,34 @@ const copies = {
                             <p class="mt-4">We reserve the right to suspend or terminate accounts that violate these rules. <span class="font-bold">Where reasonably practicable, we will provide at least 7 days' notice before termination and give you an opportunity to retrieve your data.</span> Where termination is immediate due to serious violations, your data will be handled in accordance with our Privacy Policy and deleted on the same schedule as a standard account deletion.</p>
 ` }
         },
-        {
-            id: "8",
-            title: { uk: `Підписки та платежі`, en: `Subscriptions and Payments` },
-            html: { uk: `<p>Застосунок пропонуватиме тарифні плани. Ціни, деталі планів та наявність безкоштовного рівня будуть визначені (TBD) та опубліковані в Застосунку і на нашому сайті до початку будь-яких нарахувань.</p>
-                            <p>Коли будуть введені тарифні плани:</p>
-                            <div class="flex flex-col gap-3">
-                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Підписки нараховуватимуться авансово на регулярній основі (щомісяця або щорічно, залежно від обраного плану)</span></div>
-                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span><span class="font-bold">Підписки автоматично поновлюються, якщо не скасовані щонайменше за 24 години до закінчення поточного платіжного періоду.</span></span></div>
-                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Оплата обробляється через App Store (Apple) або Google Play Store (Google) відповідно до їхніх умов</span></div>
-                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Повернення коштів регулюється відповідною політикою повернення платформи</span></div>
-                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Здійснюючи покупку через App Store або Google Play Store, ви також погоджуєтесь з умовами надання послуг Apple або Google</span></div>
-                            </div>
-                            <p class="mt-4 font-bold text-[#090924] opacity-100">Повідомлення перед початком нарахування:</p>
-                            <p>Ми повідомимо користувачів щонайменше за 30 днів до введення будь-яких платних тарифних планів. Ми оновимо ці Умови з повними деталями підписки до початку нарахування.</p>
-`, en: `<p>The App will offer subscription plans. Pricing, plan details, and the availability of a free tier are to be determined (TBD) and will be published within the App and on our website before any charges apply.</p>
-                            <p>When subscription plans are introduced:</p>
-                            <div class="flex flex-col gap-3">
-                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Subscriptions will be billed in advance on a recurring basis (monthly or annually, depending on the selected plan)</span></div>
-                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span><span class="font-bold">Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current billing period.</span></span></div>
-                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Payment will be processed through the App Store (Apple) or Google Play Store (Google), subject to their respective terms and conditions</span></div>
-                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Refunds are governed by the applicable platform's refund policy</span></div>
-                                <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>By making a purchase through the App Store or Google Play Store, you also agree to Apple's or Google's terms of service, as applicable</span></div>
-                            </div>
-                            <p class="mt-4 font-bold text-[#090924] opacity-100">Notice before billing begins:</p>
-                            <p>We will notify users at least 30 days before any paid subscription plans take effect. We will update these Terms with full subscription details before billing begins.</p>
-` }
-        },
+        // COMMENTED OUT: Subscriptions and Payments section — to be re-enabled when paid plans are introduced
+        // {
+        //     id: "8",
+        //     title: { uk: `Підписки та платежі`, en: `Subscriptions and Payments` },
+        //     html: { uk: `<p>Застосунок пропонуватиме тарифні плани. Ціни, деталі планів та наявність безкоштовного рівня будуть визначені (TBD) та опубліковані в Застосунку і на нашому сайті до початку будь-яких нарахувань.</p>
+        //                     <p>Коли будуть введені тарифні плани:</p>
+        //                     <div class="flex flex-col gap-3">
+        //                         <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Підписки нараховуватимуться авансово на регулярній основі (щомісяця або щорічно, залежно від обраного плану)</span></div>
+        //                         <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span><span class="font-bold">Підписки автоматично поновлюються, якщо не скасовані щонайменше за 24 години до закінчення поточного платіжного періоду.</span></span></div>
+        //                         <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Оплата обробляється через App Store (Apple) або Google Play Store (Google) відповідно до їхніх умов</span></div>
+        //                         <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Повернення коштів регулюється відповідною політикою повернення платформи</span></div>
+        //                         <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Здійснюючи покупку через App Store або Google Play Store, ви також погоджуєтесь з умовами надання послуг Apple або Google</span></div>
+        //                     </div>
+        //                     <p class="mt-4 font-bold text-[#090924] opacity-100">Повідомлення перед початком нарахування:</p>
+        //                     <p>Ми повідомимо користувачів щонайменше за 30 днів до введення будь-яких платних тарифних планів. Ми оновимо ці Умови з повними деталями підписки до початку нарахування.</p>
+        // `, en: `<p>The App will offer subscription plans. Pricing, plan details, and the availability of a free tier are to be determined (TBD) and will be published within the App and on our website before any charges apply.</p>
+        //                     <p>When subscription plans are introduced:</p>
+        //                     <div class="flex flex-col gap-3">
+        //                         <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Subscriptions will be billed in advance on a recurring basis (monthly or annually, depending on the selected plan)</span></div>
+        //                         <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span><span class="font-bold">Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current billing period.</span></span></div>
+        //                         <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Payment will be processed through the App Store (Apple) or Google Play Store (Google), subject to their respective terms and conditions</span></div>
+        //                         <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>Refunds are governed by the applicable platform's refund policy</span></div>
+        //                         <div class="flex items-start gap-3"><div class="w-2 h-2 shrink-0 rounded-full bg-[#A9B3C8] mt-2"></div><span>By making a purchase through the App Store or Google Play Store, you also agree to Apple's or Google's terms of service, as applicable</span></div>
+        //                     </div>
+        //                     <p class="mt-4 font-bold text-[#090924] opacity-100">Notice before billing begins:</p>
+        //                     <p>We will notify users at least 30 days before any paid subscription plans take effect. We will update these Terms with full subscription details before billing begins.</p>
+        // ` }
+        // },
         {
             id: "9",
             title: { uk: `Видалення облікового запису`, en: `Account Deletion` },
@@ -332,9 +333,9 @@ const copies = {
         {
             id: "17",
             title: { uk: `Зміни до умов`, en: `Changes to Terms` },
-            html: { uk: `<p>Ми можемо час від часу оновлювати ці Умови. <span class="font-bold">Щодо суттєвих змін</span> (таких як зміни в ціноутворенні підписки, обробці даних або умовах відповідальності) <span class="font-bold">ми повідомимо вас щонайменше за 30 днів через Застосунок або електронною поштою (якщо доступно) та запитаємо ваше підтвердження перед набранням чинності змін.</span> Якщо ви не приймаєте оновлені Умови, ви можете припинити використання Застосунку та запросити видалення облікового запису.</p>
+            html: { uk: `<p>Ми можемо час від часу оновлювати ці Умови. <span class="font-bold">Щодо суттєвих змін</span> (таких як зміни в обробці даних або умовах відповідальності) <span class="font-bold">ми повідомимо вас щонайменше за 30 днів через Застосунок або електронною поштою (якщо доступно) та запитаємо ваше підтвердження перед набранням чинності змін.</span> Якщо ви не приймаєте оновлені Умови, ви можете припинити використання Застосунку та запросити видалення облікового запису.</p>
                             <p><span class="font-bold">Щодо несуттєвих змін</span> (таких як уточнення, форматування або незначні правки формулювань), ми оновимо дату «Останнє оновлення» вгорі. Продовження використання Застосунку після публікації таких оновлень означає ваше прийняття змін.</p>
-`, en: `<p>We may update these Terms from time to time. <span class="font-bold">For material changes</span> (such as changes to subscription pricing, data handling, or liability terms), <span class="font-bold">we will notify you at least 30 days in advance via the App or by email (if available) and request your affirmative acceptance before the changes take effect.</span> If you do not accept the updated Terms, you may stop using the App and request account deletion.</p>
+`, en: `<p>We may update these Terms from time to time. <span class="font-bold">For material changes</span> (such as changes to data handling or liability terms), <span class="font-bold">we will notify you at least 30 days in advance via the App or by email (if available) and request your affirmative acceptance before the changes take effect.</span> If you do not accept the updated Terms, you may stop using the App and request account deletion.</p>
                             <p><span class="font-bold">For non-material changes</span> (such as clarifications, formatting, or minor wording adjustments), we will update the "Last updated" date at the top. Continued use of the App after such updates are published constitutes your acceptance of the changes.</p>
 ` }
         },
