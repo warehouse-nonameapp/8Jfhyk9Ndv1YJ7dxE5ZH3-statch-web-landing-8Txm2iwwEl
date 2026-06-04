@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.statch.app",
+      "sha256_cert_fingerprints": [
+        "45:A5:6C:5B:A1:35:D0:86:22:4E:F9:AF:6D:A5:AB:30:33:8A:C6:3F:78:2C:A9:ED:F9:A2:C9:4D:C1:CE:53:15"
+      ]
+    }
+  }
+]
